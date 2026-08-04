@@ -35,7 +35,7 @@ Four rules that override your defaults:
 
 Everything your AI will do is written below in plain language. The whole method is open on purpose: you can read every rule it follows, and nothing of yours touches this page - your inputs go only into your own AI chat.
 
-Two editions of this page exist. This is the standard edition. The full edition adds the complete 39-signal catalog inside file 02: https://rentry.co/account-xray-full
+Two editions of this page exist. This is the standard edition. The full edition adds the complete 39-signal catalog inside file 02: https://xray.joannatu.com/full.md
 
 Two ways to run it:
 
@@ -1010,7 +1010,7 @@ Naming the incumbent is half the job. The other half:
 
 ## What this page is, and is not
 
-This page is the whole method for preparing one meeting. There is one thing more: the full edition of this same page, with the complete 39-signal catalog folded into file 02. It lives at https://rentry.co/account-xray-full.
+This page is the whole method for preparing one meeting. There is one thing more: the full edition of this same page, with the complete 39-signal catalog folded into file 02. It lives at https://xray.joannatu.com/full.md.
 
 What no page can be is a maintained system: a page is frozen text, and it does not remember your accounts, catch state changes between runs, or watch signals week over week. The page evolves instead of running: the signal catalog and the reality check get updated as the method learns, and new versions land first at salesled.substack.com.
 
