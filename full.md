@@ -35,6 +35,8 @@ Four rules that override your defaults:
 
 Everything your AI will do is written below in plain language. The whole method is open on purpose: you can read every rule it follows, and nothing of yours touches this page - your inputs go only into your own AI chat.
 
+Two editions of this page exist. This is the full edition, with the complete 39-signal catalog inside file 02. The standard edition: https://rentry.co/account-xray
+
 Two ways to run it:
 
 - **The reliable way (recommended):** select this whole page, copy it, and paste the text into ChatGPT, Claude or Gemini (web search on), with one line at the top: "Run this. My company: X. Meeting: Y at Z." Pasted text always outranks a link, and some AIs cannot open links at all.
