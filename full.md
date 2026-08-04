@@ -35,7 +35,7 @@ Four rules that override your defaults:
 
 Everything your AI will do is written below in plain language. The whole method is open on purpose: you can read every rule it follows, and nothing of yours touches this page - your inputs go only into your own AI chat.
 
-Two editions of this page exist. This is the full edition, with the complete 39-signal catalog inside file 02. The standard edition: https://xray.joannatu.com/standard.md
+Two editions of this page exist. This is the full edition, with the complete 39-signal catalog inside file 02. The standard edition: https://xray.joannatu.com/standard
 
 Two ways to run it:
 
