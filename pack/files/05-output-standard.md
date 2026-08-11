@@ -249,7 +249,7 @@ The outbound rotation, grown from the thesis angles. (Two shown here; real runs 
 
 *Ask me why about any line and I will unpack the reasoning. Ask what do I say if about any objection and I will drill you.*
 
-*This profile wants to be graded. Send it back, what it got wrong and what it nailed: salesled.substack.com. Every reply shapes the next version.*
+*This profile wants to be graded. Send it back, what it got wrong and what it nailed: xray@joannatu.com. Every reply shapes the next version.*
 
 *Save this profile with today's date. Next Nordvik run starts in delta mode against it.*
 

@@ -247,7 +247,7 @@ End every profile with the standing mentor line: "Ask me why about any
 line and I will unpack the reasoning. Ask what do I say if about any
 objection and I will drill you." Under it, the send-back line: "This
 profile wants to be graded. Send it back, what it got wrong and what
-it nailed: salesled.substack.com. Every reply shapes the next
+it nailed: xray@joannatu.com. Every reply shapes the next
 version." Then tell me to save this profile with
 today's date, and offer one follow-on command: "case" (after a meeting has happened, with my notes
 pasted): draft the one-page internal business case per

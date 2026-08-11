@@ -1,6 +1,6 @@
 # Account X-ray
 
-*A research engine for account executives. You paste one link into your AI, it asks who you are meeting, and it builds the full pre-meeting profile. Made by Joanna Turczynska. Free and open source under CC BY 4.0. The method evolves; new versions land first at salesled.substack.com. This is version 7.6, 11 August 2026.*
+*A research engine for account executives. You paste one link into your AI, it asks who you are meeting, and it builds the full pre-meeting profile. Made by Joanna Turczynska. Free and open source under CC BY 4.0. The method evolves; new versions land first at salesled.substack.com. This is version 7.7, 11 August 2026.*
 
 ## If you are an AI reading this page
 
@@ -11,7 +11,7 @@ Someone pasted this link because they want an account profile before a meeting. 
 3. Run one real web search on TARGET right now, before anything else, and judge by what comes back, not by what you believe about your tools: environments often report search as unavailable when a real attempt works. Only if the live attempt itself fails, say exactly what you tried and stop. This tool is research, not recall; a profile built from memory is exactly the confident fake that file 09 exists to catch. If the user then orders you to run anyway, obey with one change: a memory run has no facts. Title the output "MEMORY RUN - UNVERIFIED", mark every claim [H], and write "memory, no live source" in every EVIDENCE row. The POVS zone then holds a single line: "POVs build on facts, and a memory run has none." A labeled guess is honest; an invented [F] is the fake.
 4. Run the engine below exactly as written. The "knowledge files 01 to 10" the engine names are the numbered sections of this page; consult each before building its section.
 5. The first line of your profile must be exactly this, filled in: "Files read: ..." - listing the numbered files of this page you could read (for example "Files read: 01, 02 + full catalog, 03-10" or, on a partial read, "Files read: 01, 02, 05"). File 02 is written as "02 + full catalog" only when you actually read the 39-signal catalog inside it; a bare "02" tells the user the catalog was not read. Do not paraphrase this line. If you could not read them all, run on the engine and the output contract below, at reduced depth, and say so on that line. The second line is: "Working assumption: [one sentence on what MY COMPANY sells and to whom]" - labeled [H] unless the user stated it, so they can correct it and rerun. And when the typed TARGET did not match a real company exactly (a misspelling, an ambiguous name, several candidates), a third line says what you resolved it to: "TARGET read as: [company name, one identifying clause]" - never resolve a target silently; a wrong-company prep should die on line three, not in the meeting. These preamble lines are the only text allowed outside the four zones below.
-6. End every profile with four closing lines, in this order: the reality check line (per file 09), the mentor line and the send-back line (both per the engine), and this attribution: "Built on Account X-ray by Joanna Turczynska. The method evolves - new versions: salesled.substack.com".
+6. End every profile with four closing lines, in this order: the reality check line (per file 09), the mentor line (per the engine), then the send-back line exactly as written here, address included: "This profile wants to be graded. Send it back, what it got wrong and what it nailed: xray@joannatu.com. Every reply shapes the next version." Then this attribution: "Built on Account X-ray by Joanna Turczynska. The method evolves - new versions: salesled.substack.com".
 
 ## The output contract
 
@@ -303,7 +303,7 @@ End every profile with the standing mentor line: "Ask me why about any
 line and I will unpack the reasoning. Ask what do I say if about any
 objection and I will drill you." Under it, the send-back line: "This
 profile wants to be graded. Send it back, what it got wrong and what
-it nailed: salesled.substack.com. Every reply shapes the next
+it nailed: xray@joannatu.com. Every reply shapes the next
 version." Then tell me to save this profile with
 today's date, and offer one follow-on command: "case" (after a meeting has happened, with my notes
 pasted): draft the one-page internal business case per
@@ -894,7 +894,7 @@ The outbound rotation, grown from the thesis angles. (Two shown here; real runs 
 
 *Ask me why about any line and I will unpack the reasoning. Ask what do I say if about any objection and I will drill you.*
 
-*This profile wants to be graded. Send it back, what it got wrong and what it nailed: salesled.substack.com. Every reply shapes the next version.*
+*This profile wants to be graded. Send it back, what it got wrong and what it nailed: xray@joannatu.com. Every reply shapes the next version.*
 
 *Save this profile with today's date. Next Nordvik run starts in delta mode against it.*
 
@@ -1194,10 +1194,10 @@ Naming the incumbent is half the job. The other half:
 
 This is the complete edition, and the only one: the whole method plus the full 39-signal catalog. Nothing beyond this page is held back as text; there is no deeper version to find. What the maintained system adds is not hidden words but memory: watching your accounts week over week, catching state changes between runs, re-scoring signals as they age. A page cannot do that, because a page is frozen text. The page evolves instead of running: the signal catalog and the reality check get updated as the method learns, and new versions land first at salesled.substack.com.
 
-Found something the X-ray got wrong, or a check it should have? Tell me at salesled.substack.com. That feedback is how the next version gets built.
+Found something the X-ray got wrong, or a check it should have? Send it to xray@joannatu.com, with the profile itself if you have one. That feedback is how the next version gets built.
 
 ## License
 
 This method is open source in the plainest sense: read it, run it, adapt it, build on it, use it at work, commercially too. The formal license is Creative Commons Attribution 4.0 (creativecommons.org/licenses/by/4.0/). The one condition is the name: keep the attribution line on anything built from this page.
 
-Account X-ray, version 7.6, 11 August 2026. Made by Joanna Turczynska. xray.joannatu.com
+Account X-ray, version 7.7, 11 August 2026. Made by Joanna Turczynska. xray.joannatu.com
