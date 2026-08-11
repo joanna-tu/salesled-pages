@@ -7,13 +7,13 @@ This is the whole method as separate files, for people who want the X-ray instal
 1. Create a Claude Project (or a custom GPT, or a Gemini Gem).
 2. Paste the contents of `files/engine.md` into the project instructions, and fill in MY COMPANY with your company's name.
 3. Add `files/01` to `files/10` as project knowledge.
-4. Done. Before each meeting, type one line: `Decathlon, meeting Anna Kowalska`.
+4. Done. Before each meeting, type one line: `Nordvik Outdoor, meeting Ingrid Solheim`.
 
 One note: file 02 in this pack already carries the complete 39-signal catalog, so an installed X-ray reads every signal the page reads. The profile's "Files read" line will say "02 + full catalog"; that is how you know it worked.
 
 ## Or paste per meeting, no setup
 
-Paste `files/engine.md` into any AI chat with web search on, plus one line: `MY COMPANY: Cartesa. TARGET: Decathlon. PERSON: Anna Kowalska.` Optionally add a HISTORY line with CRM notes or past-deal context, but only in an AI workspace your employer sanctions; internal data is company data. Without the knowledge files the engine runs at maybe 80 percent depth; it is the ten-minute test of the tool.
+Paste `files/engine.md` into any AI chat with web search on, plus one line: `MY COMPANY: Cartesa. TARGET: Nordvik Outdoor. PERSON: Ingrid Solheim.` (Both are fictional; put your real names there.) Optionally add a HISTORY line with CRM notes or past-deal context, but only in an AI workspace your employer sanctions; internal data is company data. Without the knowledge files the engine runs at maybe 80 percent depth; it is the ten-minute test of the tool.
 
 ## Or no install at all
 
