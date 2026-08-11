@@ -4,9 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Account X-ray</title>
-<style>body{margin:2em auto;max-width:50em;padding:0 1em}pre{white-space:pre-wrap;word-wrap:break-word;font-family:Georgia,serif;font-size:1em;line-height:1.5}</style>
+<style>body{margin:2em auto;max-width:50em;padding:0 1em}pre{white-space:pre-wrap;word-wrap:break-word;font-family:Georgia,serif;font-size:1em;line-height:1.5}.bar{font-family:Georgia,serif;font-size:0.9em;color:#555;margin-bottom:1em}.bar button{font:inherit;padding:0.35em 0.8em;cursor:pointer}</style>
 </head>
 <body>
+<div class="bar"><button id="c">Copy this whole page</button><span id="d"> if your AI cannot open the link - paste it, same message.</span></div>
+<script>
+document.getElementById('c').onclick=function(){
+var t=document.querySelector('pre').textContent;
+function ok(){document.getElementById('d').textContent=' Copied. Paste it into your AI and add one line: your company, who you are meeting, where.';}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok);}else{var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');document.body.removeChild(a);ok();}
+};
+</script>
 <pre>
 # Account X-ray
 
