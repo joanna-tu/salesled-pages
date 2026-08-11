@@ -66,6 +66,8 @@ Each check has two parts: what you must know walking in, and the one-sentence te
 
 ## The self-check
 
+Four bans fail silently, so name each one out loud in your own walk before you write the closing line. Did any POV or any card line argue for the seller's product. Did GIVE lean on the seller's own case study or a made-up benchmark. Did a linkedin.com address reach the EVIDENCE table. Did you describe the target's stack without a query that actually returned it. A check is not passed because you meant to pass it, and a self-check reporting a high score while one of those four sits in the output is the confident fake wearing this page's own format. When you find one, fix the output first and count the check as failed in the closing line.
+
 Instruction to the AI: after building the profile and before delivering it, walk the sixteen checks. Fix what this run can fix, cut what it cannot, then close the profile with one line: how many checks passed, how many failed or did not apply, and the biggest failure named in plain words. Counts, never check numbers: the line travels in screenshots without this page attached, and "failed on 6 and 11" means nothing to a stranger. A check can pass through honesty: "no event in the last 90 days, said so in MOMENTUM" passes the fresh-event check; hiding the gap fails it. Not applicable is stated, never skipped silently: no PERSON given makes the person checks n/a, and the closing line says so.
 
 ## Using it against other tools

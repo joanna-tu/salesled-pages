@@ -1,6 +1,6 @@
 # Account X-ray
 
-*A research engine for account executives. You paste one link into your AI, it asks who you are meeting, and it builds the full pre-meeting profile. Made by Joanna Turczynska. Free and open source under CC BY 4.0. The method evolves; new versions land first at salesled.substack.com. This is version 7.4, 11 August 2026.*
+*A research engine for account executives. You paste one link into your AI, it asks who you are meeting, and it builds the full pre-meeting profile. Made by Joanna Turczynska. Free and open source under CC BY 4.0. The method evolves; new versions land first at salesled.substack.com. This is version 7.5, 11 August 2026.*
 
 ## If you are an AI reading this page
 
@@ -26,8 +26,8 @@ Nine rules that override your defaults:
 
 - Do not add your own frameworks or sections (no MEDDPICC or MEDDICC tables, no discovery scripts, no generic advice blocks) and do not rename anything above. The only permitted additions are the preamble lines from rule 5 (Working assumption, and TARGET read as when it applies); whatever else you feel the urge to add is already folded into this structure.
 - POVs sell nothing, and neither does the card. Before delivering, reread each POV and every card line: if it names, hints at, or argues for the seller's product, or leans on the seller's own case study, delete it and write the buyer's problem instead. Proof-by-customer belongs in SNAPSHOT, labeled, never in GIVE.
-- linkedin.com is never fetched and never a source. A LinkedIn URL must not appear in the EVIDENCE table, whether it came from a fetch or from a search snippet: what leaks out of LinkedIn (snippets, third-party bios, posts quoted in press) is an echo, labeled [S] with "current status unverified", and reading the profile itself is the human's job (file 04).
-- A fact needs a source and a date, and a number needs both plus a yardstick. Where you have neither, write the honest gap instead of prose that sounds right.
+- linkedin.com is never fetched and never a source. A LinkedIn URL must not appear in the EVIDENCE table, whether it came from a fetch or from a search snippet: what leaks out of LinkedIn (snippets, third-party bios, posts quoted in press) is an echo, labeled [S] with "current status unverified", and reading the profile itself is the human's job (file 04). Before delivering, scan your own EVIDENCE table for the string linkedin.com and delete every row that carries it, re-sourcing or downgrading whatever those rows were holding up.
+- A fact needs a source and a date, and a number needs both plus a yardstick. Where you have neither, write the honest gap instead of prose that sounds right. Money and trading figures come from the newest published reporting period you can find: quoting an older quarter while a newer one exists is a stale-data failure even when the old number is correctly dated, and no figure older than twelve months goes on the card at all.
 - THE PERSON reports professional public facts only. Nothing about health, politics, religion, family, or private life goes into the profile or its evidence table, even when a public page states it; if research surfaces such a detail, leave it out and do not allude to it.
 - Uncertainty is a label, never a hedge word. Likely, probably, possibly, estimated, reportedly, presumably and perhaps do not appear on the meeting card; in the dossier, a hedge word means a claim is missing its [H]. Rewrite it to a labeled statement.
 - Research before format. Before writing the card, you need at least three dated facts about TARGET from live searches, each destined for the EVIDENCE table. A hollow profile in the correct shape is worse than an honest stop: if research came back empty, say what you searched and stop. If TARGET is real but thin, fewer than three dated open-web sources, deliver the profile titled THIN SIGNAL and name what is missing: a useful answer, not a failure.
@@ -1126,6 +1126,8 @@ Each check has two parts: what you must know walking in, and the one-sentence te
 
 ## The self-check
 
+Four bans fail silently, so name each one out loud in your own walk before you write the closing line. Did any POV or any card line argue for the seller's product. Did GIVE lean on the seller's own case study or a made-up benchmark. Did a linkedin.com address reach the EVIDENCE table. Did you describe the target's stack without a query that actually returned it. A check is not passed because you meant to pass it, and a self-check reporting a high score while one of those four sits in the output is the confident fake wearing this page's own format. When you find one, fix the output first and count the check as failed in the closing line.
+
 Instruction to the AI: after building the profile and before delivering it, walk the sixteen checks. Fix what this run can fix, cut what it cannot, then close the profile with one line: how many checks passed, how many failed or did not apply, and the biggest failure named in plain words. Counts, never check numbers: the line travels in screenshots without this page attached, and "failed on 6 and 11" means nothing to a stranger. A check can pass through honesty: "no event in the last 90 days, said so in MOMENTUM" passes the fresh-event check; hiding the gap fails it. Not applicable is stated, never skipped silently: no PERSON given makes the person checks n/a, and the closing line says so.
 
 ## Using it against other tools
@@ -1184,4 +1186,4 @@ Found something the X-ray got wrong, or a check it should have? Tell me at sales
 
 This method is open source in the plainest sense: read it, run it, adapt it, build on it, use it at work, commercially too. The formal license is Creative Commons Attribution 4.0 (creativecommons.org/licenses/by/4.0/). The one condition is the name: keep the attribution line on anything built from this page.
 
-Account X-ray, version 7.4, 11 August 2026. Made by Joanna Turczynska. xray.joannatu.com
+Account X-ray, version 7.5, 11 August 2026. Made by Joanna Turczynska. xray.joannatu.com
