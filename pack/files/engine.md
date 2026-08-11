@@ -47,7 +47,10 @@ Rules for every section:
   If no source ties the person to TARGET, treat PERSON as not found:
   say there are several candidates, name which company each sits at,
   and ask me to confirm. The worst profile this tool can produce is a
-  perfect profile of the wrong namesake (the trap is in 04).
+  perfect profile of the wrong namesake (the trap is in 04). The same
+  trap exists for TARGET itself: when the typed name is misspelled or
+  matches more than one company, say what you resolved it to in one
+  labeled preamble line ("TARGET read as:"), never silently.
 - Concrete numbers, names and dates. Cut anything that could describe any
   company in this industry.
 - Work at three altitudes: the company, the department we sell into, and
