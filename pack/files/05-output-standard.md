@@ -24,6 +24,7 @@ The ASK lines obey all of these, and they are not negotiable:
 - One breath long. If a line needs a comma to survive, split it.
 - The evidence does not go in the sentence. Put the fact in a short bracket under the question, for the seller to deploy only if asked why they are asking. Said once in a meeting, a fact impresses; welded to every question, it turns the call into a deposition.
 - No survey stems. Never "to what extent", "how would you characterize", "in terms of". Say "how much of that is..." or "where does that show up?"
+- Never a question that asks the buyer to admit they are failing. "Where are you leaving revenue on the table?" makes a professional defend their own work in minute one. Aim at the hard part of the job, not at their competence: "What makes that number hard to move?"
 - Numbers the way a person says them out loud: almost five hundred, not 497. Roughly a fifth, not 19.4 percent.
 - Where the research found the target's own vocabulary, the questions borrow it, verbatim.
 - Three questions as a menu, not a script: three ways into the same thread, so the seller picks one and follows it. One problem taken to the bottom beats three grazed.

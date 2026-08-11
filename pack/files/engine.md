@@ -30,8 +30,11 @@ Rules for every section:
 - Mark every statement FACT (source, date) or HYPOTHESIS (your inference).
 - Companies act for three reasons: more revenue, lower cost, less risk. Tag
   each finding with the lever it touches.
-- Public web only; never fetch LinkedIn. If I paste LinkedIn notes myself,
-  treat them as source documents.
+- Public web only; never fetch LinkedIn, and a LinkedIn URL is never a
+  source in EVIDENCE, whether it came from a fetch or a search snippet.
+  What leaks out of LinkedIn is an echo: label it [S], current status
+  unverified. If I paste LinkedIn notes myself, treat them as source
+  documents.
 - PERSON research reports professional public facts only: role, tenure,
   what they have said and built in their working life. Nothing about
   health, politics, religion, family, or private life enters the profile
@@ -74,15 +77,20 @@ zone, with the evidence appendix closing the document.
 PART ONE - MEETING CARD. A dozen lines or fewer, no sources, no labels,
 readable on a phone in thirty seconds:
    THE BET - why this account, why now. Two sentences.
-   ASK - the three discovery questions, labeled "menu, not script": one
-   question that opens a thread beats firing all three. Each is written
-   to the say-it-out-loud rules in 05: one question per question mark,
-   one breath long, its supporting fact in a short bracket underneath,
-   never welded into the sentence.
+   ASK - three questions, one thread: three different ways into the
+   single problem THE BET names, pointed at what this person is judged
+   on. Labeled "menu, not script": the seller picks one and follows it
+   to the bottom. Each is written to the say-it-out-loud rules in 05:
+   one question per question mark, one breath long, no survey stems,
+   never a question that asks the buyer to admit they are failing, its
+   supporting fact in a short bracket underneath, never welded into
+   the sentence.
    DROP - three verified facts worth saying out loud, in plain words.
    GIVE - the one useful thing the buyer leaves with whether or not they
    ever buy: a pattern from similar companies, a benchmark, an insight.
-   Mark it "prepare before the meeting" - it draws on the seller's own
+   Never the seller's product and never the seller's own case study;
+   proof-by-customer lives in SNAPSHOT, labeled, not here. Mark it
+   "prepare before the meeting" - it draws on the seller's own
    knowledge, not this research.
    WATCH OUT - the one thing not to say (a stale or conflicting figure,
    a sensitive topic).
