@@ -22,7 +22,7 @@ Open your AI and send one message: "I work at [your company] and I'm meeting [pe
 ## What else is in the pack
 
 - `first-call-prep-evals.md` - ten scenarios with the must-knows per meeting type. This is the question paper: run any research tool (this one included) against a scenario, then grade what came back. The sixteen reality checks were extracted from these.
-- `account-xray-v7.5-page.md` - the whole method as the one-page version, for reading or for pasting whole.
+- `account-xray-v7.6-page.md` - the whole method as the one-page version, for reading or for pasting whole.
 - `LICENSE.md` - CC BY 4.0. Use it, adapt it, build on it, commercially too; keep the attribution line.
 
 ## Know the blind spots
@@ -33,4 +33,4 @@ The tool is honest about its edges. Permanently out of reach, every run: LinkedI
 
 The method evolves: signals get added, checks get sharpened, and every change ships to the readers' list first. That list lives at salesled.substack.com.
 
-Account X-ray, version 7.5, 11 August 2026. Made by Joanna Turczynska.
+Account X-ray, version 7.6, 11 August 2026. Made by Joanna Turczynska.

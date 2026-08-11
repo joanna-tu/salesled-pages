@@ -28,7 +28,7 @@ And check how recently they got the seat. A fresh promotion means both answers j
 - **Podcasts.** People accept podcast invitations to market, to hire, or to tell their story. All three motives produce unusually candid material: their frameworks, their philosophy, why they joined, what they are proud of, and often the politics around them (who they credit, and what they carefully do not say). Search their name on podcast platforms; prioritize the last year.
 - **Keynotes and conference talks.** Senior people, prepared messages, quotable sentences. The vocabulary they choose on stage is the vocabulary to use in the meeting.
 - **Public posts outside LinkedIn.** X, YouTube, interviews, guest articles. These archive how their thinking has evolved; compare what they said two years ago with the last six months and note the shift. Pick the channel by crowd: go-to-market people live on LinkedIn (human-read only, below), product and engineering people on X.
-- **LinkedIn echoes - allowed, with a staleness warning.** The AI must never fetch linkedin.com (it is against their terms, and technically it returns a login wall, nothing more). But LinkedIn leaks onto the open web: search-result snippets of public profiles, third-party org databases and speaker bios, posts quoted in press coverage. Use these echoes as leads, never as current facts - snippet caches and aggregators lag job changes by months, so anything echo-sourced carries "current status unverified" until a human confirms it.
+- **LinkedIn echoes - allowed, with a staleness warning.** The AI must never fetch linkedin.com (it is against their terms, and technically it returns a login wall, nothing more). But LinkedIn leaks onto the open web: search-result snippets of public profiles, third-party org databases and speaker bios, posts quoted in press coverage. Two reliable ways to collect these echoes without touching linkedin.com: the search-engine x-ray (a query like site:linkedin.com/in plus the company or the title returns name, current headline and employer straight in the result metadata, and site:linkedin.com/posts does the same for posts), and posts embedded inside press articles, readable and citable at the article's own address. Use every echo as a lead, never as a current fact - snippet caches and aggregators lag job changes by months, and an echo is dated by the crawl, not by reality, so anything echo-sourced carries "current status unverified" until a human confirms it. The address cited is never linkedin.com: name where the echo appeared, or chase the lead to a fetchable origin and cite that.
 - **LinkedIn itself - by human hand only.** The user reads the profile in their own logged-in browser and pastes notes; treat pasted notes as source documents. Make the human step count: when asking for the paste, give this two-minute grab list -
   1. The headline and about section, verbatim.
   2. The last five posts: topics and tone, not full text.
@@ -36,7 +36,15 @@ And check how recently they got the seat. A fresh promotion means both answers j
   4. What they comment on and reshare (often more honest than what they post).
   5. Any shared connections worth a warm path.
 
+- **Licensed enrichment tools - by paste, like the CRM.** If the seller's employer licenses an enrichment or sales-intelligence tool (ZoomInfo, Apollo, Clay and their kin), its export is sanctioned data the same way CRM notes are: pasted into the chat, it becomes a source document, marked internal. The AI never fetches these services itself; the license, the login and the data are the employer's.
+
 Quote the person verbatim where possible, with the source and date. Their own words, played back accurately, beat any paraphrase.
+
+## The registry knows who runs the company
+
+Company registers are the one official, dated source about people, and almost nobody in sales reads them. Much of Europe publishes them free. Poland's KRS serves a full company extract, management board included, from a public government API with no login, and browser views like rejestr.io sit on top of it. The UK's Companies House lists every officer with exact appointment and resignation dates. Most of the EU has an equivalent. A board change here comes with a real date, which makes it signal-grade: a fresh appointment is the new-executive signal from file 02 with an official date on it, a disappearance is the empty chair, and a string of changes inside a year is a reorg nobody announced.
+
+The honest limit: registers know the board, formal officers and prokurenci, not the operating layer. An e-commerce director or a head of engineering will never appear there. Use the register for the economic-buyer and committee end of the table, and the sources above for the person actually across it.
 
 ## The back-channel - by human hand only
 

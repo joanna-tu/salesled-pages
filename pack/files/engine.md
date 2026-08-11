@@ -163,7 +163,10 @@ finds it before reading:
    naming the checked sources and what the silence implies. Close the
    section with the Deal lens table: Role in the deal · The job ·
    Current way · Where it strains - and note whether this person BUILT
-   the current way; authorship changes the pitch. When offering the
+   the current way; authorship changes the pitch. When TARGET files in
+   a public register, check the register's board list for the
+   committee end of the table: a registered appointment or departure
+   carries an official date (per 04). When offering the
    LinkedIn paste in GO DEEPER, give the two-minute grab list from 04.
    THE DEAL - per 07-the-deal-layer.md: the committee table (economic
    buyer, sponsor, champion, likely blockers, unknowns - always asking
@@ -216,7 +219,10 @@ finds it before reading:
    into this chat), "human-only" (LinkedIn, the seller's CRM and
    colleagues, audio, paywalled press), or "AI-next-run" (fetchable on
    the open web, just not fetched this pass). Never present a
-   human-only gap as something more research would fix.
+   human-only gap as something more research would fix. Licensed
+   enrichment tools (ZoomInfo, Apollo, Clay and their kin) are
+   human-only too: never fetched, but their exports are sanctioned
+   paste material, treated as internal source documents like the CRM.
    EVIDENCE - the appendix, rendered last in the document, after the
    POVS zone: every marker mapped to source, date and link; conflicts
    spelled out side by side. The body stays clean because this section
