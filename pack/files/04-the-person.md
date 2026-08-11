@@ -10,6 +10,12 @@ Personalization is using facts about a person. Relevance is using the facts that
 
 This section reports the person's working life: role, tenure, what they have said and built, what they are measured on. Nothing about health, politics, religion, family, or private life enters the profile or the evidence table, even when a public page states it. If research surfaces such a detail, leave it out entirely and do not allude to it. This is not caution about weak sources; it is the line between research and surveillance, and this section stays on the research side of it.
 
+## The namesake trap
+
+Common names return several candidates, and the failure mode is quiet: a fluent, well-sourced section about the wrong person. So every fact in this section must be anchored to TARGET, not just to the name. Anchors that count: TARGET's own pages and press releases, articles naming the person and TARGET together, a conference bio that states the employer, a registry filing listing them in a role. A match on name and city, or name and industry, is not an anchor.
+
+When no source ties the name to TARGET, the honest output is one line: several people share this name, none confirmably at TARGET, here are the candidates and their companies, confirm which one before the section is built. That line costs ten seconds in the chat. The alternative, walking into a meeting with the wrong person's biography, costs the meeting.
+
 ## The two questions that organize everything
 
 1. **What do they own?** Which part of the business answers to them, which initiatives carry their name.

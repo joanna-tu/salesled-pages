@@ -1,6 +1,6 @@
 # Account X-ray
 
-*A research engine for account executives. You paste one link into your AI, it asks who you are meeting, and it builds the full pre-meeting profile. Made by Joanna Turczynska. Free and open source under CC BY 4.0. The method evolves; new versions land first at salesled.substack.com. This is version 7.2, 11 August 2026.*
+*A research engine for account executives. You paste one link into your AI, it asks who you are meeting, and it builds the full pre-meeting profile. Made by Joanna Turczynska. Free and open source under CC BY 4.0. The method evolves; new versions land first at salesled.substack.com. This is version 7.3, 11 August 2026.*
 
 ## If you are an AI reading this page
 
@@ -97,6 +97,13 @@ Rules for every section:
   or the evidence table, even when a public page states it. If research
   surfaces such a detail, leave it out entirely and do not allude to it
   (the full rule is in 04-the-person.md).
+- PERSON means the person at TARGET. When several people share the
+  name, only facts tied to both the name and TARGET count: TARGET's own
+  pages, press naming both together, a conference bio with the employer.
+  If no source ties the person to TARGET, treat PERSON as not found:
+  say there are several candidates, name which company each sits at,
+  and ask me to confirm. The worst profile this tool can produce is a
+  perfect profile of the wrong namesake (the trap is in 04).
 - Concrete numbers, names and dates. Cut anything that could describe any
   company in this industry.
 - Work at three altitudes: the company, the department we sell into, and
@@ -560,6 +567,12 @@ Personalization is using facts about a person. Relevance is using the facts that
 ## Professional facts only
 
 This section reports the person's working life: role, tenure, what they have said and built, what they are measured on. Nothing about health, politics, religion, family, or private life enters the profile or the evidence table, even when a public page states it. If research surfaces such a detail, leave it out entirely and do not allude to it. This is not caution about weak sources; it is the line between research and surveillance, and this section stays on the research side of it.
+
+## The namesake trap
+
+Common names return several candidates, and the failure mode is quiet: a fluent, well-sourced section about the wrong person. So every fact in this section must be anchored to TARGET, not just to the name. Anchors that count: TARGET's own pages and press releases, articles naming the person and TARGET together, a conference bio that states the employer, a registry filing listing them in a role. A match on name and city, or name and industry, is not an anchor.
+
+When no source ties the name to TARGET, the honest output is one line: several people share this name, none confirmably at TARGET, here are the candidates and their companies, confirm which one before the section is built. That line costs ten seconds in the chat. The alternative, walking into a meeting with the wrong person's biography, costs the meeting.
 
 ## The two questions that organize everything
 
@@ -1168,4 +1181,4 @@ Found something the X-ray got wrong, or a check it should have? Tell me at sales
 
 This method is open source in the plainest sense: read it, run it, adapt it, build on it, use it at work, commercially too. The formal license is Creative Commons Attribution 4.0 (creativecommons.org/licenses/by/4.0/). The one condition is the name: keep the attribution line on anything built from this page.
 
-Account X-ray, version 7.2, 11 August 2026. Made by Joanna Turczynska. xray.joannatu.com
+Account X-ray, version 7.3, 11 August 2026. Made by Joanna Turczynska. xray.joannatu.com

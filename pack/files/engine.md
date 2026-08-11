@@ -41,6 +41,13 @@ Rules for every section:
   or the evidence table, even when a public page states it. If research
   surfaces such a detail, leave it out entirely and do not allude to it
   (the full rule is in 04-the-person.md).
+- PERSON means the person at TARGET. When several people share the
+  name, only facts tied to both the name and TARGET count: TARGET's own
+  pages, press naming both together, a conference bio with the employer.
+  If no source ties the person to TARGET, treat PERSON as not found:
+  say there are several candidates, name which company each sits at,
+  and ask me to confirm. The worst profile this tool can produce is a
+  perfect profile of the wrong namesake (the trap is in 04).
 - Concrete numbers, names and dates. Cut anything that could describe any
   company in this industry.
 - Work at three altitudes: the company, the department we sell into, and
