@@ -210,6 +210,77 @@ form button { margin-top: 1.5rem; }
   .split.problem { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr); }
   .tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
+
+/* The demo: one run, condensed to a silent loop. Six fixed-height slides on a
+   26s master timeline; everything is transform/opacity, pauses on hover, and
+   collapses to the static card under prefers-reduced-motion. */
+.demo { --slide: 24.5rem; }
+.demo .stage { height: var(--slide); overflow: hidden; margin-top: 1rem; }
+.demo .roll { animation: roll 26s cubic-bezier(0.7, 0, 0.3, 1) infinite; }
+.demo .slide { height: var(--slide); overflow: hidden; padding-top: 1rem; }
+.demo .slide .label-caps { color: var(--forest); }
+.demo dt { color: var(--foreground); }
+.demo dd { margin: 0.25rem 0 0.9rem; font-size: 0.8rem; line-height: 1.55; color: var(--muted-foreground); }
+.demo .hold {
+  display: block; margin-top: 0.25rem;
+  font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.02em;
+  color: var(--forest);
+}
+.demo .mono { font-family: var(--font-mono); font-size: 0.7rem; line-height: 1.7; color: var(--muted-foreground); }
+.demo .msg {
+  border: 1.5px solid var(--ink); border-radius: var(--radius); background: var(--mint);
+  color: var(--ink); padding: 0.55rem 0.7rem; font-family: var(--font-mono);
+  font-size: 0.68rem; line-height: 1.55; margin-bottom: 0.9rem;
+}
+.demo .l { opacity: 0; }
+.demo .l1 { animation: win1 26s infinite; }
+.demo .l2 { animation: win2 26s infinite; }
+.demo .l3 { animation: win3 26s infinite; }
+.demo .l4 { animation: win4 26s infinite; }
+.demo .l5 { animation: win5 26s infinite; }
+.demo .l6 { animation: win6 26s infinite; }
+.demo .num { display: grid; grid-template-columns: auto 1fr; gap: 0.6rem; font-size: 0.78rem; line-height: 1.5; padding: 0.45rem 0; border-bottom: 1px solid var(--border); }
+.demo .num .m { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--foreground); padding-top: 0.1rem; white-space: nowrap; }
+.demo .num .r { color: var(--muted-foreground); }
+.demo .num .r strong { color: var(--foreground); }
+.demo .verdict { margin-top: 0.9rem; font-family: var(--font-mono); font-size: 0.7rem; line-height: 1.6; color: var(--foreground); }
+.demo .hd { position: absolute; right: 0; bottom: 1rem; opacity: 0; color: var(--muted-foreground); }
+.demo .paper-head { position: relative; }
+.demo .hd1 { animation: hwin1 26s infinite; }
+.demo .hd2 { animation: hwin2 26s infinite; }
+.demo .hd3 { animation: hwin3 26s infinite; }
+.demo .hd4 { animation: hwin4 26s infinite; }
+.demo .hd5 { animation: hwin5 26s infinite; }
+.demo .hd6 { animation: hwin6 26s infinite; }
+.demo:hover .roll, .demo:hover .l, .demo:hover .hd { animation-play-state: paused; }
+
+@keyframes roll {
+  0%, 15% { transform: translateY(0); }
+  18%, 31% { transform: translateY(calc(-1 * var(--slide))); }
+  34%, 47% { transform: translateY(calc(-2 * var(--slide))); }
+  50%, 63% { transform: translateY(calc(-3 * var(--slide))); }
+  66%, 79% { transform: translateY(calc(-4 * var(--slide))); }
+  82%, 100% { transform: translateY(calc(-5 * var(--slide))); }
+}
+@keyframes win1 { 0% { opacity: 0; transform: translateY(5px); } 1.5%, 14% { opacity: 1; transform: none; } 16%, 100% { opacity: 0; } }
+@keyframes win2 { 0%, 2.5% { opacity: 0; transform: translateY(5px); } 4%, 14% { opacity: 1; transform: none; } 16%, 100% { opacity: 0; } }
+@keyframes win3 { 0%, 4.5% { opacity: 0; transform: translateY(5px); } 6%, 14% { opacity: 1; transform: none; } 16%, 100% { opacity: 0; } }
+@keyframes win4 { 0%, 6.5% { opacity: 0; transform: translateY(5px); } 8%, 14% { opacity: 1; transform: none; } 16%, 100% { opacity: 0; } }
+@keyframes win5 { 0%, 8.5% { opacity: 0; transform: translateY(5px); } 10%, 14% { opacity: 1; transform: none; } 16%, 100% { opacity: 0; } }
+@keyframes win6 { 0%, 10.5% { opacity: 0; transform: translateY(5px); } 12%, 14% { opacity: 1; transform: none; } 16%, 100% { opacity: 0; } }
+@keyframes hwin1 { 0% { opacity: 0; } 1%, 14% { opacity: 1; } 16%, 100% { opacity: 0; } }
+@keyframes hwin2 { 0%, 17% { opacity: 0; } 19%, 30% { opacity: 1; } 32%, 100% { opacity: 0; } }
+@keyframes hwin3 { 0%, 33% { opacity: 0; } 35%, 46% { opacity: 1; } 48%, 100% { opacity: 0; } }
+@keyframes hwin4 { 0%, 49% { opacity: 0; } 51%, 62% { opacity: 1; } 64%, 100% { opacity: 0; } }
+@keyframes hwin5 { 0%, 65% { opacity: 0; } 67%, 78% { opacity: 1; } 80%, 100% { opacity: 0; } }
+@keyframes hwin6 { 0%, 81% { opacity: 0; } 83%, 97% { opacity: 1; } 99%, 100% { opacity: 0; } }
+
+@media (max-width: 639px) { .demo { --slide: 28.5rem; } }
+@media (prefers-reduced-motion: reduce) {
+  .demo .roll, .demo .l, .demo .hd { animation: none; }
+  .demo .roll { transform: translateY(calc(-1 * var(--slide))); }
+  .demo .hd { opacity: 0; }
+}
 </style>
 </head>
 <body>
@@ -233,22 +304,79 @@ form button { margin-top: 1.5rem; }
     </div>
   </div>
   <div class="hero-card">
-    <div class="paper">
+    <div class="paper demo">
       <div class="paper-head">
-        <span class="label-caps" style="color: var(--forest)">Meeting card</span>
-        <span class="label-caps muted">Part one of three</span>
+        <span class="label-caps" style="color: var(--forest)">One run, condensed &middot; all fictional</span>
+        <span class="label-caps hd hd1">The run</span>
+        <span class="label-caps hd hd2">The card</span>
+        <span class="label-caps hd hd3">The traps</span>
+        <span class="label-caps hd hd4">The numbers</span>
+        <span class="label-caps hd hd5">The person</span>
+        <span class="label-caps hd hd6">The receipts</span>
       </div>
-      <p class="label-caps" style="margin-top:0.9rem; color:var(--muted-foreground)">Example: Cartesa meeting Ingrid Solheim, CDO at Nordvik Outdoor. All fictional.</p>
-      <dl>
-        <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">The bet</dt><dd>A new CDO with a public speed mandate is rebuilding digital right now, and the platform is the bottleneck her own CFO named. This quarter, not next.</dd></div>
-        <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">Ask &middot; menu, not script</dt><dd>1. What would you want to test by Christmas that you cannot test today?<br>2. What did the last peak-season checkout incident actually cost?<span class="hold">holding: checkout failures at peak sit in the risk factors two years running</span>3. What has to be true by end of Q3 for Basecamp to be called on track?<span class="hold">holding: the direct-to-consumer target was set publicly at her hire</span></dd></div>
-        <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">Drop</dt><dd>Online grew 31% while stores fell 4% last quarter. Your CFO said the current platform "limits how fast we can test." Peak-period constraints appear in the risk factors two years running.</dd></div>
-        <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">Give</dt><dd>The ninety-day migration pattern comparable DTC brands followed, and what their first post-fix peak season measured (seller knowledge, prepare before the meeting).</dd></div>
-        <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">Watch out</dt><dd>Do not cite the old "one third of revenue" goal as current: it predates her arrival, and no current source repeats it.</dd></div>
-        <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">Timing</dt><dd><strong>Act now.</strong> A new CDO six weeks in, with hiring stacked behind her. Next catalyst: the H1 report, late August.</dd></div>
-        <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">Next</dt><dd>A working session with Solheim and the platform project's owner before the H1 report; fallback: she names that owner for a technical intro.</dd></div>
-      </dl>
-      <p class="check">Sixteen reality checks run before delivery &middot; guesses wear the [H] badge &middot; the dossier and evidence table follow the card</p>
+      <p class="label-caps" style="margin-top:0.9rem; color:var(--muted-foreground)">Example: Cartesa meeting Ingrid Solheim, CDO at Nordvik Outdoor</p>
+      <div class="stage">
+      <div class="roll">
+
+        <div class="slide">
+          <p class="msg">I work at Cartesa and I'm meeting Ingrid Solheim at Nordvik Outdoor. xray.joannatu.com/full</p>
+          <div class="mono">
+            <p class="l l1">TARGET read as: Nordvik Outdoor ASA. Not Nordvik Marine, the boat dealer.</p>
+            <p class="l l2">&rarr; nordvik.no read live: bespoke headless build, no SaaS signature</p>
+            <p class="l l3">&rarr; nordvik.dk answers with a different fingerprint. Two markets, two stacks</p>
+            <p class="l l4">&rarr; careers: a platform lead, open six weeks, "migration experience" required</p>
+            <p class="l l5">&rarr; May podcast, minute 41: the CEO calls the 2022 replatforming "a two-year mistake"</p>
+            <p class="l l6" style="margin-top:0.6rem; color:var(--foreground)">34 live searches &middot; every claim dated and linked, or labeled a guess</p>
+          </div>
+        </div>
+
+        <div class="slide">
+          <dl>
+            <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">The bet</dt><dd>A first-ever CDO, six weeks in with a public speed mandate, is rebuilding digital while the second market just launched on a different stack. The platform decision is open right now, and her own CFO named the bottleneck.</dd></div>
+            <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">Ask &middot; menu, not script</dt><dd>1. What would you want to test by Christmas that you cannot test today?<br>2. What did the last peak-season checkout incident actually cost?<span class="hold">holding: checkout sits in the risk factors two annual reports running</span>3. What has to be true by end of Q3 for the digital target to be called on track?</dd></div>
+          </dl>
+        </div>
+
+        <div class="slide">
+          <dl>
+            <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">Drop</dt><dd>Online grew 31% while stores fell 4% last quarter. Your CFO said the platform "limits how fast we can test."</dd></div>
+            <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">Watch out</dt><dd>Do not quote a profit figure: they report EBIT two ways and the numbers differ. And do not defend the current stack; the CEO already called the 2022 replatforming "a two-year mistake."</dd></div>
+            <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">Timing</dt><dd><strong>Act now.</strong> A new CDO six weeks in, hiring stacked behind her. Next catalyst: the H1 report, late August.</dd></div>
+            <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">Next</dt><dd>A working session with Solheim and the platform owner before the H1 report. Fallback: she names that owner.</dd></div>
+          </dl>
+        </div>
+
+        <div class="slide">
+          <p class="label-caps">By the numbers</p>
+          <div style="margin-top:0.6rem">
+            <div class="num"><span class="m">Online vs stores</span><span class="r"><strong>Strong.</strong> Up 31% while the estate fell 4%. The channel outruns the stores</span></div>
+            <div class="num"><span class="m">Group revenue</span><span class="r"><strong>Weak.</strong> NOK 3.1bn against the 3.9bn strategy target. Digital is the growth story left</span></div>
+            <div class="num"><span class="m">Q2 EBIT</span><span class="r"><strong>Careful.</strong> 118m one lease standard, 134m the other. Do not say either aloud</span></div>
+          </div>
+          <p class="verdict">MOMENTUM: ACT NOW &middot; three same-direction signals inside eight weeks &middot; the math sits in one [S] audit row, not in the prose</p>
+        </div>
+
+        <div class="slide">
+          <dl>
+            <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">The person</dt><dd>She inherited the stack; the vendor relationship predates her arrival. Inheritors answer platform questions freely, builders defend them. Ask about the next market, not the last decision. [H]</dd></div>
+            <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">The current way</dt><dd>Verified live, not guessed: a bespoke headless build on .no with a custom edge cache and no SaaS signature, a different fingerprint on .dk. Two markets, two stacks, one team. The queries are in the evidence table.</dd></div>
+          </dl>
+        </div>
+
+        <div class="slide">
+          <p class="label-caps">Evidence</p>
+          <div class="mono" style="margin-top:0.6rem">
+            <p>[F3] annual report, risk factors, p. 41 &middot; 12 Mar</p>
+            <p>[F7] careers page, read live &middot; today</p>
+            <p>[F12] May podcast, minute 41 &middot; 19 May</p>
+            <p>[S] the scoring math behind ACT NOW, in full</p>
+          </div>
+          <p style="margin-top:1rem; font-size:0.8rem; line-height:1.6; color:var(--muted-foreground)">Reality check: 13 of 16. Named failures: registry filing unread, person section thin, one conflict open.</p>
+          <p style="margin-top:0.75rem; font-size:0.8rem; line-height:1.6; color:var(--foreground)"><em class="display-italic">This profile wants to be graded.</em> Send it back, what it got wrong and what it nailed: xray@joannatu.com</p>
+        </div>
+
+      </div>
+      </div>
     </div>
   </div>
   </div>
