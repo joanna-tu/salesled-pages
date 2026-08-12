@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Account X-ray - get the pack</title>
+<meta name="description" content="An open research kit for B2B account executives. One link into the AI you already use, a sourced pre-meeting profile out. The pack: the kit as installable files, the install guide, a print PDF.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Account X-ray: your AI, doing your first-call prep">
+<meta property="og:description" content="One link into your AI, a sourced pre-meeting profile out. Get the kit as installable files, with the install guide and a print PDF.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232f5d4a'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-style='italic' font-size='42' fill='%23eac054' text-anchor='middle'%3EX%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=National+Park:wght@300;400;500;600;700&display=swap">
+<style>
+/* Design tokens ported from the Lovable project (src/styles.css), unchanged. */
+:root {
+  --radius: 0.375rem;
+
+  --cream: oklch(0.966 0.024 96);
+  --forest: oklch(0.418 0.079 168);
+  --forest-deep: oklch(0.325 0.062 168);
+  --mint: oklch(0.925 0.058 128);
+  --mustard: oklch(0.824 0.137 87);
+  --ink: oklch(0.19 0.008 96);
+
+  --background: var(--cream);
+  --foreground: var(--ink);
+  --card: oklch(0.988 0.014 96);
+  --muted: oklch(0.93 0.02 96);
+  --muted-foreground: oklch(0.48 0.014 120);
+  --destructive: oklch(0.52 0.17 28);
+  --border: oklch(0.88 0.022 96);
+
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-sans: "National Park", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --shadow-block: 6px 6px 0 0 var(--ink);
+  --shadow-block-sm: 4px 4px 0 0 var(--ink);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--mustard); color: var(--ink); }
+a { color: inherit; }
+img { max-width: 100%; }
+
+.display-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.label-caps {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.hill {
+  background-image: radial-gradient(120% 100% at 50% 100%,
+    color-mix(in oklab, var(--mint) 22%, transparent) 0%, transparent 62%);
+}
+.rule-tick { position: relative; padding-left: 1.5rem; }
+.rule-tick::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.62rem;
+  width: 0.6rem; height: 2px;
+  background: var(--mustard);
+}
+.btn-mustard {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--mustard);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.6rem;
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-block-sm);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+.btn-mustard:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 0 var(--ink); }
+.btn-mustard:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 0 var(--ink); }
+.field {
+  width: 100%;
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  padding: 0.8rem 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--foreground);
+  transition: box-shadow 160ms ease, background 160ms ease;
+}
+.field::placeholder { color: color-mix(in oklab, var(--muted-foreground) 85%, transparent); }
+.field:focus { outline: none; box-shadow: var(--shadow-block-sm); }
+
+.wrap { max-width: 64rem; margin: 0 auto; padding-left: 1.5rem; padding-right: 1.5rem; }
+.wrap-narrow { max-width: 42rem; margin: 0 auto; padding-left: 1.5rem; padding-right: 1.5rem; }
+section { border-bottom: 2px solid var(--ink); }
+.pad { padding-top: 5rem; padding-bottom: 5rem; }
+.on-forest { background: var(--forest); color: var(--cream); }
+.on-mint { background: var(--mint); }
+.muted { color: var(--muted-foreground); }
+h1, h2, h3 { margin: 0; font-weight: 400; }
+p { margin: 0; }
+ul, dl { margin: 0; padding: 0; list-style: none; }
+
+.site-head { border-bottom: 2px solid var(--ink); background: var(--forest); color: var(--cream); }
+.site-head .wrap { display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; padding-bottom: 1rem; }
+.site-head .brand { font-size: 1.5rem; }
+.head-cta {
+  border: 2px solid var(--ink); background: var(--mustard); color: var(--ink);
+  border-radius: var(--radius); padding: 0.5rem 1rem; text-decoration: none;
+}
+
+.hero .wrap { padding-top: 5rem; padding-bottom: 6rem; }
+.hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 0.98; max-width: 48rem; margin-top: 1.5rem; }
+.hero .lede { margin-top: 2rem; max-width: 42rem; font-size: 1.125rem; line-height: 1.65; color: color-mix(in oklab, var(--cream) 80%, transparent); }
+.hero .actions { margin-top: 2.5rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem; }
+.hero .actions span.small { font-size: 0.875rem; color: color-mix(in oklab, var(--cream) 70%, transparent); }
+.text-mustard { color: var(--mustard); }
+
+.split { display: grid; gap: 2.5rem; }
+.h-section { font-size: clamp(2.25rem, 5vw, 3rem); line-height: 1.15; color: var(--forest); }
+.h-section.deep { color: var(--forest-deep); }
+.on-forest .h-section { color: var(--cream); }
+.pain li { font-size: 1.125rem; line-height: 1.65; }
+.pain li + li { margin-top: 1.25rem; }
+
+.tiles { display: grid; gap: 1.5rem; margin-top: 3rem; }
+.tile {
+  border: 2px solid var(--ink); border-radius: 0.5rem; background: var(--cream);
+  padding: 1.5rem; box-shadow: var(--shadow-block-sm); color: var(--ink);
+}
+.tile h3 { font-size: 1.5rem; line-height: 1.3; margin-top: 0.75rem; }
+.tile p { margin-top: 0.5rem; font-size: 0.875rem; line-height: 1.6; color: var(--muted-foreground); }
+
+.rows { margin-top: 2.5rem; display: grid; gap: 1rem; }
+.row {
+  display: grid; gap: 0.5rem; border: 2px solid var(--ink); border-radius: 0.5rem;
+  background: var(--cream); padding: 1.5rem;
+}
+.row .alt { font-size: clamp(1.35rem, 3vw, 1.75rem); line-height: 1.3; }
+.row .why { line-height: 1.65; color: var(--muted-foreground); }
+.row.ours { background: var(--forest); color: var(--cream); box-shadow: var(--shadow-block-sm); }
+.row.ours .alt { color: var(--mustard); }
+.row.ours .why { color: color-mix(in oklab, var(--cream) 85%, transparent); }
+
+.paper {
+  border: 2px solid var(--ink); border-radius: 0.75rem; background: var(--card);
+  padding: 2rem; box-shadow: var(--shadow-block); color: var(--ink);
+}
+.paper-head { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.paper dl { margin-top: 1.5rem; }
+.paper dl > div + div { margin-top: 1.25rem; }
+.paper dt { color: var(--foreground); }
+.paper dd { margin: 0.25rem 0 0; font-size: 0.875rem; line-height: 1.6; color: var(--muted-foreground); }
+.paper .check { margin-top: 1.75rem; border-top: 2px solid var(--ink); padding-top: 1rem; font-family: var(--font-mono); font-size: 0.75rem; line-height: 1.6; color: var(--muted-foreground); }
+.paper .hold {
+  display: block; margin-top: 0.3rem;
+  font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.02em;
+  color: var(--forest);
+}
+
+.hero-grid { display: grid; gap: 3rem; align-items: center; }
+.hero-card .paper { transform: rotate(-1.2deg); padding: 1.5rem; }
+.hero-card .paper dd { font-size: 0.8rem; }
+@media (min-width: 1024px) { .hero-grid { grid-template-columns: minmax(0,1fr) minmax(0,0.95fr); } }
+
+.form-section .wrap-narrow { padding-top: 5rem; padding-bottom: 5rem; }
+.form-section p.sub { margin-top: 1rem; line-height: 1.65; color: var(--muted-foreground); }
+form { margin-top: 2.25rem; }
+.field-group label { display: block; color: var(--foreground); }
+.field-group .field { margin-top: 0.5rem; }
+form button { margin-top: 1.5rem; }
+.note { margin-top: 1.5rem; font-size: 0.875rem; line-height: 1.6; color: var(--muted-foreground); }
+.err { display: none; margin-top: 0.5rem; font-size: 0.875rem; color: var(--destructive); }
+.err.live { display: block; }
+
+#thanks { display: none; }
+#thanks.live { display: block; }
+#thanks .paper { margin-top: 2.25rem; }
+#thanks .paper p { line-height: 1.65; }
+#thanks .direct { margin-top: 1.75rem; border-top: 2px solid var(--ink); padding-top: 1.25rem; }
+#thanks .direct p + p { margin-top: 0.5rem; }
+#thanks .direct a { color: var(--forest); text-decoration: underline; text-underline-offset: 2px; }
+#thanks .fine { margin-top: 1.5rem; font-size: 0.875rem; color: var(--muted-foreground); }
+
+.pack-list { margin-top: 2rem; }
+.pack-list li { display: flex; gap: 0.9rem; line-height: 1.65; }
+.pack-list li + li { margin-top: 1rem; }
+.pack-list .what { color: var(--foreground); }
+.pack-list .why { font-size: 0.875rem; color: var(--muted-foreground); }
+
+.site-foot { border-top: 2px solid var(--ink); background: var(--forest-deep); color: var(--cream); border-bottom: 0; }
+.site-foot .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 2rem; padding-bottom: 2rem; }
+.site-foot .brand { font-size: 1.25rem; }
+.site-foot .small { font-size: 0.875rem; color: color-mix(in oklab, var(--cream) 70%, transparent); }
+.site-foot a { color: var(--mustard); }
+
+@media (min-width: 768px) {
+  .split.problem { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr); }
+  .tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .row { grid-template-columns: minmax(0, 0.6fr) minmax(0, 1fr); gap: 2.5rem; }
+}
+
+/* The demo: the real artifact as a trailer. One anonymized profile, typeset
+   like the rendered document, auto-scrolling inside a fixed pane. A measured
+   timeline (built in JS from the .stop anchors) pauses at the quotable
+   moments and glides fast in between, so the length itself is visible.
+   Hover pauses it; reduced-motion gets a hand-scrollable document. */
+.demo { --pane: 34rem; }
+.demo .stage { position: relative; height: var(--pane); overflow: hidden; margin-top: 1rem; }
+.demo .track { position: absolute; right: 0; top: 0; bottom: 0; width: 3px; background: var(--border); }
+.demo .bar { position: absolute; right: 0; top: 0; width: 3px; height: 48px; background: var(--mustard); }
+.demo .cap { margin-top: 0.9rem; font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.04em; color: var(--muted-foreground); }
+.demo-btns { margin-top: 1.1rem; display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
+.demo-btns .btn-mustard { padding: 0.55rem 1rem; font-size: 0.72rem; }
+.demo-link { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--forest); text-decoration: underline; text-underline-offset: 3px; }
+
+.doc { padding-right: 1rem; }
+.doc .msg {
+  border: 1.5px solid var(--ink); border-radius: var(--radius); background: var(--mint);
+  color: var(--ink); padding: 0.55rem 0.7rem; font-family: var(--font-mono);
+  font-size: 0.68rem; line-height: 1.55; margin-bottom: 1.1rem;
+}
+.doc .h1 { font-family: var(--font-display); font-style: italic; font-size: 1.35rem; line-height: 1.2; color: var(--ink); }
+.doc .meta { font-family: var(--font-mono); font-size: 0.62rem; line-height: 1.75; color: var(--muted-foreground); margin-top: 0.6rem; }
+.doc .meta strong { color: var(--foreground); }
+.doc .sec {
+  font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--forest); margin: 1.5rem 0 0.55rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem;
+}
+.doc p, .doc li { font-size: 0.73rem; line-height: 1.6; color: var(--muted-foreground); margin: 0; }
+.doc p + p { margin-top: 0.5rem; }
+.doc strong { color: var(--foreground); }
+.doc .mk { font-family: var(--font-mono); font-size: 0.6rem; color: var(--forest); }
+.doc ul { list-style: disc; padding-left: 1.05rem; margin: 0.4rem 0 0; }
+.doc li + li { margin-top: 0.45rem; }
+.doc ol { padding-left: 1.1rem; margin: 0.4rem 0 0; }
+.doc ol li + li { margin-top: 0.55rem; }
+.doc .hold {
+  display: block; margin-top: 0.2rem;
+  font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.02em; color: var(--forest);
+}
+.doc table { width: 100%; border-collapse: collapse; font-size: 0.66rem; margin-top: 0.5rem; }
+.doc th {
+  font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 0.08em; text-transform: uppercase;
+  text-align: left; color: var(--muted-foreground); border-bottom: 1.5px solid var(--ink);
+  padding: 0 0.45rem 0.3rem 0; font-weight: 500;
+}
+.doc td { border-bottom: 1px solid var(--border); padding: 0.4rem 0.45rem 0.4rem 0; vertical-align: top; line-height: 1.5; color: var(--muted-foreground); }
+.doc td strong { color: var(--foreground); }
+.doc blockquote { margin: 0.8rem 0 0; padding: 0.5rem 0.8rem; border-left: 3px solid var(--mustard); background: var(--muted); font-size: 0.7rem; line-height: 1.6; color: var(--foreground); font-style: italic; }
+.doc .hr { border: 0; border-top: 2px solid var(--ink); margin: 1.5rem 0; }
+.doc .legend { font-family: var(--font-mono); font-size: 0.6rem; line-height: 1.6; color: var(--muted-foreground); }
+.doc .close { font-family: var(--font-display); font-style: italic; font-size: 0.85rem; line-height: 1.55; color: var(--ink); }
+.doc .close + .close { margin-top: 0.5rem; }
+
+@media (max-width: 639px) {
+  .demo { --pane: 30rem; }
+  .doc p, .doc li { font-size: 0.7rem; }
+  .doc table { font-size: 0.62rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <span class="display-italic brand">Account X-ray</span>
+    <a href="#pack" class="label-caps head-cta">Get the pack</a>
+  </div>
+</header>
+
+<section class="hero hill on-forest">
+  <div class="wrap hero-grid">
+  <div>
+    <p class="label-caps text-mustard">First-call prep for B2B account executives</p>
+    <h1 class="display-italic">Your AI, doing your first-call prep.</h1>
+    <p class="lede">Account X-ray is an open research kit that turns the AI you already use into a first-call prep analyst. It reads the public record on the company you are meeting and returns a ten-line meeting card plus the dossier behind it: the money, what just changed, who sits in the room, the tool you would be replacing. Every fact dated and sourced. Every guess labeled.</p>
+    <div class="actions">
+      <a href="#pack" class="btn-mustard">Get the pack <span>&rarr;</span></a>
+      <span class="small">Five installable files, the install guide and a 32-page PDF. Free, CC BY 4.0.</span>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div class="paper demo" id="demo">
+      <div class="paper-head">
+        <span class="label-caps" style="color: var(--forest)">One run, start to finish &middot; all fictional</span>
+        <span class="label-caps muted" id="pagec">sped up</span>
+      </div>
+      <div class="stage" id="stage">
+      <div class="doc" id="doc">
+        <p class="msg stop">I work at Cartesa and I'm meeting Marek Holan at Aurelin. xray.joannatu.com/full</p>
+
+        <p class="h1">Account X-ray: Aurelin a.s.</p>
+        <p class="meta"><strong>Files read:</strong> 01, 02 + full catalog, 03-10<br>
+        <strong>Working assumption:</strong> <span class="mk">[H]</span> Cartesa sells a hosted commerce platform to retail and DTC brands; best fit where a brand's current stack limits speed or fragments across markets. Correct this line and I will rebuild on your version.<br>
+        <strong>TARGET read as:</strong> Aurelin a.s., the Prague-listed jewellery retailer inside Karona Group. Not Aurelin Capital s.r.o., the Brno receivables-collection firm.<br>
+        <strong>Meeting:</strong> Marek Holan, Ředitel e-commerce &middot; <strong>Seller:</strong> Cartesa</p>
+
+        <p class="sec stop">Meeting card</p>
+        <p><strong>The bet:</strong> Karona bought Amelot for 690 million crowns in January and now runs two jewellery brands on two entirely separate commerce stacks. Nobody has said publicly how that resolves, and the person who will have to live with the answer is sitting across the table.</p>
+        <p><strong>Ask</strong> (menu, not script)<strong>:</strong></p>
+        <ol>
+          <li>Where does Amelot's online sit in your scope now?<span class="hold">holding: Amelot closed in January and did about twenty-one million crowns online in its first quarter inside the group</span></li>
+          <li>What would have to be true before Amelot and Aurelin share one customer view?<span class="hold">holding: the two brands run separate storefronts and separate accounts today</span></li>
+          <li>What makes the second brand harder to grow online than the first?<span class="hold">holding: online was about a sixth of group revenue in March</span></li>
+        </ol>
+        <p class="stop"><strong>Watch out:</strong> Do not call the current setup old, legacy, or a constraint. His team shipped the Czech app, the Austrian site and the Austrian app on it, the last one thirteen days ago.</p>
+        <p><strong>Timing:</strong> ACT NOW. Freshest signal is the Austrian app launch, attached directly to his function. Next catalyst: the H1 report on 21 August, nine days out.</p>
+
+      </div>
+      <div class="track"></div>
+      <div class="bar" id="bar"></div>
+      </div>
+      <div class="demo-btns">
+        <button id="readbtn" class="btn-mustard" type="button">Read it yourself</button>
+        <a class="demo-link" href="/example/">Open the full report &rarr;</a>
+      </div>
+      <p class="cap">The complete example, sped up. Every name invented, the method real. Hovering pauses it.</p>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap pad split problem">
+    <h2 class="display-italic h-section">Real prep takes 40 minutes. You have 10.</h2>
+    <ul class="pain">
+      <li class="rule-tick">You open the meeting invite 10 minutes before the call.</li>
+      <li class="rule-tick">Their website says "AI-powered platform" and nothing else.</li>
+      <li class="rule-tick">You guess at their priorities and open with a discovery question they have answered forty times.</li>
+      <li class="rule-tick">You lose the first five minutes proving you did no homework.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="on-mint">
+  <div class="wrap pad">
+    <h2 class="display-italic h-section deep">Install it once. Every meeting after costs one line.</h2>
+    <div class="tiles">
+      <div class="tile">
+        <span class="label-caps" style="color: var(--forest)">Step 1</span>
+        <h3 class="display-italic">Put the files in your AI</h3>
+        <p>A Claude Project or a custom GPT takes the pack's files in about five minutes. The install guide walks every click.</p>
+      </div>
+      <div class="tile">
+        <span class="label-caps" style="color: var(--forest)">Step 2</span>
+        <h3 class="display-italic">Type one line per meeting</h3>
+        <p>Your company, who you are meeting, where. That is the whole input.</p>
+      </div>
+      <div class="tile">
+        <span class="label-caps" style="color: var(--forest)">Step 3</span>
+        <h3 class="display-italic">It searches live and shows receipts</h3>
+        <p>The card and dossier come back with every claim dated and linked, or labeled a guess. If it cannot run a real search, it says so and stops. No sources, no card.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap pad">
+    <h2 class="display-italic h-section">A card you can say out loud. A dossier you can check.</h2>
+    <div class="tiles">
+      <div class="tile">
+        <span class="label-caps" style="color: var(--forest)">What comes back</span>
+        <h3 class="display-italic">Ten lines you can say out loud</h3>
+        <p>The card you read in the lift, then the dossier: the money, what just changed, who is in the room, the tool you would be replacing. It closes with five to seven angles to open with.</p>
+      </div>
+      <div class="tile">
+        <span class="label-caps" style="color: var(--forest)">What it reads</span>
+        <h3 class="display-italic">39 signals, three questions each</h3>
+        <p>Filings, hiring, leadership moves, tech changes, expansion, reviews. Each signal gets the same three questions: is it my problem, is it fresh, who owns the decision. Then a verdict: act now, this week, or watch.</p>
+      </div>
+      <div class="tile">
+        <span class="label-caps" style="color: var(--forest)">Why you can trust it</span>
+        <h3 class="display-italic">It grades its own work</h3>
+        <p>Sixteen checks against stale or invented findings, run before you see a word, and it says so when it is guessing. It never reads LinkedIn. It sells nothing inside your prep. The whole method is public, on one page.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="on-mint">
+  <div class="wrap pad">
+    <h2 class="display-italic h-section deep">You could do this three other ways.</h2>
+    <div class="rows">
+      <div class="row">
+        <p class="display-italic alt">Doing it yourself across ten tabs</p>
+        <p class="why">30 to 60 minutes per account. You do it for the big logos and wing the rest.</p>
+      </div>
+      <div class="row">
+        <p class="display-italic alt">Pasting the company name into ChatGPT</p>
+        <p class="why">It answers from memory, dates nothing, and invents a funding round. You cannot tell which line is real.</p>
+      </div>
+      <div class="row">
+        <p class="display-italic alt">Sales intelligence platforms</p>
+        <p class="why">Firmographics, intent scores and a seat licence. None of it tells you what to say in minute two.</p>
+      </div>
+      <div class="row ours">
+        <p class="display-italic alt">Account X-ray</p>
+        <p class="why">Forced live search, a receipt on every line, and a reality check that admits what it missed. It runs inside the AI subscription you already pay for.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pack" class="form-section" style="scroll-margin-top:2rem">
+  <div class="wrap-narrow">
+    <h2 class="display-italic h-section">Get the pack</h2>
+    <p class="sub">The page runs the method by link. The pack is the same kit, packaged to keep: install it once in your own AI workspace and every meeting after that costs one line.</p>
+
+    <ul class="pack-list">
+      <li class="rule-tick"><span><span class="what">The kit as separate installable files</span> <span class="why">&middot; for a Claude Project, a custom GPT, or any AI that takes files</span></span></li>
+      <li class="rule-tick"><span><span class="what">The install guide</span> <span class="why">&middot; five minutes, screenshots not required</span></span></li>
+      <li class="rule-tick"><span><span class="what">A 32-page PDF of the whole method</span> <span class="why">&middot; for reading away from a screen</span></span></li>
+      <li class="rule-tick"><span><span class="what">The ten grading scenarios</span> <span class="why">&middot; the paper this kit is tested against, if you want to grade it yourself</span></span></li>
+      <li class="rule-tick"><span><span class="what">New versions, first</span> <span class="why">&middot; the method updates as real runs break it, and the list hears before the page does</span></span></li>
+    </ul>
+
+    <div id="ask">
+    <form id="form" novalidate>
+      <div class="field-group">
+        <label class="label-caps" for="email">Email</label>
+        <input class="field" id="email" name="email" type="email" placeholder="where the pack gets sent" autocomplete="email">
+        <p class="err" id="err">That address does not look complete.</p>
+      </div>
+      <button type="submit" class="btn-mustard">Send me the pack <span>&rarr;</span></button>
+      <p class="note">The files appear the moment you send this. It also signs you up to Sales-Led (Growth), the free list behind the kit; unsubscribe anytime.</p>
+    </form>
+    </div>
+
+    <div id="thanks">
+      <div class="paper">
+        <div class="paper-head">
+          <span class="label-caps" style="color: var(--forest)">One tap left</span>
+        </div>
+        <p style="margin-top:1.25rem">Substack opens with your address filled in. Confirm there, and the welcome email brings the pack.</p>
+        <p style="margin-top:1.5rem"><a id="finish" class="btn-mustard" href="https://salesled.substack.com/subscribe" target="_blank" rel="noopener">Finish on Substack <span>&rarr;</span></a></p>
+        <div class="direct">
+          <p class="label-caps muted">In a hurry? The same files, right now</p>
+          <p>&rarr; <a href="/pack/account-xray-pack.zip">The pack, zipped</a></p>
+          <p>&rarr; <a href="/pack/account-xray.pdf">The 32-page PDF</a></p>
+          <p>&rarr; <a href="/pack/INSTALL.md">The install guide</a></p>
+          <p>&rarr; <a href="/full">The whole method, on one page</a></p>
+        </div>
+        <p class="fine">If no email lands in a few minutes, the links above are the same files. The list is for what ships next.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span class="display-italic brand">Account X-ray</span>
+    <span class="small">Open source under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>. The method lives at <a href="/full">xray.joannatu.com/full</a>.</span>
+    <span class="small">By Joanna Turczynska &middot; <a href="https://salesled.substack.com" target="_blank" rel="noopener">salesled.substack.com</a></span>
+  </div>
+</footer>
+
+<script>
+var form = document.getElementById("form");
+var emailField = document.getElementById("email");
+var err = document.getElementById("err");
+var ask = document.getElementById("ask");
+var thanks = document.getElementById("thanks");
+var finish = document.getElementById("finish");
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  var email = emailField.value.trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    err.classList.add("live");
+    emailField.focus();
+    return;
+  }
+  err.classList.remove("live");
+
+  // Best effort: Substack's subscribe endpoint, opaque by design from another
+  // origin. When it works, the confirmation arrives on its own; when it does
+  // not, the prefilled subscribe page below is the reliable route either way.
+  try {
+    fetch("https://salesled.substack.com/api/v1/free", {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: "email=" + encodeURIComponent(email),
+    });
+  } catch (ignored) {}
+
+  finish.href = "https://salesled.substack.com/subscribe?email=" + encodeURIComponent(email);
+  ask.style.display = "none";
+  thanks.classList.add("live");
+  thanks.scrollIntoView({ behavior: "smooth", block: "nearest" });
+});
+</script>
+
+<script>
+// The demo timeline: measured from the document itself, so it survives any
+// viewport. Pauses at each .stop anchor, glides between, loops with a hard
+// cut. Reduced-motion readers get a hand-scrollable pane instead.
+(function () {
+  var demo = document.getElementById("demo");
+  var stage = document.getElementById("stage");
+  var doc = document.getElementById("doc");
+  var bar = document.getElementById("bar");
+  if (!demo || !stage || !doc) return;
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var anims = [];
+  var raf = 0;
+  var pagec = document.getElementById("pagec");
+
+  function build() {
+    if (expanded) return;
+    anims.forEach(function (a) { a.cancel(); });
+    anims = [];
+    if (raf) cancelAnimationFrame(raf);
+    if (reduce.matches) {
+      stage.style.overflowY = "auto";
+      if (bar) bar.style.display = "none";
+      if (pagec) pagec.textContent = Math.ceil(doc.scrollHeight / stage.clientHeight) + " screens";
+      return;
+    }
+    stage.style.overflowY = "hidden";
+    stage.scrollTop = 0;
+    if (bar) bar.style.display = "";
+
+    var paneH = stage.clientHeight;
+    var docH = doc.scrollHeight;
+    var maxY = Math.max(0, docH - paneH);
+    if (!maxY) return;
+
+    var stops = Array.prototype.map.call(doc.querySelectorAll(".stop"), function (el) {
+      return Math.min(maxY, Math.max(0, el.offsetTop - 14));
+    });
+    if (!stops.length) return;
+
+    var GLIDE = 0.5, TAIL = 0.6;
+    var t = 0, ys = [], ts = [];
+    stops.forEach(function (y, i) {
+      // Linger only where the reader needs a beat: the typed message, the
+      // card, and the closing lines. Everything else flips past.
+      var dwell = (i === 0 || i === 1 || i === stops.length - 1) ? 1.7 : 1.1;
+      if (i > 0) t += GLIDE;
+      ys.push(y); ts.push(t);
+      t += dwell;
+      ys.push(y); ts.push(t);
+    });
+    var total = t + TAIL;
+
+    function frames(map) {
+      var kf = ys.map(function (y, i) {
+        return { transform: map(y), offset: Math.min(1, ts[i] / total), easing: "cubic-bezier(0.65, 0, 0.35, 1)" };
+      });
+      kf.push({ transform: map(ys[ys.length - 1]), offset: 1 });
+      return kf;
+    }
+
+    anims.push(doc.animate(frames(function (y) { return "translateY(-" + y + "px)"; }),
+      { duration: total * 1000, iterations: Infinity }));
+
+    if (bar) {
+      var trackH = stage.clientHeight;
+      var barH = Math.max(36, Math.round(trackH * paneH / docH));
+      bar.style.height = barH + "px";
+      anims.push(bar.animate(frames(function (y) { return "translateY(" + (y / maxY * (trackH - barH)) + "px)"; }),
+        { duration: total * 1000, iterations: Infinity }));
+    }
+
+    // The page counter: read the animated offset back and report the depth,
+    // so the pane says out loud how much report is flowing past.
+    if (pagec) {
+      var pages = Math.max(1, Math.ceil(docH / paneH));
+      var tick = function () {
+        var m = getComputedStyle(doc).transform;
+        var y = 0;
+        if (m && m !== "none") {
+          var parts = m.match(/-?[\d.]+/g);
+          if (parts && parts.length) y = Math.abs(parseFloat(parts[parts.length - 1]));
+        }
+        pagec.textContent = "p. " + Math.min(pages, Math.floor(y / paneH) + 1) + " of " + pages;
+        raf = requestAnimationFrame(tick);
+      };
+      raf = requestAnimationFrame(tick);
+    }
+  }
+
+  demo.addEventListener("mouseenter", function () { anims.forEach(function (a) { a.pause(); }); });
+  demo.addEventListener("mouseleave", function () { anims.forEach(function (a) { a.play(); }); });
+
+  // Read-it-yourself: stop the trailer and hand the document over.
+  var expanded = false;
+  var readbtn = document.getElementById("readbtn");
+  function expand() {
+    expanded = true;
+    anims.forEach(function (a) { a.cancel(); });
+    anims = [];
+    if (raf) cancelAnimationFrame(raf);
+    stage.style.height = "auto";
+    stage.style.overflowY = "visible";
+    doc.style.transform = "none";
+    if (bar) bar.style.display = "none";
+    if (pagec) pagec.textContent = "full report";
+    if (readbtn) readbtn.textContent = "Back to the trailer";
+  }
+  function collapse() {
+    expanded = false;
+    stage.style.height = "";
+    stage.style.overflowY = "hidden";
+    doc.style.transform = "";
+    if (bar) bar.style.display = "";
+    if (readbtn) readbtn.textContent = "Read it yourself";
+    build();
+    demo.scrollIntoView({ block: "start" });
+  }
+  if (readbtn) readbtn.addEventListener("click", function () { expanded ? collapse() : expand(); });
+
+  // One source of truth: the pane fills itself from the /example page, so the
+  // trailer and the full report can never drift apart. The static content
+  // above is the fallback when the fetch does not arrive.
+  function hydrate() {
+    try {
+      fetch("/example/").then(function (r) { return r.ok ? r.text() : null; }).then(function (html) {
+        if (!html) return;
+        var report = new DOMParser().parseFromString(html, "text/html").getElementById("report");
+        if (!report) return;
+        doc.innerHTML = report.innerHTML;
+        if (!expanded) build();
+      }).catch(function () {});
+    } catch (ignored) {}
+  }
+
+  var rt;
+  window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(build, 200); });
+  if (reduce.addEventListener) reduce.addEventListener("change", build);
+
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(build); }
+  window.addEventListener("load", build);
+  build();
+  hydrate();
+})();
+</script>
+
+</body>
+</html>
