@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Account X-ray - a complete example run</title>
+<meta name="description" content="The whole artifact one message produces: meeting card, dossier, POVs, evidence table and the reality check. Every name invented, the method real.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Account X-ray: a complete example run">
+<meta property="og:description" content="One typed message in, a full pre-meeting profile out. Read the entire example: card, dossier, POVs, evidence, reality check.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232f5d4a'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-style='italic' font-size='42' fill='%23eac054' text-anchor='middle'%3EX%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=National+Park:wght@300;400;500;600;700&display=swap">
+<style>
+:root {
+  --radius: 0.375rem;
+  --cream: oklch(0.966 0.024 96);
+  --forest: oklch(0.418 0.079 168);
+  --forest-deep: oklch(0.325 0.062 168);
+  --mint: oklch(0.925 0.058 128);
+  --mustard: oklch(0.824 0.137 87);
+  --ink: oklch(0.19 0.008 96);
+  --background: var(--cream);
+  --foreground: var(--ink);
+  --card: oklch(0.988 0.014 96);
+  --muted: oklch(0.93 0.02 96);
+  --muted-foreground: oklch(0.48 0.014 120);
+  --border: oklch(0.88 0.022 96);
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-sans: "National Park", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --shadow-block-sm: 4px 4px 0 0 var(--ink);
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--background); color: var(--foreground); font-family: var(--font-sans); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+::selection { background: var(--mustard); color: var(--ink); }
+a { color: inherit; }
+.display-italic { font-family: var(--font-display); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+.label-caps { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; }
+.muted { color: var(--muted-foreground); }
+.site-head { border-bottom: 2px solid var(--ink); background: var(--forest); color: var(--cream); }
+.site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.5rem; max-width: 64rem; margin: 0 auto; }
+.site-head .brand { font-size: 1.5rem; }
+.head-cta { border: 2px solid var(--ink); background: var(--mustard); color: var(--ink); border-radius: var(--radius); padding: 0.5rem 1rem; text-decoration: none; }
+.intro { border-bottom: 2px solid var(--ink); background: var(--mint); }
+.intro .wrap { max-width: 46rem; margin: 0 auto; padding: 2.5rem 1.5rem; }
+.intro h1 { margin: 0.75rem 0 0; font-weight: 400; font-size: clamp(2rem, 5vw, 2.75rem); line-height: 1.1; color: var(--forest-deep); }
+.intro p.sub { margin: 1rem 0 0; line-height: 1.65; color: var(--muted-foreground); }
+article { max-width: 46rem; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+.doc .msg { border: 1.5px solid var(--ink); border-radius: var(--radius); background: var(--mint); color: var(--ink); padding: 0.7rem 0.9rem; font-family: var(--font-mono); font-size: 0.78rem; line-height: 1.6; margin-bottom: 1.4rem; }
+.doc .h1 { font-family: var(--font-display); font-style: italic; font-size: 1.8rem; line-height: 1.2; color: var(--ink); }
+.doc .meta { font-family: var(--font-mono); font-size: 0.72rem; line-height: 1.8; color: var(--muted-foreground); margin-top: 0.8rem; }
+.doc .meta strong { color: var(--foreground); }
+.doc .sec { font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--forest); margin: 2.2rem 0 0.7rem; border-bottom: 1px solid var(--border); padding-bottom: 0.35rem; }
+.doc p, .doc li { font-size: 0.88rem; line-height: 1.65; color: var(--muted-foreground); margin: 0; }
+.doc p + p { margin-top: 0.6rem; }
+.doc strong { color: var(--foreground); }
+.doc .mk { font-family: var(--font-mono); font-size: 0.7rem; color: var(--forest); }
+.doc ul { list-style: disc; padding-left: 1.15rem; margin: 0.5rem 0 0; }
+.doc li + li { margin-top: 0.55rem; }
+.doc ol { padding-left: 1.2rem; margin: 0.5rem 0 0; }
+.doc ol li + li { margin-top: 0.65rem; }
+.doc .hold { display: block; margin-top: 0.25rem; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.02em; color: var(--forest); }
+.doc table { width: 100%; border-collapse: collapse; font-size: 0.78rem; margin-top: 0.6rem; }
+.doc th { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; color: var(--muted-foreground); border-bottom: 1.5px solid var(--ink); padding: 0 0.5rem 0.35rem 0; font-weight: 500; }
+.doc td { border-bottom: 1px solid var(--border); padding: 0.45rem 0.5rem 0.45rem 0; vertical-align: top; line-height: 1.55; color: var(--muted-foreground); }
+.doc td strong { color: var(--foreground); }
+.doc blockquote { margin: 1rem 0 0; padding: 0.6rem 0.9rem; border-left: 3px solid var(--mustard); background: var(--muted); font-size: 0.82rem; line-height: 1.65; color: var(--foreground); font-style: italic; }
+.doc .hr { border: 0; border-top: 2px solid var(--ink); margin: 2rem 0; }
+.doc .legend { font-family: var(--font-mono); font-size: 0.68rem; line-height: 1.65; color: var(--muted-foreground); }
+.doc .close { font-family: var(--font-display); font-style: italic; font-size: 1rem; line-height: 1.6; color: var(--ink); }
+.doc .close + .close { margin-top: 0.55rem; }
+.outro { border-top: 2px solid var(--ink); background: var(--forest); color: var(--cream); }
+.outro .wrap { max-width: 46rem; margin: 0 auto; padding: 3rem 1.5rem; }
+.outro h2 { margin: 0; font-weight: 400; font-size: clamp(1.75rem, 4vw, 2.25rem); }
+.outro p { margin: 1rem 0 0; line-height: 1.65; color: color-mix(in oklab, var(--cream) 80%, transparent); }
+.outro .row { margin-top: 1.75rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+.btn-mustard { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--mustard); color: var(--ink); border: 2px solid var(--ink); border-radius: var(--radius); padding: 0.9rem 1.6rem; font-family: inherit; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.85rem; text-decoration: none; box-shadow: var(--shadow-block-sm); }
+.outro a.plain { color: var(--mustard); }
+.site-foot { border-top: 2px solid var(--ink); background: var(--forest-deep); color: var(--cream); }
+.site-foot .wrap { max-width: 64rem; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding: 2rem 1.5rem; }
+.site-foot .small { font-size: 0.875rem; color: color-mix(in oklab, var(--cream) 70%, transparent); }
+.site-foot a { color: var(--mustard); }
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <span class="display-italic brand">Account X-ray</span>
+    <nav style="display:flex; gap:0.75rem; flex-wrap:wrap">
+      <a href="/" class="label-caps head-cta" style="background:var(--cream)">Run it, no signup</a>
+      <a href="/start/" class="label-caps head-cta">Get the pack</a>
+    </nav>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <p class="label-caps" style="color:var(--forest)">A complete example run &middot; every name invented</p>
+    <h1 class="display-italic">This is the whole artifact one message produces.</h1>
+    <p class="sub">A fictional seller, Cartesa, meeting a fictional Czech jewellery group. The companies, people, numbers and sources below are all invented; the structure, the checks and the honesty are exactly what a real run returns. It reads in about ten minutes. The card alone reads in one.</p>
+  </div>
+</section>
+
+<article>
+<div class="doc" id="report">
+        <p class="msg stop">I work at Cartesa and I'm meeting Marek Holan at Aurelin. xray.joannatu.com/full</p>
+
+        <p class="h1">Account X-ray: Aurelin a.s.</p>
+        <p class="meta"><strong>Files read:</strong> 01, 02 + full catalog, 03-10<br>
+        <strong>Working assumption:</strong> <span class="mk">[H]</span> Cartesa sells a hosted commerce platform to retail and DTC brands, with the enterprise tier aimed at multi-brand, multi-market merchants; best fit where a brand's current stack limits speed or fragments across markets. I did not fetch cartesa.com this run, so correct this line and I will rebuild on your version.<br>
+        <strong>TARGET read as:</strong> Aurelin a.s., the Prague-listed jewellery retailer inside Karona Group. Not Aurelin Capital s.r.o., the Brno receivables-collection firm.<br>
+        <strong>Meeting:</strong> Marek Holan, Ředitel e-commerce &middot; <strong>Prepared:</strong> 12 Aug 2026 &middot; <strong>Seller:</strong> Cartesa</p>
+
+        <p class="sec stop">Meeting card</p>
+        <p><strong>The bet:</strong> Karona bought Amelot for 690 million crowns in January and now runs two jewellery brands on two entirely separate commerce stacks. Nobody has said publicly how that resolves, and the person who will have to live with the answer is sitting across the table.</p>
+        <p><strong>Ask</strong> (menu, not script)<strong>:</strong></p>
+        <ol>
+          <li>Where does Amelot's online sit in your scope now?<span class="hold">holding: Amelot closed in January and did about twenty-one million crowns online in its first quarter inside the group</span></li>
+          <li>What would have to be true before Amelot and Aurelin share one customer view?<span class="hold">holding: the two brands run separate storefronts and separate accounts today</span></li>
+          <li>What makes the second brand harder to grow online than the first?<span class="hold">holding: online was about a sixth of group revenue in March</span></li>
+        </ol>
+        <p class="stop"><strong>Drop:</strong></p>
+        <ol>
+          <li>The Austrian app went live under two weeks ago, on a network of twelve stores built there in under three years.</li>
+          <li>Jewellery grew twenty-nine percent last quarter, ahead of the group's nineteen.</li>
+          <li>In Amelot's first quarter inside the group, almost a quarter of its revenue came from online, well above the group average.</li>
+        </ol>
+        <p><strong>Give:</strong> the sequencing pattern comparable multi-brand retail groups follow after acquiring a brand with its own stack. Which platform question they answered first, what they deliberately left alone for eighteen months, and the operational event that eventually forced the decision. Seller knowledge, prepare before the meeting.</p>
+        <p><strong>Watch out:</strong> Do not call the current setup old, legacy, or a constraint. His team shipped the Czech app, the Austrian site and the Austrian app on it, the last one thirteen days ago.</p>
+        <p><strong>Timing:</strong> ACT NOW. Freshest signal is the Austrian app launch, attached directly to his function. Next catalyst: the H1 consolidated report on 21 August, nine days out. Budget year is calendar; the group's 2026 capex was set at roughly 240 million crowns across both segments, so the 2027 line item gets shaped this autumn. Note: Karona is in a closed period until 21 August, so he cannot discuss unpublished numbers.</p>
+        <p><strong>Next:</strong> a working session with him and whoever owns the Amelot platform decision, before the H1 report. Fallback: he names who owns Amelot's e-commerce stack.</p>
+
+        <hr class="hr">
+        <p class="sec">Dossier</p>
+        <p class="legend">Legend: [F] verified fact with source &middot; [H] my labeled guess &middot; [C] sources disagree, do not quote &middot; [S] scoring math. All resolve in EVIDENCE at the bottom.</p>
+
+        <p class="sec stop">Thesis</p>
+        <p>Aurelin is winning. Jewellery is the growth engine of a nine billion crown group, Austria went from nothing to twelve stores plus a native app in under three years, and the platform underneath it has been delivering. The tension is not performance. It is that Karona spent 690 million crowns in January to buy a second jewellery brand, and that brand arrived carrying its own commerce stack, its own customer base and its own international storefronts. Two brands, two platforms, one segment P&amp;L. The three angles:</p>
+        <ul>
+          <li><strong>The acquisition is now an online question.</strong> Amelot's online was already almost a quarter of its own revenue in its first quarter inside the group, ahead of the group's 16.2 percent <span class="mk">[F1][F2]</span>. The earn-out runs on Amelot's future results, which means someone is now measured on growing a channel that sits on a stack Aurelin does not run <span class="mk">[F3]</span>.</li>
+          <li><strong>The stack is split, and the split is verifiable.</strong> aurelin.cz, aurelin.at, both mobile apps and darino.cz share one headless core and one API <span class="mk">[F5]</span>. amelot.cz is a Magento-family build, plus separate international storefronts <span class="mk">[F7]</span>. Nothing published says which way that resolves.</li>
+          <li><strong>The freshest news proves capability, not appetite.</strong> The Austrian app shipped on 30 July <span class="mk">[F5]</span>. That is a team mid-roadmap with budget flowing, which is a reason to be in the room and a reason not to arrive with a replacement story.</li>
+        </ul>
+        <p style="margin-top:0.6rem"><strong>The problem, in their words:</strong> "The jewellery segment is our growth engine, but we now run two brands on two stacks, and every quarter we wait costs us the customer view that made the Amelot case in the first place." An insider should nod, not squint <span class="mk">[H]</span>.</p>
+
+        <p class="sec stop">By the numbers</p>
+        <table>
+          <tr><th>Metric</th><th>Value</th><th>Read</th></tr>
+          <tr><td>Group revenue, Q1 2026</td><td>2.1bn CZK, +19% YoY <span class="mk">[F1]</span></td><td><strong>Strong</strong> vs their own prior year</td></tr>
+          <tr><td>Jewellery segment growth, Q1</td><td>+28.6% YoY <span class="mk">[F1]</span></td><td><strong>Strong</strong> vs the group's +19%</td></tr>
+          <tr><td>Aurelin network sales, Q1</td><td>~1.15bn CZK, +19% <span class="mk">[F2]</span></td><td><strong>Strong</strong> vs their past</td></tr>
+          <tr><td>Online share of group revenue, March</td><td>16.2% <span class="mk">[F1]</span></td><td><strong>Mixed</strong> vs a group that calls online a growth engine</td></tr>
+          <tr><td>Amelot revenue, Q1</td><td>92m CZK total, 21m online <span class="mk">[F2]</span></td><td><strong>Good</strong> online runs well above the group's own share</td></tr>
+          <tr><td>Amelot price at closing</td><td>690m CZK, earn-out to 180m <span class="mk">[F3]</span></td><td><strong>Careful</strong> a large bet whose returns are now being measured</td></tr>
+          <tr><td>Segment one-off transaction costs, Q1</td><td>31m CZK <span class="mk">[F2]</span></td><td><strong>Careful</strong> the segment's margin already took a hit this year</td></tr>
+          <tr><td>Karona capex plan, 2026</td><td>~240m CZK <span class="mk">[F4, 2025]</span></td><td><strong>Careful</strong> modest, and split across two segments</td></tr>
+          <tr><td>FY2025 group revenue / net profit</td><td>8.9bn CZK / 560m <span class="mk">[F16]</span></td><td><strong>Strong</strong> vs prior year (470m)</td></tr>
+        </table>
+
+        <p class="sec stop">The person</p>
+        <ul>
+          <li><strong>Who:</strong> Marek Holan, Ředitel e-commerce, Aurelin a.s., based in Prague <span class="mk">[F12][F13]</span></li>
+          <li><strong>Tenure:</strong> took the seat in June, on trade-press reporting, with the page image dated to 2023, so roughly three years in role <span class="mk">[F12][H]</span></li>
+          <li><strong>Came from:</strong> Modera Group (2021-2023), Letka Sport as e-commerce director (2018-2020). Two decades across online and offline trade <span class="mk">[F12, 2023]</span></li>
+          <li><strong>Scope, as reported:</strong> sales, marketing, customer service, e-commerce logistics and the technical development of the platform <span class="mk">[F12, 2023]</span></li>
+          <li><strong>His number:</strong> almost certainly online revenue and its share of the brand's total, with conversion underneath it <span class="mk">[H]</span></li>
+          <li><strong>Speaks publicly, and about exactly this:</strong> in June 2025 he and Petr Šindel presented at Digital Retail Summit in Brno on the cost and consequences of a technologically narrow, dead-end e-commerce road <span class="mk">[F11, 2025]</span>. He also moderated an AI-in-retail session at a Prague retail conference <span class="mk">[F13]</span></li>
+          <li><strong>Anchoring caveat:</strong> the role is anchored by conference programmes and trade press, not by an Aurelin page naming him. Current status unverified; confirm before the meeting <span class="mk">[S-echo]</span></li>
+          <li><strong>Searched, nothing found:</strong> no podcast appearance, no interview, no guest article under his name surfaced this run. The silence means POVs have to come from company facts, not from his public positions, and it suggests an operator who will want substance over stage presence in the room <span class="mk">[H]</span></li>
+        </ul>
+        <table>
+          <tr><th>Role in the deal</th><th>The job</th><th>Current way</th><th>Where it strains</th></tr>
+          <tr><td>Champion, and likely the technical evaluator; would need to convince the segment P&amp;L owner and, at this size, the Karona board <span class="mk">[H]</span></td><td>Grow online share of a segment growing 29 percent, now across two brands <span class="mk">[F1][F2]</span></td><td>Datora's headless platform for Aurelin across CZ and AT, web and apps <span class="mk">[F5][F6]</span>. A Magento-family build for Amelot <span class="mk">[F7]</span></td><td>Two stacks, two customer bases, one segment target. The Amelot earn-out runs on results the second stack has to deliver <span class="mk">[F3]</span></td></tr>
+        </table>
+        <ul>
+          <li><strong>Authorship:</strong> he did not build the original Aurelin platform, but he almost certainly owns the current headless setup and the two apps shipped on it. His own 2025 talk framed a badly-built past road as the problem, which reads as the reformer's position, not the author's. Same product, opposite pitch: on Aurelin's stack he is the author and any criticism lands as criticism of his work; on Amelot's stack he is the inheritor and has nothing to defend <span class="mk">[F11, 2025][H]</span></li>
+        </ul>
+
+        <p class="sec stop">The deal</p>
+        <table>
+          <tr><th>Role</th><th>Best guess</th><th>Warm path</th></tr>
+          <tr><td>Economic buyer</td><td>Karona board level for capex of this size; Radek Mareš is group CEO <span class="mk">[F1][H]</span></td><td>via the jewellery segment, not direct</td></tr>
+          <tr><td>Executive sponsor</td><td>whoever owns the segment P&amp;L and the Amelot earn-out <span class="mk">[H]</span></td><td>through Holan; ask who signs for Amelot</td></tr>
+          <tr><td>Champion</td><td>Holan; test him, do not assume him <span class="mk">[H]</span></td><td>the booked meeting</td></tr>
+          <tr><td>Technical counterpart</td><td>Petr Šindel, who co-presented with Holan in 2025 <span class="mk">[F11, 2025]</span></td><td>ask Holan to bring him to the next session</td></tr>
+          <tr><td>Amelot side</td><td>Jana Klimešová, jednatelka of Amelot Online s.r.o., named in the registry <span class="mk">[F7]</span>; Camille Rousseau, founder, stays operationally involved <span class="mk">[F15, 2025]</span></td><td>unknown, check shared connections</td></tr>
+          <tr><td>Likely blockers</td><td>whoever owns the Datora relationship. It is described as multi-year and covers five properties <span class="mk">[F5]</span></td><td>via Holan; ask how the platform decision gets made</td></tr>
+          <tr><td>Unknowns</td><td>who owns Amelot's platform roadmap, and whether Holan's scope covers it at all</td><td>this is the meeting's first objective, not a research gap</td></tr>
+        </table>
+        <ul>
+          <li><strong>Current way, Aurelin (file 10):</strong> the Kuna Storefront platform from Datora s.r.o., Brno. Detected, not assumed: Datora's own 30 July 2026 post names aurelin.cz, aurelin.at, the Czech app and darino.cz as one shared-API estate and calls the relationship multi-year <span class="mk">[F5]</span>; its replatforming page carries Aurelin as a named client with omnichannel stock policy, unified loyalty and click-and-collect <span class="mk">[F6]</span>. Switching depth is deep: five properties, two markets, two native apps, a PIM integration and salons used as fulfilment <span class="mk">[F5][F6]</span>. Lead with anything except migration <span class="mk">[H]</span></li>
+          <li><strong>Current way, Amelot (file 10):</strong> a Magento-family build. Detected live on 12 Aug 2026 from the storefront's own asset paths and URL structure, with 3,900 items and heavy configurable-product use for engraving and initials <span class="mk">[F7]</span>. Separate storefronts run at amelot.com and amelot.de <span class="mk">[F7]</span>. Tenure predates the acquisition; an agency case study describes work on amelot.cz <span class="mk">[F17, 2023]</span>. Past its honeymoon and inherited, not authored, by anyone at Aurelin <span class="mk">[H]</span></li>
+          <li><strong>Crossings:</strong> no committee seat's known past employer appears among Cartesa public customers on what surfaced this run, and no Cartesa public customer in Czech jewellery surfaced either. That is an honest blank, not a clean bill; the CRM finishes this job <span class="mk">[H]</span></li>
+          <li><strong>Paper path:</strong> Karona is a Prague-listed issuer, so capex of platform size sits with the board, and the group publishes no supplier-registration page that surfaced this run. Ask in the room who signed the Datora contract and who signs for Amelot <span class="mk">[H]</span></li>
+          <li><strong>Problem math (directional):</strong> Amelot's online ran at 21 million crowns in Q1, so roughly 85 million annualised on a stack the group did not previously operate <span class="mk">[F2 &rarr; H]</span>. What that stack costs to run and maintain per year is not discoverable from outside. That is the question, not a guess: "what does keeping Amelot on its own stack cost you in a year?"</li>
+          <li><strong>Objection, "Amelot stays independent, so the stack stays too":</strong> management said publicly that the brand keeps its own identity and its own sales network <span class="mk">[F15, 2025]</span>. The counter is that brand independence and platform independence are separate decisions, and the earn-out is measured on results, not on architecture</li>
+          <li><strong>Objection, "we just shipped Austria, we are not touching the platform":</strong> true for Aurelin and worth conceding immediately. The conversation is about the brand that arrived in January, not the one that is working</li>
+          <li><strong>Champion test:</strong> his win is owning the second brand's online growth rather than watching it grow elsewhere. Proof by action is him bringing Šindel or the Amelot side into the next conversation, unprompted</li>
+          <li><strong>The forwardable (a draft to edit, not to forward):</strong> "Amelot did about 21 million crowns online in its first quarter with us, almost a quarter of its revenue and well above the group's 16.2 percent in March. It is running on a separate stack from Aurelin, with its own customer base and its own international storefronts. Before the H1 report lands, worth one conversation on what the second brand's online costs us to run separately, and what a shared customer view would be worth against the earn-out." Deliver it with "what did I get wrong?" <span class="mk">[H]</span></li>
+        </ul>
+
+        <p class="sec">Snapshot</p>
+        <ul>
+          <li><strong>Ownership:</strong> Aurelin a.s. is a subsidiary of Karona Group a.s., listed in Prague. The largest holder is the founder family's vehicle Karona Invest; a domestic pension fund held 18 percent at the 2025 AGM, and large shareholders hold roughly 74 percent in total <span class="mk">[F10]</span>. Numbers and capex live at group level, so the group is the account even when the conversation is Aurelin <span class="mk">[F4, 2025]</span></li>
+          <li><strong>The reverse check ran too:</strong> no Cartesa ownership tie or partnership touching Karona's rivals surfaced this run. That is a blank from searching, not a verified clean <span class="mk">[H]</span></li>
+          <li><strong>Model:</strong> design and retail of jewellery and watches through more than 90 own salons in Czechia plus Austria, alongside e-commerce <span class="mk">[F6][F5]</span>. The group runs 260-plus stores across all brands <span class="mk">[F18]</span></li>
+          <li><strong>Group shape:</strong> five clothing and jewellery brands under a stated "dům značek" strategy, built by acquisition; Karona has had no formal published strategy since the 2023-2025 one was withdrawn in early 2024 <span class="mk">[F15, 2025]</span></li>
+          <li><strong>Position:</strong> one of the oldest Czech jewellery houses, dating to 1852, and one of three names an industry agency puts at the top of Czech jewellery digital revenue alongside Gravia and ORNEA <span class="mk">[F6][F19, 2025]</span></li>
+          <li><strong>Competitors:</strong> Gravia and ORNEA are the closest scale peers <span class="mk">[F19, 2025]</span>. Nina Beran sits in the fashion-jewellery segment nearer to Amelot than to Aurelin. Handle the name carefully in the room and let him raise it first</li>
+          <li><strong>Best-fit customer:</strong> buyers of engagement and wedding jewellery, anniversary gifts and Swiss watches, with a mobile-browsing audience the apps were built to serve <span class="mk">[F5][H]</span></li>
+        </ul>
+
+        <p class="sec stop">Financials</p>
+        <ul>
+          <li><strong>Growing hard, earning thinly:</strong> Q1 2026 delivered 2.1 billion crowns of revenue and 310 million of EBITDA, both well up, against a 1.1 million crown net loss under one lease standard and a 29 million profit under the other (the gap is lease treatment, not trading) (revenue) <span class="mk">[F1]</span></li>
+          <li><strong>The jewellery segment carries the group:</strong> revenue up 28.6 percent, with operating profitability down on 31 million crowns of one-off transaction costs from the Amelot deal (revenue, cost) <span class="mk">[F1][F2]</span></li>
+          <li><strong>Cost discipline is the stated frame:</strong> the group's own words for the rest of 2026 are further stimulating sales under strict cost discipline and improved profitability (cost) <span class="mk">[F1]</span></li>
+          <li><strong>Capex is modest and contested:</strong> roughly 240 million crowns planned for 2026 across both segments, including infrastructure supporting business management processes and store openings or refits (cost) <span class="mk">[F4, 2025]</span></li>
+          <li><strong>The gap:</strong> I did not read Karona's annual report risk factors this run, so what management writes down as its own fears is inference here, not their words (risk)</li>
+        </ul>
+        <blockquote>"další stimulace prodeje při přísné nákladové disciplíně a zlepšování ziskovosti"<br>Radek Mareš, Karona CEO, press release with Q1 2026 results, 21 May 2026 <span class="mk">[F1]</span></blockquote>
+
+        <p class="sec stop">Momentum</p>
+        <p><strong>ACT NOW &middot; Austrian app launched thirteen days ago, attached directly to his function &middot; next catalyst: H1 2026 report, 21 August</strong></p>
+        <table>
+          <tr><th>Event</th><th>My problem?</th><th>Fresh?</th><th>Decision owner?</th></tr>
+          <tr><td>Austrian mobile app live, integrated with aurelin.at <span class="mk">[F5]</span></td><td>close - it moves e-commerce priorities and budget</td><td>yes - thirteen days</td><td>yes - his function</td></tr>
+          <tr><td>Q1 2026 results published, jewellery +28.6%, online 16.2% in March <span class="mk">[F1]</span></td><td>close - online share is the number</td><td>no - twelve weeks old</td><td>close - group level</td></tr>
+          <tr><td>Aurelin garnet heritage collection launched <span class="mk">[F14]</span></td><td>no - merchandising, not channel</td><td>yes - five weeks</td><td>no</td></tr>
+        </table>
+        <ul>
+          <li><strong>Why ACT NOW, honestly:</strong> the arithmetic tiers on the app launch, and the launch is real. But read what it actually says. The incumbent platform delivered a new market app on time, which is evidence the current way is working, not evidence it is failing. The tier means the door is open and the team is mid-roadmap with budget moving. It does not mean a platform window is open on Aurelin. The trigger this profile could not see from outside is on the Amelot side, and it has to be found in the room</li>
+          <li><strong>Excluded as watch context:</strong> a junior e-commerce customer service role sits live on their own careers page, closing 31 August <span class="mk">[F8]</span>. Junior, service-side, no budget ownership. Not scored. A conversion-optimisation role appeared in a third-party jobs echo but is not on Aurelin's own careers page today, so either it was filled, it expired, or it belongs to the receivables firm. Do not cite it</li>
+          <li><strong>Stack worth naming:</strong> the January acquisition, the Austrian expansion and the app estate all point the same direction, at a group whose 2026 capex line explicitly names infrastructure supporting business management. The acquisition itself is seven months old so it does not score, but it is the reason the meeting matters <span class="mk">[F3][F4, 2025][F5]</span></li>
+        </ul>
+
+        <p class="sec">Hiring and news</p>
+        <ul>
+          <li><strong>Their own careers page, verified live on 12 August 2026:</strong> three head-office roles in Prague, one of them junior e-commerce customer service. No platform, developer or e-commerce leadership role open. A team building something big would show more than this (cost) <span class="mk">[F8]</span></li>
+          <li><strong>Amelot's legal entity has already moved:</strong> amelot.cz now trades as Amelot Online s.r.o., an SPV under Aurelin, so the corporate integration has happened even though the technical one has not (risk) <span class="mk">[F7]</span></li>
+          <li><strong>Austria is the growth story management keeps repeating:</strong> twelve stores in under three years, now with a localised app on euros, Austrian wedding and gifting calendars, and its own closed customer base per market (revenue) <span class="mk">[F5]</span></li>
+          <li><strong>The vendor is publishing loudly:</strong> Datora ran an Aurelin post on 30 July and carries Aurelin across its replatforming, loyalty and migration pages. A vendor marketing this hard on an account is a vendor defending it (risk) <span class="mk">[F5][F6]</span></li>
+        </ul>
+
+        <p class="sec stop">Their words</p>
+        <ul>
+          <li><span class="mk">"dům značek"</span> - the house-of-brands framing for the whole acquisition strategy <span class="mk">[F15, 2025]</span></li>
+          <li><span class="mk">"klenotnický segment"</span> - how the P&amp;L is split and discussed <span class="mk">[F1]</span></li>
+          <li><span class="mk">"přísná nákladová disciplína"</span> - the CEO's phrase for 2026 <span class="mk">[F1]</span></li>
+          <li><span class="mk">"salony"</span> - never "prodejny" for Aurelin's own network <span class="mk">[F6]</span></li>
+          <li><span class="mk">"Od roku 1852"</span> - the brand line <span class="mk">[F6]</span></li>
+          <li><span class="mk">"Kuna Storefront"</span> - the incumbent's headless frontend product name, worth recognising and never mocking <span class="mk">[F5]</span></li>
+        </ul>
+
+        <p class="sec">Go deeper</p>
+        <ul>
+          <li><strong>Karona's own risk factors</strong> - paste-fixable: the FY2025 annual report, published 24 April 2026. This is the single biggest hole in the profile</li>
+          <li><strong>Amelot's platform roadmap and who owns it</strong> - human-only: nothing public says whether Holan's scope includes it. This is the meeting's first question, not a research task</li>
+          <li><strong>The Aurelin replatforming quote</strong> - AI-next-run: Datora's replatforming page carries a client quote about the previous solution limiting mobile and omnichannel, but the speaker and date were not verifiable this run. Do not use it until they are</li>
+          <li><strong>Marek Holan's LinkedIn</strong> - human-only: read it in your own browser and paste notes. Grab list: headline and about section verbatim; last five posts, topics and tone; tenure in this role and the two before it, checked against Cartesa's customer list; what he comments on and reshares; any shared connections</li>
+          <li><strong>The back-channel</strong> - human-only: his team is the place to ask what is actually working. Approach one or two people active publicly in the last month, off the record, before the meeting</li>
+          <li><strong>Cartesa's own ownership and partner conflicts</strong> - human-only: check internally whether any Cartesa partnership touches Gravia, ORNEA or Nina Beran before you sit down</li>
+          <li><strong>Czech luxury jewellery market sizing</strong> - AI-next-run: a consultancy market report surfaced secondhand only and was not pulled directly</li>
+          <li><strong>HISTORY was empty</strong> - before the meeting: check the CRM, ask colleagues, and debrief whoever booked this. Their notes, the booking call, or the referrer's own words</li>
+          <li><strong>Paste any of these</strong> and the touched sections rebuild, marked [UPGRADED]</li>
+        </ul>
+
+        <hr class="hr">
+        <p class="sec stop">POVs</p>
+        <p>Grown from the thesis angles. <strong>Suggested order:</strong> open cold with POV 1 and POV 2, both diagnostic. Hold POV 3 and POV 5 until a reply. POV 4 is the most provocative; test it below his level first.</p>
+
+        <p style="margin-top:0.8rem"><strong>1. The acquisition's return is now a channel question.</strong> Karona did not buy a boutique network for 690 million crowns. It bought a younger customer who was already buying online at a higher rate than the group average. Which means the return on that price is being decided in a channel, not in a store <span class="mk">[H]</span>.</p>
+        <ul>
+          <li><strong>Move:</strong> name the unspoken pain</li>
+          <li><strong>Built on:</strong> <span class="mk">[F2]</span> Amelot online 21m of 92m in Q1 &middot; <span class="mk">[F1]</span> group online 16.2% in March &middot; <span class="mk">[F3]</span> 690m plus earn-out</li>
+          <li><strong>Ammo:</strong> "přísná nákladová disciplína" as the CEO's own frame for 2026, against a 690 million crown bet whose upside is an earn-out</li>
+          <li><strong>First test:</strong> a marketing or performance lead below him</li>
+        </ul>
+
+        <p style="margin-top:0.8rem"><strong>2. Two brands, two customers, one segment target.</strong> The jewellery segment is now reported as one number and run as two customer bases. Every quarter that stays true, the group is paying twice to learn the same thing about the same person <span class="mk">[H]</span>.</p>
+        <ul>
+          <li><strong>Move:</strong> find the common root</li>
+          <li><strong>Built on:</strong> <span class="mk">[F5]</span> Aurelin's estate on one shared API &middot; <span class="mk">[F7]</span> amelot.cz on its own build with its own accounts &middot; <span class="mk">[F1]</span> jewellery reported as one segment</li>
+          <li><strong>Ammo:</strong> their own segment language, "klenotnický segment", set against two entirely separate account systems</li>
+          <li><strong>First test:</strong> Holan directly; it is a question about his reporting line, not his architecture</li>
+        </ul>
+
+        <p style="margin-top:0.8rem"><strong>3. Austria already answered the hard question.</strong> Twelve stores and a localised app in under three years proves the group can enter a market fast when the technical foundation is shared. The constraint is no longer whether they can. It is which brand gets to go next <span class="mk">[H]</span>.</p>
+        <ul>
+          <li><strong>Move:</strong> raise the ceiling</li>
+          <li><strong>Built on:</strong> <span class="mk">[F5]</span> twelve AT stores in under three years, AT app on the shared API &middot; <span class="mk">[F7]</span> Amelot already running amelot.com and amelot.de</li>
+          <li><strong>Ammo:</strong> the 30 July post's own framing, that entering a new market did not require building separate infrastructure</li>
+          <li><strong>First test:</strong> Holan, after a reply. It compliments his work before it asks anything</li>
+        </ul>
+
+        <p style="margin-top:0.8rem"><strong>4. Personalisation is an operations problem in a catalogue costume.</strong> Nearly four thousand configurable items with engraving and initials is not a merchandising decision. It is a set of promises made at checkout that someone in a workshop has to keep, and the catalogue is where those two systems meet or fail <span class="mk">[H]</span>.</p>
+        <ul>
+          <li><strong>Move:</strong> flip the status quo</li>
+          <li><strong>Built on:</strong> <span class="mk">[F7]</span> 3,900 items on amelot.cz, heavy configurable-product use, engraving and initial attributes</li>
+          <li><strong>Ammo:</strong> their own configurator language, "Cena podle zvolených variant", on almost every product</li>
+          <li><strong>First test:</strong> never open with this. Test it on an operations or product manager first</li>
+        </ul>
+
+        <p style="margin-top:0.8rem"><strong>5. The second market is the one that will break the model.</strong> Two markets on one core is elegant. Three is where the shared foundation either compounds or starts costing more than it saves, and the decision that determines which one happens gets made before the third market, not during it <span class="mk">[H]</span>.</p>
+        <ul>
+          <li><strong>Move:</strong> plant the future problem</li>
+          <li><strong>Built on:</strong> <span class="mk">[F5]</span> two markets, two apps, closed per-market customer bases &middot; <span class="mk">[F15, 2025]</span> acquisition-led growth as the stated strategy</li>
+          <li><strong>Ammo:</strong> the per-market closed customer base, described as a regulatory and corporate-structure requirement, not a design preference</li>
+          <li><strong>First test:</strong> Holan, after a reply. It is a strategy question, not a platform question</li>
+        </ul>
+
+        <p style="margin-top:0.8rem"><strong>6. Cost rigour and channel growth are the same sentence.</strong> Management said the rest of 2026 is sales growth under strict cost discipline. In a two-stack estate those are not two goals in tension. They are the same goal, and the number that reconciles them is what the second stack costs to run <span class="mk">[H]</span>.</p>
+        <ul>
+          <li><strong>Move:</strong> find the common root</li>
+          <li><strong>Built on:</strong> <span class="mk">[F1]</span> the CEO's stated 2026 frame &middot; <span class="mk">[F2]</span> 31m in one-off transaction costs already booked &middot; <span class="mk">[F4, 2025]</span> ~240m capex across both segments</li>
+          <li><strong>Ammo:</strong> "další stimulace prodeje při přísné nákladové disciplíně a zlepšování ziskovosti" - Radek Mareš, 21 May 2026</li>
+          <li><strong>First test:</strong> Holan directly, and it is the safest cold opener in this set</li>
+        </ul>
+
+        <hr class="hr">
+        <p class="sec stop">Evidence</p>
+        <table>
+          <tr><th>Marker</th><th>Source</th><th>Date</th></tr>
+          <tr><td><span class="mk">[F1]</span></td><td>burzovnilisty.cz, Karona Q1 2026 results and CEO comment</td><td>21 May 2026</td></tr>
+          <tr><td><span class="mk">[F2]</span></td><td>obchodnizpravy.cz, Q1 2026 segment detail</td><td>21 May 2026</td></tr>
+          <tr><td><span class="mk">[F3]</span></td><td>retailmag.cz, Amelot transaction closing</td><td>9 Jan 2026</td></tr>
+          <tr><td><span class="mk">[F4]</span></td><td>obchodnizpravy.cz, Karona 2026 plan and capex</td><td>Nov 2025 - background, labeled with its year</td></tr>
+          <tr><td><span class="mk">[F5]</span></td><td>datora.cz blog, the Aurelin Austrian app estate</td><td>30 July 2026</td></tr>
+          <tr><td><span class="mk">[F6]</span></td><td>datora.cz replatforming page, Aurelin client entry</td><td>undated page, read 12 Aug 2026</td></tr>
+          <tr><td><span class="mk">[F7]</span></td><td>amelot.cz storefront, asset paths, item count, legal entity</td><td>verified live 12 Aug 2026</td></tr>
+          <tr><td><span class="mk">[F8]</span></td><td>kariera.aurelin.cz, head office vacancies, on their own careers page</td><td>verified live 12 Aug 2026</td></tr>
+          <tr><td><span class="mk">[F9]</span></td><td>karonagroup.cz investor pages, reporting calendar and closed periods</td><td>Jan 2026</td></tr>
+          <tr><td><span class="mk">[F10]</span></td><td>karonagroup.cz, shareholder structure</td><td>read 12 Aug 2026</td></tr>
+          <tr><td><span class="mk">[F11]</span></td><td>Digital Retail Summit Brno agenda, Holan and Šindel session</td><td>June 2025 - background, labeled with its year</td></tr>
+          <tr><td><span class="mk">[F12]</span></td><td>retailjob.cz, Holan appointment and career history</td><td>page image dated 2023 - background</td></tr>
+          <tr><td><span class="mk">[F13]</span></td><td>Prague retail conference programme, Holan listed as Aurelin e-commerce director</td><td>2024 - background, labeled with its year</td></tr>
+          <tr><td><span class="mk">[F14]</span></td><td>karonagroup.cz, Aurelin garnet heritage collection</td><td>7 July 2026</td></tr>
+          <tr><td><span class="mk">[F15]</span></td><td>Vltava Securities sector note on Karona, strategy status and Amelot terms</td><td>Sept 2025 - background, labeled with its year</td></tr>
+          <tr><td><span class="mk">[F16]</span></td><td>burzovnilisty.cz, Karona FY2025 results</td><td>27 Apr 2026</td></tr>
+          <tr><td><span class="mk">[F17]</span></td><td>agency case study, Amelot storefront build</td><td>2023 - background, labeled with its year</td></tr>
+          <tr><td><span class="mk">[F18]</span></td><td>burzovnilisty.cz, Karona company profile, 260+ stores</td><td>3 July 2026</td></tr>
+          <tr><td><span class="mk">[F19]</span></td><td>industry agency overview of Czech jewellery e-commerce, names Gravia, ORNEA and Aurelin</td><td>Oct 2025 - background, labeled with its year</td></tr>
+          <tr><td><span class="mk">[C1]</span></td><td>Amelot boutique count: a trade forum states 28 boutiques, undated and unconfirmed elsewhere this run. Do not say a number aloud</td><td>conflicting</td></tr>
+          <tr><td><span class="mk">[S]</span></td><td>Scoring audit: AT app launch 2 x 2 + 2 = 6 &middot; Q1 results 2 x 0.5 = 1 &middot; collection launch 1 x 1 = 1 &middot; best event 6 &rarr; tier ACT NOW (threshold 6). Junior CS role and the third-party CRO posting excluded as false positives per file 02</td><td>12 Aug 2026</td></tr>
+          <tr><td><span class="mk">[S-echo]</span></td><td>Third-party org databases place Holan at Aurelin as Ředitel e-commerce. Echo, current status unverified; the LinkedIn URL you supplied was not fetched and is not a source here</td><td>read 12 Aug 2026</td></tr>
+        </table>
+
+        <p class="stop" style="margin-top:1.2rem"><strong>Reality check: 12 of 16 passed, 3 failed, 1 did not apply.</strong> Biggest failure: Karona's annual report risk factors were not read, so what management writes down as its own fears is my inference rather than their words. Also failed: no named Cartesa customer in their world was found, so you walk in without proof-by-customer, and the conflict check on your own side ran only in one direction. Did not apply: delta mode, first run on this account.</p>
+        <p class="close" style="margin-top:1.2rem">Ask me why about any line and I will unpack the reasoning. Ask what do I say if about any objection and I will drill you.</p>
+        <p class="close">This profile wants to be graded. Send it back, what it got wrong and what it nailed: xray@joannatu.com. Every reply shapes the next version.</p>
+        <p class="close">Save this profile with today's date, 12 August 2026. The next Aurelin run starts in delta mode against it. After the meeting, type "case" with your notes pasted and I will draft the one-page internal business case.</p>
+        <p class="close">Built on Account X-ray by Joanna Turczynska. The method evolves - new versions: salesled.substack.com</p>
+</div>
+<!--doc-end-->
+</article>
+
+<section class="outro">
+  <div class="wrap">
+    <h2 class="display-italic">Every name above is invented. The method is not.</h2>
+    <p>A real run does exactly this on the company you are meeting: live searches, dated sources, labeled guesses, and a reality check that admits what it missed. It runs in the AI you already use, by pasting one link, with no signup.</p>
+    <div class="row">
+      <a class="btn-mustard" href="/">Run it on your own meeting &rarr;</a>
+      <a class="plain" href="/start/" style="text-decoration:underline; text-underline-offset:3px">Or get the kit as files, by email</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span class="display-italic" style="font-size:1.25rem">Account X-ray</span>
+    <span class="small">Open source under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>. The method lives at <a href="/full">xray.joannatu.com/full</a>.</span>
+    <span class="small">By Joanna Turczynska &middot; <a href="https://salesled.substack.com" target="_blank" rel="noopener">salesled.substack.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
