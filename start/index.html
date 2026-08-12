@@ -211,78 +211,60 @@ form button { margin-top: 1.5rem; }
   .tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
-/* The demo: one run, condensed to a silent loop. Six fixed-height slides on a
-   26s master timeline; everything is transform/opacity, pauses on hover, and
-   collapses to the static card under prefers-reduced-motion. */
-.demo { --slide: 24.5rem; }
-.demo .stage { height: var(--slide); overflow: hidden; margin-top: 1rem; }
-.demo .roll { animation: roll 26s cubic-bezier(0.7, 0, 0.3, 1) infinite; }
-.demo .slide { height: var(--slide); overflow: hidden; padding-top: 1rem; }
-.demo .slide .label-caps { color: var(--forest); }
-.demo dt { color: var(--foreground); }
-.demo dd { margin: 0.25rem 0 0.9rem; font-size: 0.8rem; line-height: 1.55; color: var(--muted-foreground); }
-.demo .hold {
-  display: block; margin-top: 0.25rem;
-  font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.02em;
-  color: var(--forest);
-}
-.demo .mono { font-family: var(--font-mono); font-size: 0.7rem; line-height: 1.7; color: var(--muted-foreground); }
-.demo .msg {
+/* The demo: the real artifact as a trailer. One anonymized profile, typeset
+   like the rendered document, auto-scrolling inside a fixed pane. A measured
+   timeline (built in JS from the .stop anchors) pauses at the quotable
+   moments and glides fast in between, so the length itself is visible.
+   Hover pauses it; reduced-motion gets a hand-scrollable document. */
+.demo { --pane: 34rem; }
+.demo .stage { position: relative; height: var(--pane); overflow: hidden; margin-top: 1rem; }
+.demo .track { position: absolute; right: 0; top: 0; bottom: 0; width: 3px; background: var(--border); }
+.demo .bar { position: absolute; right: 0; top: 0; width: 3px; height: 48px; background: var(--mustard); }
+.demo .cap { margin-top: 0.9rem; font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.04em; color: var(--muted-foreground); }
+
+.doc { padding-right: 1rem; }
+.doc .msg {
   border: 1.5px solid var(--ink); border-radius: var(--radius); background: var(--mint);
   color: var(--ink); padding: 0.55rem 0.7rem; font-family: var(--font-mono);
-  font-size: 0.68rem; line-height: 1.55; margin-bottom: 0.9rem;
+  font-size: 0.68rem; line-height: 1.55; margin-bottom: 1.1rem;
 }
-.demo .l { opacity: 0; }
-.demo .l1 { animation: win1 26s infinite; }
-.demo .l2 { animation: win2 26s infinite; }
-.demo .l3 { animation: win3 26s infinite; }
-.demo .l4 { animation: win4 26s infinite; }
-.demo .l5 { animation: win5 26s infinite; }
-.demo .l6 { animation: win6 26s infinite; }
-.demo .num { display: grid; grid-template-columns: auto 1fr; gap: 0.6rem; font-size: 0.78rem; line-height: 1.5; padding: 0.45rem 0; border-bottom: 1px solid var(--border); }
-.demo .num .m { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--foreground); padding-top: 0.1rem; white-space: nowrap; }
-.demo .num .r { color: var(--muted-foreground); }
-.demo .num .r strong { color: var(--foreground); }
-.demo .verdict { margin-top: 0.9rem; font-family: var(--font-mono); font-size: 0.7rem; line-height: 1.6; color: var(--foreground); }
-.demo .hd { position: absolute; right: 0; bottom: 1rem; opacity: 0; color: var(--muted-foreground); }
-.demo .paper-head { position: relative; }
-.demo .hd1 { animation: hwin1 26s infinite; }
-.demo .hd2 { animation: hwin2 26s infinite; }
-.demo .hd3 { animation: hwin3 26s infinite; }
-.demo .hd4 { animation: hwin4 26s infinite; }
-.demo .hd5 { animation: hwin5 26s infinite; }
-.demo .hd6 { animation: hwin6 26s infinite; }
-.demo:hover .roll, .demo:hover .l, .demo:hover .hd { animation-play-state: paused; }
-
-@keyframes roll {
-  0%, 15% { transform: translateY(0); }
-  18%, 31% { transform: translateY(calc(-1 * var(--slide))); }
-  34%, 47% { transform: translateY(calc(-2 * var(--slide))); }
-  50%, 63% { transform: translateY(calc(-3 * var(--slide))); }
-  66%, 79% { transform: translateY(calc(-4 * var(--slide))); }
-  82%, 100% { transform: translateY(calc(-5 * var(--slide))); }
+.doc .h1 { font-family: var(--font-display); font-style: italic; font-size: 1.35rem; line-height: 1.2; color: var(--ink); }
+.doc .meta { font-family: var(--font-mono); font-size: 0.62rem; line-height: 1.75; color: var(--muted-foreground); margin-top: 0.6rem; }
+.doc .meta strong { color: var(--foreground); }
+.doc .sec {
+  font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--forest); margin: 1.5rem 0 0.55rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem;
 }
-@keyframes win1 { 0% { opacity: 0; transform: translateY(5px); } 1.5%, 14% { opacity: 1; transform: none; } 16%, 100% { opacity: 0; } }
-@keyframes win2 { 0%, 2.5% { opacity: 0; transform: translateY(5px); } 4%, 14% { opacity: 1; transform: none; } 16%, 100% { opacity: 0; } }
-@keyframes win3 { 0%, 4.5% { opacity: 0; transform: translateY(5px); } 6%, 14% { opacity: 1; transform: none; } 16%, 100% { opacity: 0; } }
-@keyframes win4 { 0%, 6.5% { opacity: 0; transform: translateY(5px); } 8%, 14% { opacity: 1; transform: none; } 16%, 100% { opacity: 0; } }
-@keyframes win5 { 0%, 8.5% { opacity: 0; transform: translateY(5px); } 10%, 14% { opacity: 1; transform: none; } 16%, 100% { opacity: 0; } }
-@keyframes win6 { 0%, 10.5% { opacity: 0; transform: translateY(5px); } 12%, 14% { opacity: 1; transform: none; } 16%, 100% { opacity: 0; } }
-@keyframes hwin1 { 0% { opacity: 0; } 1%, 14% { opacity: 1; } 16%, 100% { opacity: 0; } }
-@keyframes hwin2 { 0%, 17% { opacity: 0; } 19%, 30% { opacity: 1; } 32%, 100% { opacity: 0; } }
-@keyframes hwin3 { 0%, 33% { opacity: 0; } 35%, 46% { opacity: 1; } 48%, 100% { opacity: 0; } }
-@keyframes hwin4 { 0%, 49% { opacity: 0; } 51%, 62% { opacity: 1; } 64%, 100% { opacity: 0; } }
-@keyframes hwin5 { 0%, 65% { opacity: 0; } 67%, 78% { opacity: 1; } 80%, 100% { opacity: 0; } }
-@keyframes hwin6 { 0%, 81% { opacity: 0; } 83%, 97% { opacity: 1; } 99%, 100% { opacity: 0; } }
+.doc p, .doc li { font-size: 0.73rem; line-height: 1.6; color: var(--muted-foreground); margin: 0; }
+.doc p + p { margin-top: 0.5rem; }
+.doc strong { color: var(--foreground); }
+.doc .mk { font-family: var(--font-mono); font-size: 0.6rem; color: var(--forest); }
+.doc ul { list-style: disc; padding-left: 1.05rem; margin: 0.4rem 0 0; }
+.doc li + li { margin-top: 0.45rem; }
+.doc ol { padding-left: 1.1rem; margin: 0.4rem 0 0; }
+.doc ol li + li { margin-top: 0.55rem; }
+.doc .hold {
+  display: block; margin-top: 0.2rem;
+  font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.02em; color: var(--forest);
+}
+.doc table { width: 100%; border-collapse: collapse; font-size: 0.66rem; margin-top: 0.5rem; }
+.doc th {
+  font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 0.08em; text-transform: uppercase;
+  text-align: left; color: var(--muted-foreground); border-bottom: 1.5px solid var(--ink);
+  padding: 0 0.45rem 0.3rem 0; font-weight: 500;
+}
+.doc td { border-bottom: 1px solid var(--border); padding: 0.4rem 0.45rem 0.4rem 0; vertical-align: top; line-height: 1.5; color: var(--muted-foreground); }
+.doc td strong { color: var(--foreground); }
+.doc blockquote { margin: 0.8rem 0 0; padding: 0.5rem 0.8rem; border-left: 3px solid var(--mustard); background: var(--muted); font-size: 0.7rem; line-height: 1.6; color: var(--foreground); font-style: italic; }
+.doc .hr { border: 0; border-top: 2px solid var(--ink); margin: 1.5rem 0; }
+.doc .legend { font-family: var(--font-mono); font-size: 0.6rem; line-height: 1.6; color: var(--muted-foreground); }
+.doc .close { font-family: var(--font-display); font-style: italic; font-size: 0.85rem; line-height: 1.55; color: var(--ink); }
+.doc .close + .close { margin-top: 0.5rem; }
 
 @media (max-width: 639px) {
-  .demo { --slide: 29.5rem; }
-  .demo dd { margin-bottom: 0.7rem; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .demo .roll, .demo .l, .demo .hd { animation: none; }
-  .demo .roll { transform: translateY(calc(-1 * var(--slide))); }
-  .demo .hd { opacity: 0; }
+  .demo { --pane: 30rem; }
+  .doc p, .doc li { font-size: 0.7rem; }
+  .doc table { font-size: 0.62rem; }
 }
 </style>
 </head>
@@ -307,79 +289,154 @@ form button { margin-top: 1.5rem; }
     </div>
   </div>
   <div class="hero-card">
-    <div class="paper demo">
+    <div class="paper demo" id="demo">
       <div class="paper-head">
-        <span class="label-caps" style="color: var(--forest)">One run, condensed &middot; all fictional</span>
-        <span class="label-caps hd hd1">The run</span>
-        <span class="label-caps hd hd2">The card</span>
-        <span class="label-caps hd hd3">The traps</span>
-        <span class="label-caps hd hd4">The numbers</span>
-        <span class="label-caps hd hd5">The person</span>
-        <span class="label-caps hd hd6">The receipts</span>
+        <span class="label-caps" style="color: var(--forest)">One run, start to finish &middot; all fictional</span>
+        <span class="label-caps muted">sped up</span>
       </div>
-      <p class="label-caps" style="margin-top:0.9rem; color:var(--muted-foreground)">Example: Cartesa meeting Ingrid Solheim, CDO at Nordvik Outdoor</p>
-      <div class="stage">
-      <div class="roll">
+      <div class="stage" id="stage">
+      <div class="doc" id="doc">
 
-        <div class="slide">
-          <p class="msg">I work at Cartesa and I'm meeting Ingrid Solheim at Nordvik Outdoor. xray.joannatu.com/full</p>
-          <div class="mono">
-            <p class="l l1">TARGET read as: Nordvik Outdoor ASA. Not Nordvik Marine, the boat dealer.</p>
-            <p class="l l2">&rarr; nordvik.no read live: bespoke headless build, no SaaS signature</p>
-            <p class="l l3">&rarr; nordvik.dk answers with a different fingerprint. Two markets, two stacks</p>
-            <p class="l l4">&rarr; careers: a platform lead, open six weeks, "migration experience" required</p>
-            <p class="l l5">&rarr; May podcast, minute 41: the CEO calls the 2022 replatforming "a two-year mistake"</p>
-            <p class="l l6" style="margin-top:0.6rem; color:var(--foreground)">34 live searches &middot; every claim dated and linked, or labeled a guess</p>
-          </div>
-        </div>
+        <p class="msg stop">I work at Cartesa and I'm meeting Ingrid Solheim at Nordvik Outdoor. xray.joannatu.com/full</p>
 
-        <div class="slide">
-          <dl>
-            <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">The bet</dt><dd>A first-ever CDO, six weeks in with a public speed mandate, is rebuilding digital while the second market just launched on a different stack. The platform decision is open right now, and her own CFO named the bottleneck.</dd></div>
-            <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">Ask &middot; menu, not script</dt><dd>1. What would you want to test by Christmas that you cannot test today?<br>2. What did the last peak-season checkout incident actually cost?<span class="hold">holding: checkout sits in the risk factors two annual reports running</span>3. What has to be true by end of Q3 for the digital target to be called on track?</dd></div>
-          </dl>
-        </div>
+        <p class="h1">Account X-ray: Nordvik Outdoor ASA</p>
+        <p class="meta"><strong>Files read:</strong> 01, 02 + full catalog, 03-10<br>
+        <strong>Working assumption:</strong> <span class="mk">[H]</span> Cartesa sells a hosted commerce platform to retail and DTC brands; best fit where a brand's current stack limits speed or fragments across markets. I did not fetch cartesa.com this run, so correct this line and I will rebuild on your version.<br>
+        <strong>TARGET read as:</strong> Nordvik Outdoor ASA, the Oslo-listed outdoor retailer. Not Nordvik Marine AS, the boat dealer.<br>
+        <strong>Meeting:</strong> Ingrid Solheim, Chief Digital Officer &middot; <strong>Seller:</strong> Cartesa</p>
 
-        <div class="slide">
-          <dl>
-            <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">Drop</dt><dd>Online grew 31% while stores fell 4% last quarter. Your CFO said the platform "limits how fast we can test."</dd></div>
-            <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">Watch out</dt><dd>Do not quote a profit figure: they report EBIT two ways. And do not defend the current stack; the CEO already called the 2022 replatforming "a two-year mistake."</dd></div>
-            <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">Timing</dt><dd><strong>Act now.</strong> A new CDO six weeks in, hiring stacked behind her. Next catalyst: the H1 report, late August.</dd></div>
-            <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">Next</dt><dd>A working session with Solheim and the platform owner before the H1 report. Fallback: she names that owner.</dd></div>
-          </dl>
-        </div>
+        <p class="sec stop">Meeting card</p>
+        <p><strong>The bet:</strong> The group bought Bretun for 240 million kroner in January and now runs two outdoor brands on two entirely separate commerce stacks. Nobody has said publicly how that resolves, and the person who will have to live with the answer is sitting across the table.</p>
+        <p><strong>Ask</strong> (menu, not script)<strong>:</strong></p>
+        <ol>
+          <li>Where does Bretun's online sit in your scope now?<span class="hold">holding: Bretun closed in January and did about eight and a half million kroner online in its first quarter inside the group</span></li>
+          <li>What would have to be true before Bretun and Nordvik share one customer view?<span class="hold">holding: the two brands run separate storefronts and separate accounts today</span></li>
+          <li>What makes the second brand harder to grow online than the first?<span class="hold">holding: online was under a sixth of group revenue in March</span></li>
+        </ol>
+        <p class="stop"><strong>Drop:</strong> The Danish app went live under two weeks ago, on fourteen stores built there in under three years. Outdoor gear grew thirty-one percent last quarter, ahead of the group's twenty-one. In Bretun's first quarter inside the group, about a fifth of its revenue came from online, above the group average.</p>
+        <p><strong>Give:</strong> the sequencing pattern comparable multi-brand retail groups follow after acquiring a brand with its own stack. What they answered first, what they deliberately left alone for eighteen months, and the event that forced the decision. Seller knowledge, prepare before the meeting.</p>
+        <p><strong>Watch out:</strong> Do not call the current setup old, legacy, or a constraint. Her team shipped the Danish site and the Danish app on it, the last one thirteen days ago.</p>
+        <p><strong>Timing:</strong> ACT NOW. Freshest signal is the Danish app launch, attached directly to her function. Next catalyst: the H1 report on 20 August, eight days out. Budget year is calendar; 2026 capex was set at roughly 95 million kroner across both segments, so the 2027 line item gets shaped this autumn. Note: the group is in a closed period until 20 August, so she cannot discuss unpublished numbers.</p>
+        <p><strong>Next:</strong> a working session with her and whoever owns the Bretun platform decision, before the H1 report. Fallback: she names who owns Bretun's e-commerce stack.</p>
 
-        <div class="slide">
-          <p class="label-caps">By the numbers</p>
-          <div style="margin-top:0.6rem">
-            <div class="num"><span class="m">Online vs stores</span><span class="r"><strong>Strong.</strong> Up 31% while the estate fell 4%. The channel outruns the stores</span></div>
-            <div class="num"><span class="m">Group revenue</span><span class="r"><strong>Weak.</strong> NOK 3.1bn against the 3.9bn strategy target. Digital is the growth story left</span></div>
-            <div class="num"><span class="m">Q2 EBIT</span><span class="r"><strong>Careful.</strong> 118m one lease standard, 134m the other. Do not say either aloud</span></div>
-          </div>
-          <p class="verdict">MOMENTUM: ACT NOW &middot; three same-direction signals inside eight weeks &middot; the math sits in one [S] audit row, not in the prose</p>
-        </div>
+        <hr class="hr">
+        <p class="sec">Dossier</p>
+        <p class="legend">Legend: [F] verified fact with source &middot; [H] my labeled guess &middot; [C] sources disagree, do not quote &middot; [S] scoring math. All resolve in EVIDENCE at the bottom.</p>
+        <p class="sec">Thesis</p>
+        <p>Nordvik is winning. Outdoor gear is the growth engine of a three billion kroner group, Denmark went from nothing to fourteen stores plus a native app in under three years, and the platform underneath it has been delivering. The tension is not performance. It is that the group spent 240 million kroner in January on a second brand, and that brand arrived carrying its own commerce stack, its own customer base and its own international storefronts.</p>
+        <ul>
+          <li><strong>The acquisition is now an online question.</strong> Bretun's online was already about a fifth of its own revenue in its first quarter, ahead of the group's 15.8 percent <span class="mk">[F1][F2]</span>. The earn-out runs on Bretun's future results, so someone is now measured on a channel that sits on a stack Nordvik does not run <span class="mk">[F3]</span>.</li>
+          <li><strong>The stack is split, and the split is verifiable.</strong> nordvik.no, nordvik.dk and both mobile apps share one headless core and one API <span class="mk">[F5]</span>. bretun.no is a mainstream SaaS storefront with separate accounts, plus its own .com and .de sites <span class="mk">[F7]</span>. Nothing published says which way that resolves.</li>
+          <li><strong>The freshest news proves capability, not appetite.</strong> The Danish app shipped on 29 July <span class="mk">[F5]</span>. That is a team mid-roadmap with budget flowing: a reason to be in the room, and a reason not to arrive with a replacement story.</li>
+        </ul>
+        <p style="margin-top:0.5rem"><strong>The problem, in their words:</strong> "The outdoor segment is our growth engine, but we now run two brands on two stacks, and every quarter we wait costs us the customer view that made the Bretun case in the first place." An insider should nod, not squint <span class="mk">[H]</span>.</p>
 
-        <div class="slide">
-          <dl>
-            <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">The person</dt><dd>She inherited the stack; the vendor relationship predates her arrival. Inheritors answer platform questions freely, builders defend them. Ask about the next market, not the last decision. [H]</dd></div>
-            <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">The current way</dt><dd>Verified live, not guessed: a bespoke headless build on .no with a custom edge cache and no SaaS signature, a different fingerprint on .dk. Two markets, two stacks, one team. The queries are in the evidence table.</dd></div>
-          </dl>
-        </div>
+        <p class="sec stop">By the numbers</p>
+        <table>
+          <tr><th>Metric</th><th>Value</th><th>Read</th></tr>
+          <tr><td>Group revenue, Q1</td><td>NOK 892m, +21% <span class="mk">[F1]</span></td><td><strong>Strong</strong> vs their own prior year</td></tr>
+          <tr><td>Outdoor segment growth, Q1</td><td>+31.3% <span class="mk">[F1]</span></td><td><strong>Strong</strong> vs the group's +21%</td></tr>
+          <tr><td>Online share of revenue, March</td><td>15.8% <span class="mk">[F1]</span></td><td><strong>Mixed</strong> vs a group that calls online its growth engine</td></tr>
+          <tr><td>Bretun revenue, Q1</td><td>38m total, 8.6m online <span class="mk">[F2]</span></td><td><strong>Good</strong> online runs above the group's own share</td></tr>
+          <tr><td>Bretun price at closing</td><td>240m, earn-out to 60m <span class="mk">[F3]</span></td><td><strong>Careful</strong> a large bet whose returns are being measured now</td></tr>
+          <tr><td>One-off transaction costs, Q1</td><td>12m <span class="mk">[F2]</span></td><td><strong>Careful</strong> the segment's margin already took the hit</td></tr>
+          <tr><td>Capex plan, 2026</td><td>~95m <span class="mk">[F4, 2025]</span></td><td><strong>Careful</strong> modest, and split across two segments</td></tr>
+          <tr><td>FY2025 revenue / net profit</td><td>3.1bn / 214m <span class="mk">[F9]</span></td><td><strong>Strong</strong> vs prior year (176m)</td></tr>
+        </table>
+        <blockquote>"videre salgsvekst under streng kostnadsdisiplin og bedre l&oslash;nnsomhet"<br>H&aring;kon Berg, group CEO, Q1 press release, 21 May</blockquote>
 
-        <div class="slide">
-          <p class="label-caps">Evidence</p>
-          <div class="mono" style="margin-top:0.6rem">
-            <p>[F3] annual report, risk factors, p. 41 &middot; 12 Mar</p>
-            <p>[F7] careers page, read live &middot; today</p>
-            <p>[F12] May podcast, minute 41 &middot; 19 May</p>
-            <p>[S] the scoring math behind ACT NOW, in full</p>
-          </div>
-          <p style="margin-top:1rem; font-size:0.8rem; line-height:1.6; color:var(--muted-foreground)">Reality check: 13 of 16. Named failures: registry filing unread, person section thin, one conflict open.</p>
-          <p style="margin-top:0.75rem; font-size:0.8rem; line-height:1.6; color:var(--foreground)"><em class="display-italic">This profile wants to be graded.</em> Send it back, what it got wrong and what it nailed: xray@joannatu.com</p>
-        </div>
+        <p class="sec stop">The person</p>
+        <ul>
+          <li><strong>Who:</strong> Ingrid Solheim, the group's first Chief Digital Officer, hired this spring from a pure-play <span class="mk">[F11]</span></li>
+          <li><strong>Her number:</strong> almost certainly online revenue and its share of the total, with conversion underneath it <span class="mk">[H]</span></li>
+          <li><strong>Anchoring caveat:</strong> the role is anchored by trade press and conference programmes, not by a Nordvik page naming her. Confirm before the meeting <span class="mk">[S-echo]</span></li>
+          <li><strong>Searched, nothing found:</strong> no podcast, no interview, no guest article under her name surfaced this run. POVs have to come from company facts, not her public positions <span class="mk">[H]</span></li>
+          <li><strong>Authorship:</strong> she inherited both stacks; the vendor relationships predate her arrival, and the CEO called the 2022 replatforming "a two-year mistake" on a May podcast. Inheritors answer platform questions freely, builders defend them. Ask about the brand that arrived in January, not the one that is working <span class="mk">[F12][H]</span></li>
+        </ul>
+
+        <p class="sec stop">The deal</p>
+        <table>
+          <tr><th>Role</th><th>Best guess</th><th>Warm path</th></tr>
+          <tr><td>Economic buyer</td><td>group board for capex this size; H&aring;kon Berg is CEO <span class="mk">[F1][H]</span></td><td>via the segment, not direct</td></tr>
+          <tr><td>Champion</td><td>Solheim; test her, do not assume her <span class="mk">[H]</span></td><td>the booked meeting</td></tr>
+          <tr><td>Technical counterpart</td><td>Marius Eng, who presented the stack at a Bergen meetup <span class="mk">[F11, 2025]</span></td><td>ask her to bring him</td></tr>
+          <tr><td>Bretun side</td><td>Astrid Falk, board member per the company registry, read live <span class="mk">[F3]</span>; the founder stays operationally involved</td><td>unknown, check shared connections</td></tr>
+          <tr><td>Likely blocker</td><td>whoever owns the incumbent vendor relationship: multi-year, five properties <span class="mk">[F5]</span></td><td>ask how the platform decision gets made</td></tr>
+        </table>
+        <ul>
+          <li><strong>Current way, Nordvik:</strong> a bespoke headless estate run by Skarven Systems of Trondheim. Detected, not assumed: the vendor's own 29 July post names .no, .dk and both apps as one shared-API estate and calls the relationship multi-year <span class="mk">[F5]</span>. Switching depth is deep. Lead with anything except migration <span class="mk">[H]</span></li>
+          <li><strong>Current way, Bretun:</strong> a mainstream SaaS storefront, detected live from its own asset paths, with 4,100 items and configurable sizing or monogramming on most of them <span class="mk">[F7]</span>. Predates the acquisition; inherited, not authored, by anyone at Nordvik <span class="mk">[H]</span></li>
+          <li><strong>Problem math, directional:</strong> Bretun's online ran at 8.6 million kroner in Q1, so roughly 35 million annualised on a stack the group never operated. What that costs to keep is not discoverable from outside. That is the question, not a guess: "what does keeping Bretun on its own stack cost you in a year?"</li>
+          <li><strong>Objection, "Bretun stays independent, so the stack stays too":</strong> brand independence and platform independence are separate decisions, and the earn-out is measured on results, not on architecture</li>
+          <li><strong>The forwardable, a draft to edit:</strong> "Bretun did about 8.6 million kroner online in its first quarter with us, roughly a fifth of its revenue and above the group's 15.8 percent in March. It runs on a separate stack with its own customer base. Before the H1 report lands, worth one conversation on what that costs us to run separately." Deliver it with "what did I get wrong?" <span class="mk">[H]</span></li>
+        </ul>
+
+        <p class="sec stop">Momentum</p>
+        <p><strong>ACT NOW &middot; Danish app launched thirteen days ago, attached directly to her function &middot; next catalyst: H1 report, 20 August</strong></p>
+        <table>
+          <tr><th>Event</th><th>My problem?</th><th>Fresh?</th><th>Decision owner?</th></tr>
+          <tr><td>Danish mobile app live <span class="mk">[F5]</span></td><td>close</td><td>yes, thirteen days</td><td>yes, her function</td></tr>
+          <tr><td>Q1 results, outdoor +31.3% <span class="mk">[F1]</span></td><td>close</td><td>no, twelve weeks</td><td>close, group level</td></tr>
+          <tr><td>Summer collection launch <span class="mk">[F8]</span></td><td>no</td><td>yes</td><td>no</td></tr>
+        </table>
+        <ul>
+          <li><strong>Why ACT NOW, honestly:</strong> the arithmetic tiers on the app launch, and the launch is real. But read what it actually says. The incumbent delivered a new market app on time, which is evidence the current way is working, not evidence it is failing. The tier means the door is open and the team is mid-roadmap with budget moving. The trigger this profile could not see from outside is on the Bretun side, and it has to be found in the room</li>
+          <li><strong>Excluded as watch context:</strong> a junior e-commerce customer-service role sits live on their careers page. Junior, service-side, no budget ownership. Not scored. A second posting appeared only in a third-party jobs echo, so either it was filled, it expired, or it belongs to the boat dealer. Do not cite it <span class="mk">[F6]</span></li>
+        </ul>
+
+        <p class="sec">Their words</p>
+        <ul>
+          <li><span class="mk">"streng kostnadsdisiplin"</span> - the CEO's phrase for 2026 <span class="mk">[F1]</span></li>
+          <li><span class="mk">"segment friluft"</span> - how the P&amp;L is split and discussed <span class="mk">[F1]</span></li>
+          <li><span class="mk">"Ravn Front"</span> - the incumbent's storefront product name, worth recognising and never mocking <span class="mk">[F5]</span></li>
+        </ul>
+
+        <p class="sec">Go deeper</p>
+        <ul>
+          <li><strong>The annual report's risk factors</strong> - paste-fixable: the single biggest hole in this profile</li>
+          <li><strong>Bretun's platform roadmap and who owns it</strong> - human-only: this is the meeting's first question, not a research task</li>
+          <li><strong>Her LinkedIn</strong> - human-only: read it in your own browser and paste notes; this profile does not fetch it</li>
+          <li><strong>HISTORY was empty</strong> - before the meeting: the CRM, colleagues, whoever booked this</li>
+        </ul>
+
+        <hr class="hr">
+        <p class="sec stop">POVs</p>
+        <p><strong>Suggested order:</strong> open cold with POV 1 and POV 2, both diagnostic. POV 4 is the most provocative; test it below her level first.</p>
+        <p style="margin-top:0.6rem"><strong>1. The acquisition's return is now a channel question.</strong> The group did not buy 22 boutiques for 240 million kroner. It bought a younger customer who was already buying online at a higher rate than the group average. Which means the return on that price is being decided in a channel, not in a store <span class="mk">[H]</span>.</p>
+        <ul>
+          <li><strong>Move:</strong> name the unspoken pain</li>
+          <li><strong>Ammo:</strong> "streng kostnadsdisiplin" as the CEO's own frame, against a 240 million bet whose upside is an earn-out</li>
+          <li><strong>First test:</strong> a marketing or performance lead below her</li>
+        </ul>
+        <p class="legend" style="margin-top:0.7rem">Five more follow: two brands, two customers, one target &middot; Denmark already answered the hard question &middot; personalisation is an operations problem in a catalogue costume &middot; the third market breaks the model &middot; cost rigour and channel growth are the same sentence.</p>
+
+        <hr class="hr">
+        <p class="sec stop">Evidence</p>
+        <table>
+          <tr><th>Marker</th><th>Source</th><th>Date</th></tr>
+          <tr><td><span class="mk">[F1]</span></td><td>nordichandel.no, Q1 results and CEO comment</td><td>21 May</td></tr>
+          <tr><td><span class="mk">[F2]</span></td><td>butikkdrift.no, Q1 segment detail</td><td>21 May</td></tr>
+          <tr><td><span class="mk">[F3]</span></td><td>company registry extract, Bretun Retail AS board</td><td>read live today</td></tr>
+          <tr><td><span class="mk">[F5]</span></td><td>skarven.no blog, the Danish app estate</td><td>29 July</td></tr>
+          <tr><td><span class="mk">[F6]</span></td><td>careers.nordvik.no, verified on their own page</td><td>read live today</td></tr>
+          <tr><td><span class="mk">[F7]</span></td><td>bretun.no storefront, asset paths and item count</td><td>verified live today</td></tr>
+          <tr><td><span class="mk">[F9]</span></td><td>investor pages, reporting calendar and closed periods</td><td>Jan 2026</td></tr>
+          <tr><td><span class="mk">[F11]</span></td><td>Bergen retail summit agenda</td><td>2025, background</td></tr>
+          <tr><td><span class="mk">[C1]</span></td><td>Bretun boutique count: one forum says 22, unconfirmed. Do not say a number aloud</td><td>conflicting</td></tr>
+          <tr><td><span class="mk">[S]</span></td><td>Scoring audit: app launch 2 x 2 + 2 = 6 &middot; best event 6 &rarr; ACT NOW (threshold 6). Two postings excluded as false positives</td><td>today</td></tr>
+          <tr><td><span class="mk">[S-echo]</span></td><td>Org databases place Solheim as CDO. Echo, current status unverified; the LinkedIn URL you supplied was not fetched and is not a source here</td><td>read today</td></tr>
+        </table>
+
+        <p class="stop" style="margin-top:1rem"><strong>Reality check: 12 of 16 passed, 3 failed, 1 did not apply.</strong> Biggest failure: the annual report's risk factors were not read, so what management fears is my inference, not their words. Also failed: no named Cartesa customer in their world surfaced, so you walk in without proof by customer, and the conflict check on your own side ran only one direction. Did not apply: delta mode, first run on this account.</p>
+        <p class="close" style="margin-top:1rem">Ask me why about any line and I will unpack the reasoning. Ask what do I say if about any objection and I will drill you.</p>
+        <p class="close">This profile wants to be graded. Send it back, what it got wrong and what it nailed: xray@joannatu.com. Every reply shapes the next version.</p>
+        <p class="close">Save this profile with today's date. The next run starts in delta mode against it.</p>
 
       </div>
+      <div class="track"></div>
+      <div class="bar" id="bar"></div>
       </div>
+      <p class="cap">Condensed from one full run. Every name invented, the method real. Hovering pauses it.</p>
     </div>
   </div>
   </div>
@@ -508,6 +565,85 @@ form.addEventListener("submit", function (event) {
   thanks.classList.add("live");
   thanks.scrollIntoView({ behavior: "smooth", block: "nearest" });
 });
+</script>
+
+<script>
+// The demo timeline: measured from the document itself, so it survives any
+// viewport. Pauses at each .stop anchor, glides between, loops with a hard
+// cut. Reduced-motion readers get a hand-scrollable pane instead.
+(function () {
+  var demo = document.getElementById("demo");
+  var stage = document.getElementById("stage");
+  var doc = document.getElementById("doc");
+  var bar = document.getElementById("bar");
+  if (!demo || !stage || !doc) return;
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var anims = [];
+
+  function build() {
+    anims.forEach(function (a) { a.cancel(); });
+    anims = [];
+    if (reduce.matches) {
+      stage.style.overflowY = "auto";
+      if (bar) bar.style.display = "none";
+      return;
+    }
+    stage.style.overflowY = "hidden";
+    stage.scrollTop = 0;
+    if (bar) bar.style.display = "";
+
+    var paneH = stage.clientHeight;
+    var docH = doc.scrollHeight;
+    var maxY = Math.max(0, docH - paneH);
+    if (!maxY) return;
+
+    var stops = Array.prototype.map.call(doc.querySelectorAll(".stop"), function (el) {
+      return Math.min(maxY, Math.max(0, el.offsetTop - 14));
+    });
+    if (!stops.length) return;
+
+    var DWELL = 2.4, GLIDE = 0.85, TAIL = 0.7;
+    var t = 0, ys = [], ts = [];
+    stops.forEach(function (y, i) {
+      if (i > 0) t += GLIDE;
+      ys.push(y); ts.push(t);
+      t += DWELL;
+      ys.push(y); ts.push(t);
+    });
+    var total = t + TAIL;
+
+    function frames(map) {
+      var kf = ys.map(function (y, i) {
+        return { transform: map(y), offset: Math.min(1, ts[i] / total), easing: "cubic-bezier(0.65, 0, 0.35, 1)" };
+      });
+      kf.push({ transform: map(ys[ys.length - 1]), offset: 1 });
+      return kf;
+    }
+
+    anims.push(doc.animate(frames(function (y) { return "translateY(-" + y + "px)"; }),
+      { duration: total * 1000, iterations: Infinity }));
+
+    if (bar) {
+      var trackH = stage.clientHeight;
+      var barH = Math.max(36, Math.round(trackH * paneH / docH));
+      bar.style.height = barH + "px";
+      anims.push(bar.animate(frames(function (y) { return "translateY(" + (y / maxY * (trackH - barH)) + "px)"; }),
+        { duration: total * 1000, iterations: Infinity }));
+    }
+  }
+
+  demo.addEventListener("mouseenter", function () { anims.forEach(function (a) { a.pause(); }); });
+  demo.addEventListener("mouseleave", function () { anims.forEach(function (a) { a.play(); }); });
+
+  var rt;
+  window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(build, 200); });
+  if (reduce.addEventListener) reduce.addEventListener("change", build);
+
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(build); }
+  window.addEventListener("load", build);
+  build();
+})();
 </script>
 
 </body>
