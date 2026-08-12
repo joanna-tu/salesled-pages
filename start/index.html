@@ -275,7 +275,10 @@ form button { margin-top: 1.5rem; }
 @keyframes hwin5 { 0%, 65% { opacity: 0; } 67%, 78% { opacity: 1; } 80%, 100% { opacity: 0; } }
 @keyframes hwin6 { 0%, 81% { opacity: 0; } 83%, 97% { opacity: 1; } 99%, 100% { opacity: 0; } }
 
-@media (max-width: 639px) { .demo { --slide: 28.5rem; } }
+@media (max-width: 639px) {
+  .demo { --slide: 29.5rem; }
+  .demo dd { margin-bottom: 0.7rem; }
+}
 @media (prefers-reduced-motion: reduce) {
   .demo .roll, .demo .l, .demo .hd { animation: none; }
   .demo .roll { transform: translateY(calc(-1 * var(--slide))); }
@@ -340,7 +343,7 @@ form button { margin-top: 1.5rem; }
         <div class="slide">
           <dl>
             <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">Drop</dt><dd>Online grew 31% while stores fell 4% last quarter. Your CFO said the platform "limits how fast we can test."</dd></div>
-            <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">Watch out</dt><dd>Do not quote a profit figure: they report EBIT two ways and the numbers differ. And do not defend the current stack; the CEO already called the 2022 replatforming "a two-year mistake."</dd></div>
+            <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">Watch out</dt><dd>Do not quote a profit figure: they report EBIT two ways. And do not defend the current stack; the CEO already called the 2022 replatforming "a two-year mistake."</dd></div>
             <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">Timing</dt><dd><strong>Act now.</strong> A new CDO six weeks in, hiring stacked behind her. Next catalyst: the H1 report, late August.</dd></div>
             <div class="rule-tick" style="padding-left:1.25rem"><dt class="label-caps">Next</dt><dd>A working session with Solheim and the platform owner before the H1 report. Fallback: she names that owner.</dd></div>
           </dl>
