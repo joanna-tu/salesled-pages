@@ -292,7 +292,7 @@ form button { margin-top: 1.5rem; }
     <div class="paper demo" id="demo">
       <div class="paper-head">
         <span class="label-caps" style="color: var(--forest)">One run, start to finish &middot; all fictional</span>
-        <span class="label-caps muted">sped up</span>
+        <span class="label-caps muted" id="pagec">sped up</span>
       </div>
       <div class="stage" id="stage">
       <div class="doc" id="doc">
@@ -580,13 +580,17 @@ form.addEventListener("submit", function (event) {
 
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
   var anims = [];
+  var raf = 0;
+  var pagec = document.getElementById("pagec");
 
   function build() {
     anims.forEach(function (a) { a.cancel(); });
     anims = [];
+    if (raf) cancelAnimationFrame(raf);
     if (reduce.matches) {
       stage.style.overflowY = "auto";
       if (bar) bar.style.display = "none";
+      if (pagec) pagec.textContent = Math.ceil(doc.scrollHeight / stage.clientHeight) + " screens";
       return;
     }
     stage.style.overflowY = "hidden";
@@ -603,12 +607,15 @@ form.addEventListener("submit", function (event) {
     });
     if (!stops.length) return;
 
-    var DWELL = 2.4, GLIDE = 0.85, TAIL = 0.7;
+    var GLIDE = 0.5, TAIL = 0.6;
     var t = 0, ys = [], ts = [];
     stops.forEach(function (y, i) {
+      // Linger only where the reader needs a beat: the typed message, the
+      // card, and the closing lines. Everything else flips past.
+      var dwell = (i === 0 || i === 1 || i === stops.length - 1) ? 1.7 : 1.1;
       if (i > 0) t += GLIDE;
       ys.push(y); ts.push(t);
-      t += DWELL;
+      t += dwell;
       ys.push(y); ts.push(t);
     });
     var total = t + TAIL;
@@ -630,6 +637,23 @@ form.addEventListener("submit", function (event) {
       bar.style.height = barH + "px";
       anims.push(bar.animate(frames(function (y) { return "translateY(" + (y / maxY * (trackH - barH)) + "px)"; }),
         { duration: total * 1000, iterations: Infinity }));
+    }
+
+    // The page counter: read the animated offset back and report the depth,
+    // so the pane says out loud how much report is flowing past.
+    if (pagec) {
+      var pages = Math.max(1, Math.ceil(docH / paneH));
+      var tick = function () {
+        var m = getComputedStyle(doc).transform;
+        var y = 0;
+        if (m && m !== "none") {
+          var parts = m.match(/-?[\d.]+/g);
+          if (parts && parts.length) y = Math.abs(parseFloat(parts[parts.length - 1]));
+        }
+        pagec.textContent = "p. " + Math.min(pages, Math.floor(y / paneH) + 1) + " of " + pages;
+        raf = requestAnimationFrame(tick);
+      };
+      raf = requestAnimationFrame(tick);
     }
   }
 
