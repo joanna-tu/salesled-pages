@@ -14,7 +14,7 @@ If your AI can't open the link (Gemini, some days), use way two.
 
 Two pastes: the whole kit into a chat with web search on, then this line:
 
-`MY COMPANY: [your company]. TARGET: [the account]. PERSON: [who you are meeting].`
+`Prep me for a first call: I work at [your company], I'm meeting [person] at [account].`
 
 ## Way three: install it once
 
