@@ -24,8 +24,6 @@ Five minutes, in a Claude Project, a ChatGPT project, a custom GPT, or a Gemini 
 2. Add `files/01` to `files/10` as knowledge. That's ten files, which is exactly what the strictest tool allows.
 3. Before each meeting, type: `Prep me for a first call: I'm meeting [person] at [account]`.
 
-The first line that comes back should read "Files read: 01, 02 + full catalog, 03-10". That's how you know the install took.
-
 ## Custom GPT or Gemini Gem
 
 Two things worth knowing before you set one up.

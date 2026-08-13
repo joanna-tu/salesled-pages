@@ -62,16 +62,19 @@
       "display:flex;flex-wrap:wrap;align-items:center;justify-content:center;" +
       "gap:10px 16px;text-align:center";
 
+    // Two choices only, so the bar reads as one question. The route to the
+    // privacy page rides inside the sentence instead of standing next to the
+    // buttons as a third thing to weigh up. The plain kit pages have no
+    // footer, so this link is their only one.
     var text = document.createElement("span");
-    text.textContent =
-      "I count visits with Google Analytics, to see which pages help and which don't.";
-
-    // The notice is the only chrome the plain kit pages have, so it carries
-    // the link to the full page for every surface on the site.
     var more = document.createElement("a");
     more.href = "/privacy";
-    more.textContent = "What that means";
+    more.textContent = "count visits";
     more.style.cssText = "color:inherit;text-underline-offset:3px";
+    text.appendChild(document.createTextNode("I "));
+    text.appendChild(more);
+    text.appendChild(document.createTextNode(
+      " with Google Analytics, to see which pages help and which don't."));
 
     var ok = document.createElement("button");
     ok.type = "button";
@@ -98,10 +101,15 @@
       bar.remove();
     };
 
+    // The two buttons travel as one unit, so a narrow screen drops them onto
+    // their own line side by side instead of stranding the second one.
+    var actions = document.createElement("div");
+    actions.style.cssText = "display:flex;align-items:center;gap:16px;flex:none";
+    actions.appendChild(ok);
+    actions.appendChild(out);
+
     bar.appendChild(text);
-    bar.appendChild(more);
-    bar.appendChild(ok);
-    bar.appendChild(out);
+    bar.appendChild(actions);
     document.body.appendChild(bar);
   }
 
