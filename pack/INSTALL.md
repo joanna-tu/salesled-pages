@@ -32,7 +32,7 @@ A custom GPT's instructions box caps at 8,000 characters and the engine is nearl
 
 ## Before you walk in
 
-Somewhere in the profile, your AI got something wrong. Which AI you use decides how often. That is what the sources are for: check every line you plan to say out loud, before the room, not in it.
+Every AI makes things up sometimes. The better your AI, the less you'll find. Cross-check every line you'll say out loud.
 
 It can't read anything behind a login or a paywall.
 
