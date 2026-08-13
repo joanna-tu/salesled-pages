@@ -32,9 +32,9 @@ A custom GPT's instructions box caps at 8,000 characters and the engine is nearl
 
 ## Before you walk in
 
-Check the lines you plan to say out loud. Each one shows where it came from, and when.
+Somewhere in the profile, your AI got something wrong. Which AI you use decides how often. That is what the sources are for: check every line you plan to say out loud, before the room, not in it.
 
-Some doors stay closed: LinkedIn behind its login, your CRM, anything behind a paywall. The profile marks each gap and says who to ask.
+Some doors stay closed on every run: LinkedIn behind its login, your CRM, anything behind a paywall. The profile marks those gaps and names who can open them.
 
 ## Found something wrong?
 
