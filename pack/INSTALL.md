@@ -34,7 +34,7 @@ A custom GPT's instructions box caps at 8,000 characters and the engine is nearl
 
 Somewhere in the profile, your AI got something wrong. Which AI you use decides how often. That is what the sources are for: check every line you plan to say out loud, before the room, not in it.
 
-Some doors stay closed on every run: LinkedIn behind its login, your CRM, anything behind a paywall. The profile marks those gaps and names who can open them.
+It can't read anything behind a login or a paywall.
 
 ## Found something wrong?
 
