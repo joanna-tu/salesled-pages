@@ -37,11 +37,9 @@ a { color: inherit; }
 .hero h1 { margin: 0.75rem 0 0; font-weight: 400; font-size: clamp(2rem, 5vw, 2.6rem); line-height: 1.1; color: var(--forest-deep); }
 .hero p.sub { margin: 1rem 0 0; line-height: 1.65; color: var(--muted-foreground); }
 .btn-mustard { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--mustard); color: var(--ink); border: 2px solid var(--ink); border-radius: var(--radius); padding: 0.7rem 1.2rem; font-family: inherit; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.78rem; text-decoration: none; cursor: pointer; box-shadow: var(--shadow-block-sm); }
-.row { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 1.1rem; align-items: center; }
-.row .plain { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--forest); text-decoration: underline; text-underline-offset: 3px; background: none; border: 0; padding: 0; cursor: pointer; }
-.hero-line { border: 1.5px solid var(--ink); border-radius: var(--radius); background: var(--card); padding: 0.8rem 1rem; margin: 1.25rem 0 0; }
-.hero-line code { font-family: var(--font-mono); font-size: 0.82rem; line-height: 1.6; color: var(--ink); }
-#copied { margin-top: 0.9rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--forest); display: none; }
+.card .act { margin-top: 1.1rem; display: flex; }
+.card .act .btn-mustard { padding: 0.55rem 1rem; font-size: 0.72rem; }
+.card .status { margin-top: 0.7rem; font-family: var(--font-mono); font-size: 0.72rem; line-height: 1.6; color: var(--forest); display: none; }
 article { max-width: 44rem; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
 article p.lead { font-size: 0.95rem; line-height: 1.7; color: var(--muted-foreground); }
 .card { border: 2px solid var(--ink); border-radius: 0.5rem; background: var(--card); box-shadow: var(--shadow-block-sm); padding: 1.5rem; margin-top: 1.5rem; }
@@ -70,23 +68,16 @@ article p.lead { font-size: 0.95rem; line-height: 1.7; color: var(--muted-foregr
 <body>
 <header class="site-head"><div class="wrap"><a class="brand display-italic" href="/">Account X-ray</a><span class="label-caps" style="color:color-mix(in oklab, var(--cream) 70%, transparent)">The guide</span></div></header>
 <section class="hero"><div class="wrap">
-<h1 class="display-italic">Send your AI this.</h1>
-<p class="hero-line" id="heroline"><code>Prep me for a first call: I work at [your company], I'm meeting [person] at [account]. xray.joannatu.com/full</code></p>
-<div class="row">
-<button class="btn-mustard" id="copymsg" type="button">Copy the message</button>
-<button class="plain" id="copykit" type="button">Copy the whole kit</button>
-<a class="plain" href="/pack/account-xray-pack.zip">Download the pack</a>
-</div>
-<p id="copied"></p>
+<h1 class="display-italic">One message. Walk in prepared.</h1>
 </div></section>
 <article>
 <p class="lead">Three ways in, easiest first. Whichever you pick: one line about the meeting in, a profile with sources back.</p>
 <div class="card"><span class="label-caps badge">Way one</span><h3 class="display-italic">One message</h3><p>Open Claude, ChatGPT, or whichever AI you use, and send:</p>
 <p class="codeline"><code>Prep me for a first call: I work at [your company], I'm meeting [person] at [account]. xray.joannatu.com/full</code></p>
-<p>The AI reads the kit from the link and runs it, newest version, nothing to install. One catch: some AIs can't open links on some days, Gemini most often. When that happens, way two.</p></div>
+<p>The AI reads the kit from the link and runs it, newest version, nothing to install. One catch: some AIs can't open links on some days, Gemini most often. When that happens, way two.</p><div class="act"><button class="btn-mustard" id="copymsg" type="button">Copy the message</button></div><p class="status" id="copymsg-status"></p></div>
 <div class="card"><span class="label-caps badge">Way two</span><h3 class="display-italic">Copy, paste, run</h3><p>Open xray.joannatu.com/full and tap "Copy this whole page", or copy <code>account-xray-v7.7-page.md</code> from the pack. Paste it into the chat with web search on, then add one line:</p>
 <p class="codeline"><code>MY COMPANY: [your company]. TARGET: [the account]. PERSON: [who you are meeting].</code></p>
-<p>Pasted text works every time, on any AI. On a phone, attach the file instead, same message.</p></div>
+<p>Pasted text works every time, on any AI. On a phone, attach the file instead, same message.</p><div class="act"><button class="btn-mustard" id="copykit" type="button">Copy the whole kit</button></div><p class="status" id="copykit-status"></p></div>
 <div class="card"><span class="label-caps badge">Advanced</span><h3 class="display-italic">Install it once</h3><p>Five minutes, and from then on prep is one line. The clean path is a Claude Project:</p>
 <ol>
 <li>Create a project.</li>
@@ -95,7 +86,7 @@ article p.lead { font-size: 0.95rem; line-height: 1.7; color: var(--muted-foregr
 <li>Before each meeting, type one line: <code>Nordvik Outdoor, meeting Ingrid Solheim</code>.</li>
 </ol>
 <p>A custom GPT: the instructions box caps at 8,000 characters and the engine is nearly twice that, so add <code>engine.md</code> as the first knowledge file, with one instruction line: "Open engine.md first and follow it exactly." A Gemini Gem: ten knowledge files max, so leave out <code>08-the-internal-case.md</code> and paste it in on the day you need it.</p>
-<p>The profile's "Files read" line tells you the install worked: it should say "02 + full catalog".</p></div>
+<p>The profile's "Files read" line tells you the install worked: it should say "02 + full catalog".</p><div class="act"><a class="btn-mustard" href="/pack/account-xray-pack.zip">Download the pack</a></div></div>
 <div class="tail">
 <h4 class="tail-h">Before you take it into a room</h4><p>How deep the research goes depends on the AI you run it in. Every line carries a source and a date; check the ones you plan to say out loud. Some things stay out of reach on every run: LinkedIn behind its login, your CRM, colleagues' memory, podcast audio, paywalled press. The profile's GO DEEPER section says who can close each gap.</p>
 <h4 class="tail-h">Updates</h4><p>Every change ships to the readers' list first: salesled.substack.com. Found something the X-ray got wrong? Send it to xray@joannatu.com, with the profile if you have one. Every reply shapes the next version.</p>
@@ -104,15 +95,14 @@ article p.lead { font-size: 0.95rem; line-height: 1.7; color: var(--muted-foregr
 </article>
 <footer class="site-foot"><div class="wrap">Open source under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> &middot; Joanna Turczynska &middot; <a href="https://salesled.substack.com" target="_blank" rel="noopener">salesled.substack.com</a></div></footer>
 <script>
-document.getElementById("copymsg").addEventListener("click", function () {
-  var status = document.getElementById("copied");
-  var text = document.getElementById("heroline").textContent.trim();
-  function done() {
-    status.style.display = "block";
-    status.textContent = "Copied. Fill in the brackets and send it.";
-  }
+function showStatus(id, message) {
+  var s = document.getElementById(id);
+  s.style.display = "block";
+  s.textContent = message;
+}
+function putOnClipboard(text, onDone) {
   if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(text).then(done);
+    navigator.clipboard.writeText(text).then(onDone);
   } else {
     var a = document.createElement("textarea");
     a.value = text;
@@ -120,19 +110,22 @@ document.getElementById("copymsg").addEventListener("click", function () {
     a.select();
     document.execCommand("copy");
     document.body.removeChild(a);
-    done();
+    onDone();
   }
+}
+document.getElementById("copymsg").addEventListener("click", function () {
+  var line = this.closest(".card").querySelector(".codeline");
+  putOnClipboard(line.textContent.trim(), function () {
+    showStatus("copymsg-status", "Copied. Fill in the brackets and send it.");
+  });
 });
 document.getElementById("copykit").addEventListener("click", function () {
-  var status = document.getElementById("copied");
   fetch("/full.md").then(function (r) { return r.text(); }).then(function (t) {
-    return navigator.clipboard.writeText(t);
-  }).then(function () {
-    status.style.display = "block";
-    status.textContent = "Copied. Paste it into your AI with web search on, then add one line: your company, their company, the person.";
+    putOnClipboard(t, function () {
+      showStatus("copykit-status", "Copied. Paste it into your AI with web search on, then add one line: your company, their company, the person.");
+    });
   }).catch(function () {
-    status.style.display = "block";
-    status.textContent = "Could not copy here. Open xray.joannatu.com/full.md and copy it there.";
+    showStatus("copykit-status", "Could not copy here. Open xray.joannatu.com/full.md and copy it there.");
   });
 });
 </script>
