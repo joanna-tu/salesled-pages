@@ -32,7 +32,7 @@ A custom GPT's instructions box caps at 8,000 characters and the engine is nearl
 
 ## Before you walk in
 
-Every AI makes things up sometimes. The better your AI, the less you'll find. Cross-check every line you'll say out loud.
+Every AI makes things up sometimes. The better your AI, the fewer you'll find. Cross-check every line you'll say out loud.
 
 It can't read anything behind a login or a paywall.
 
