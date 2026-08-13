@@ -1,22 +1,22 @@
 # Account X-ray - the pack
 
-This is the whole kit as files you keep. Same text as the page at xray.joannatu.com/full, nothing more, nothing less. Two ways to run it, and a five-minute setup for when you want it permanent.
+This is the whole kit as files you keep. Same text as the page at xray.joannatu.com/full, nothing more, nothing less. Three ways to run it, easiest first.
 
-## Way one: send your AI one message
-
-Open Claude, ChatGPT, or whichever AI you use, and send:
-
-`Prep me for a first call: I work at [your company], I'm meeting [person] at [account]. xray.joannatu.com/full`
-
-That is the whole thing. It always runs the newest version, and there is nothing to set up. One catch: some AIs cannot open links on some days (Gemini most often, ChatGPT occasionally). When that happens, use way two.
-
-## Way two: paste the kit in whole
+## Way one: copy, paste, run
 
 Open `account-xray-v7.7-page.md` from this pack, copy everything, and paste it into any AI chat with web search on. Then add one line:
 
 `MY COMPANY: [your company]. TARGET: [the account]. PERSON: [who you are meeting].`
 
-Pasted text never depends on the AI's link-fetching mood, so this is the reliable way. It is also the right way on a phone: attach the file instead of pasting, same message.
+That is it. Pasted text always works; it does not depend on the AI being able to open links. On a phone, attach the file instead of pasting, same message.
+
+## Way two: even less typing, one message
+
+Open Claude, ChatGPT, or whichever AI you use, and send:
+
+`Prep me for a first call: I work at [your company], I'm meeting [person] at [account]. xray.joannatu.com/full`
+
+This always runs the newest version and there is nothing to open or copy. One catch: some AIs cannot fetch links on some days (Gemini most often, ChatGPT occasionally). When that happens, way one always works.
 
 ## More advanced: install it once (about five minutes)
 

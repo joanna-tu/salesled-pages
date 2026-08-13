@@ -195,6 +195,11 @@ form { margin-top: 2.25rem; }
 form button { margin-top: 1.5rem; }
 .note { margin-top: 1.5rem; font-size: 0.875rem; line-height: 1.6; color: var(--muted-foreground); }
 .err { display: none; margin-top: 0.5rem; font-size: 0.875rem; color: var(--destructive); }
+.pack-list { margin-top: 2rem; }
+.pack-list li { display: flex; gap: 0.9rem; line-height: 1.65; }
+.pack-list li + li { margin-top: 1rem; }
+.pack-list .what { color: var(--foreground); }
+.pack-list .why { font-size: 0.875rem; color: var(--muted-foreground); }
 .err.live { display: block; }
 
 #thanks { display: none; }
@@ -424,7 +429,14 @@ form button { margin-top: 1.5rem; }
 <section id="pack" class="form-section" style="scroll-margin-top:2rem">
   <div class="wrap-narrow">
     <h2 class="display-italic h-section">Get the pack</h2>
-    <p class="sub">The kit as files, the guide, and a 32-page PDF. Install it once and every meeting after costs one line.</p>
+    <p class="sub">Install it once and every meeting after costs one line.</p>
+
+    <ul class="pack-list">
+      <li class="rule-tick"><span><span class="what">The kit as files</span> <span class="why">&middot; drop them into Claude, ChatGPT, or whatever you use</span></span></li>
+      <li class="rule-tick"><span><span class="what">The guide</span> <span class="why">&middot; three ways in, easiest first</span></span></li>
+      <li class="rule-tick"><span><span class="what">A 32-page PDF</span> <span class="why">&middot; the whole kit, for reading offline</span></span></li>
+      <li class="rule-tick"><span><span class="what">New versions land here first</span> <span class="why">&middot; the kit gets sharper as real runs break it</span></span></li>
+    </ul>
 
     <div id="ask">
     <form id="form" novalidate>
@@ -449,7 +461,7 @@ form button { margin-top: 1.5rem; }
           <p class="label-caps muted">Your files, right now</p>
           <p>&rarr; <a href="/pack/account-xray-pack.zip">The pack, zipped</a></p>
           <p>&rarr; <a href="/pack/account-xray.pdf">The 32-page PDF</a></p>
-          <p>&rarr; <a href="/pack/INSTALL.md">The install guide</a></p>
+          <p>&rarr; <a href="/guide/">The guide</a></p>
           <p>&rarr; <a href="/full">The whole kit, on one page</a></p>
         </div>
         <p class="fine">If no email lands in a few minutes, the links above are the same files.</p>

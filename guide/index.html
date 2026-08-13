@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Account X-ray - the guide</title>
+<meta name="description" content="Three ways to run the Account X-ray, easiest first: copy and paste, one message, or a five-minute permanent setup.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232f5d4a'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-style='italic' font-size='42' fill='%23eac054' text-anchor='middle'%3EX%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=National+Park:wght@300;400;500;600;700&display=swap">
+<style>
+:root {
+  --radius: 0.375rem;
+  --cream: oklch(0.966 0.024 96); --forest: oklch(0.418 0.079 168);
+  --forest-deep: oklch(0.325 0.062 168); --mint: oklch(0.925 0.058 128);
+  --mustard: oklch(0.824 0.137 87); --ink: oklch(0.19 0.008 96);
+  --card: oklch(0.988 0.014 96); --muted: oklch(0.93 0.02 96);
+  --muted-foreground: oklch(0.48 0.014 120); --border: oklch(0.88 0.022 96);
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-sans: "National Park", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --shadow-block-sm: 4px 4px 0 0 var(--ink);
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--font-sans); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+::selection { background: var(--mustard); color: var(--ink); }
+a { color: inherit; }
+.display-italic { font-family: var(--font-display); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+.label-caps { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; }
+.site-head { border-bottom: 2px solid var(--ink); background: var(--forest); color: var(--cream); }
+.site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.5rem; max-width: 46rem; margin: 0 auto; }
+.hero { border-bottom: 2px solid var(--ink); background: var(--mint); }
+.hero .wrap { max-width: 46rem; margin: 0 auto; padding: 2.5rem 1.5rem; }
+.hero h1 { margin: 0.75rem 0 0; font-weight: 400; font-size: clamp(2rem, 5vw, 2.6rem); line-height: 1.1; color: var(--forest-deep); }
+.hero p { margin: 1rem 0 0; line-height: 1.65; color: var(--muted-foreground); }
+.btn-mustard { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--mustard); color: var(--ink); border: 2px solid var(--ink); border-radius: var(--radius); padding: 0.7rem 1.2rem; font-family: inherit; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.78rem; text-decoration: none; cursor: pointer; box-shadow: var(--shadow-block-sm); }
+.row { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
+.row a.plain { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--forest); text-decoration: underline; text-underline-offset: 3px; }
+#copied { margin-top: 0.9rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--forest); display: none; }
+article { max-width: 46rem; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+article p, article li { font-size: 0.95rem; line-height: 1.7; color: var(--muted-foreground); margin: 0; }
+article p + p { margin-top: 0.7rem; }
+article .sec { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--forest); margin: 2.4rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; font-weight: 500; }
+article ol, article ul { margin: 0.6rem 0 0; padding-left: 1.2rem; }
+article li + li { margin-top: 0.5rem; }
+article code { font-family: var(--font-mono); font-size: 0.82em; background: var(--muted); border: 1px solid var(--border); border-radius: 4px; padding: 0.08em 0.35em; }
+article .codeline { border: 1.5px solid var(--ink); border-radius: var(--radius); background: var(--card); padding: 0.8rem 1rem; margin-top: 0.8rem; }
+article .codeline code { background: none; border: 0; padding: 0; font-size: 0.82rem; line-height: 1.6; }
+.site-foot { border-top: 2px solid var(--ink); background: var(--forest-deep); color: var(--cream); }
+.site-foot .wrap { max-width: 46rem; margin: 0 auto; padding: 1.5rem; font-size: 0.875rem; color: color-mix(in oklab, var(--cream) 75%, transparent); }
+.site-foot a { color: var(--mustard); }
+</style>
+</head>
+<body>
+<header class="site-head"><div class="wrap"><span class="display-italic" style="font-size:1.5rem">Account X-ray</span><span class="label-caps" style="color:color-mix(in oklab, var(--cream) 70%, transparent)">The guide</span></div></header>
+<section class="hero"><div class="wrap">
+<p class="label-caps" style="color:var(--forest)">Three ways to run it, easiest first</p>
+<h1 class="display-italic">Copy, paste, walk in prepared.</h1>
+<p>The fastest start needs no setup at all: copy the whole kit, paste it into your AI, add one line about the meeting.</p>
+<div class="row">
+<button class="btn-mustard" id="copykit" type="button">Copy the whole kit</button>
+<a class="plain" href="/pack/account-xray-pack.zip">Download the pack</a>
+</div>
+<p id="copied"></p>
+</div></section>
+<article>
+<p>This is the whole kit as files you keep. Same text as the page at xray.joannatu.com/full, nothing more, nothing less. Three ways to run it, easiest first.</p>
+<h2 class="sec">Way one: copy, paste, run</h2>
+<p>Open <code>account-xray-v7.7-page.md</code> from this pack, copy everything, and paste it into any AI chat with web search on. Then add one line:</p>
+<p class="codeline"><code>MY COMPANY: [your company]. TARGET: [the account]. PERSON: [who you are meeting].</code></p>
+<p>That is it. Pasted text always works; it does not depend on the AI being able to open links. On a phone, attach the file instead of pasting, same message.</p>
+<h2 class="sec">Way two: even less typing, one message</h2>
+<p>Open Claude, ChatGPT, or whichever AI you use, and send:</p>
+<p class="codeline"><code>Prep me for a first call: I work at [your company], I'm meeting [person] at [account]. xray.joannatu.com/full</code></p>
+<p>This always runs the newest version and there is nothing to open or copy. One catch: some AIs cannot fetch links on some days (Gemini most often, ChatGPT occasionally). When that happens, way one always works.</p>
+<h2 class="sec">More advanced: install it once (about five minutes)</h2>
+<p>For weekly use, put the kit where it stays loaded. The clean path is a Claude Project:</p>
+<ol>
+<li>Create the project.</li>
+<li>Paste the contents of <code>files/engine.md</code> into the project instructions, and fill in MY COMPANY with your company's name.</li>
+<li>Add <code>files/01</code> to <code>files/10</code> as project knowledge.</li>
+<li>Done. Before each meeting, type one line: <code>Nordvik Outdoor, meeting Ingrid Solheim</code>.</li>
+</ol>
+<p>A custom GPT or a Gemini Gem works too, each with one wrinkle. A GPT's instructions box caps at 8,000 characters and the engine is nearly twice that, so add <code>engine.md</code> as the first knowledge file instead and put one line in the instructions: "Open engine.md first and follow it exactly; it is the method." A Gem takes at most ten knowledge files and engine plus files 01 to 10 is eleven, so leave out <code>08-the-internal-case.md</code> and paste it in on the day you need it.</p>
+<p>One note: file 02 in this pack already carries the complete 39-signal catalog, so an installed X-ray reads every signal the page reads. The profile's "Files read" line will say "02 + full catalog"; that is how you know it worked.</p>
+<h2 class="sec">Before you use any of it in a room</h2>
+<p>The output depends on the AI you run it in: some search harder than others, and the same page can run brilliantly on one and thinly on another. That is why every line carries a source and a date. Check the sources before the meeting, not after. A profile is preparation, not gospel.</p>
+<h2 class="sec">What else is in the pack</h2>
+<ul>
+<li><code>account-xray-v7.7-page.md</code> - the whole kit as one page, for reading or for way two.</li>
+<li><code>LICENSE.md</code> - CC BY 4.0. Use it, adapt it, build on it, commercially too; keep the attribution line.</li>
+</ul>
+<h2 class="sec">Know the blind spots</h2>
+<p>The tool is honest about its edges. Permanently out of reach, every run: LinkedIn behind its login (only the public echoes search engines hold leak out, and those are used as leads, marked stale until you check them), your own CRM and colleagues' memory of the account, audio (it finds that podcasts exist, it cannot listen to them), paywalled press, and anything that lives in private conversations. These are exactly where your minutes are worth the most, which is why every profile's GO DEEPER section labels each gap by who can close it: paste-fixable, human-only, or AI-next-run.</p>
+<h2 class="sec">Updates</h2>
+<p>The kit evolves: signals get added, checks get sharpened, and every change ships to the readers' list first. That list lives at salesled.substack.com.</p>
+<p>Found something it got wrong, or a check it should have? Send it to xray@joannatu.com, with the profile itself if you have one. Every reply shapes the next version.</p>
+<p>Account X-ray, version 7.7, 11 August 2026. Made by Joanna Turczynska.</p>
+</article>
+<footer class="site-foot"><div class="wrap">Open source under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> &middot; Joanna Turczynska &middot; <a href="https://salesled.substack.com" target="_blank" rel="noopener">salesled.substack.com</a></div></footer>
+<script>
+document.getElementById("copykit").addEventListener("click", function () {
+  var status = document.getElementById("copied");
+  fetch("/full.md").then(function (r) { return r.text(); }).then(function (t) {
+    return navigator.clipboard.writeText(t);
+  }).then(function () {
+    status.style.display = "block";
+    status.textContent = "Copied. Paste it into your AI with web search on, then add one line: your company, their company, the person.";
+  }).catch(function () {
+    status.style.display = "block";
+    status.textContent = "Could not copy here. Open xray.joannatu.com/full.md and copy it there.";
+  });
+});
+</script>
+</body>
+</html>
