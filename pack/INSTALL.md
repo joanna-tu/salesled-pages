@@ -33,7 +33,7 @@ One note: file 02 in this pack already carries the complete 39-signal catalog, s
 
 ## Before you use any of it in a room
 
-The output depends on the AI you run it in: some search harder than others, and the same page can run brilliantly on one and thinly on another. That is why every line carries a source and a date. Check the receipts before the meeting, not after. A profile is preparation, not gospel.
+The output depends on the AI you run it in: some search harder than others, and the same page can run brilliantly on one and thinly on another. That is why every line carries a source and a date. Check the sources before the meeting, not after. A profile is preparation, not gospel.
 
 ## What else is in the pack
 
