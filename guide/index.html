@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Account X-ray - the guide</title>
-<meta name="description" content="Three ways to run the Account X-ray, easiest first: one message with a link, the whole kit pasted, or a five-minute install.">
+<meta name="description" content="Three ways to run the Account X-ray, easiest first: send one message, paste the kit, or install it once.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232f5d4a'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-style='italic' font-size='42' fill='%23eac054' text-anchor='middle'%3EX%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,78 +28,82 @@ body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(
 a { color: inherit; }
 .display-italic { font-family: var(--font-display); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
 .label-caps { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; }
+.wrap { max-width: 44rem; margin: 0 auto; padding-left: 1.5rem; padding-right: 1.5rem; }
+.hill { background-image: radial-gradient(120% 100% at 50% 100%, color-mix(in oklab, var(--mint) 22%, transparent) 0%, transparent 62%); }
 .site-head { border-bottom: 2px solid var(--ink); background: var(--forest); color: var(--cream); }
-.site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.5rem; max-width: 44rem; margin: 0 auto; }
+.site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1rem; padding-bottom: 1rem; }
 .site-head a.brand { font-size: 1.5rem; text-decoration: none; }
 .site-head a.brand:hover { color: var(--mustard); }
-.hero { border-bottom: 2px solid var(--ink); background: var(--mint); }
-.hero .wrap { max-width: 44rem; margin: 0 auto; padding: 2.5rem 1.5rem; }
-.hero h1 { margin: 0.75rem 0 0; font-weight: 400; font-size: clamp(2rem, 5vw, 2.6rem); line-height: 1.1; color: var(--forest-deep); }
-.hero p.sub { margin: 1rem 0 0; line-height: 1.65; color: var(--muted-foreground); }
-.btn-mustard { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--mustard); color: var(--ink); border: 2px solid var(--ink); border-radius: var(--radius); padding: 0.7rem 1.2rem; font-family: inherit; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.78rem; text-decoration: none; cursor: pointer; box-shadow: var(--shadow-block-sm); }
-.card .act { margin-top: 1.1rem; display: flex; }
-.card .act .btn-mustard { padding: 0.55rem 1rem; font-size: 0.72rem; }
-.card .status { margin-top: 0.7rem; font-family: var(--font-mono); font-size: 0.72rem; line-height: 1.6; color: var(--forest); display: none; }
-article { max-width: 44rem; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
-article p.lead { font-size: 0.95rem; line-height: 1.7; color: var(--muted-foreground); }
-.card { border: 2px solid var(--ink); border-radius: 0.5rem; background: var(--card); box-shadow: var(--shadow-block-sm); padding: 1.5rem; margin-top: 1.5rem; }
-.card .badge { color: var(--forest); }
-.card h3 { margin: 0.5rem 0 0.6rem; font-weight: 400; font-size: 1.45rem; line-height: 1.25; color: var(--ink); }
-.card p, .card li { font-size: 0.92rem; line-height: 1.65; color: var(--muted-foreground); margin: 0; }
-.card p + p, .card ol, .card ul { margin-top: 0.6rem; }
-.card ol, .card ul { padding-left: 1.2rem; }
-.card li + li { margin-top: 0.45rem; }
-.card code { font-family: var(--font-mono); font-size: 0.82em; background: var(--muted); border: 1px solid var(--border); border-radius: 4px; padding: 0.08em 0.35em; }
-.card .codeline { border: 1.5px solid var(--ink); border-radius: var(--radius); background: var(--mint); padding: 0.7rem 0.9rem; margin-top: 0.8rem; }
-.card .codeline code { background: none; border: 0; padding: 0; font-size: 0.78rem; line-height: 1.6; color: var(--ink); }
-.tail { margin-top: 3rem; border-top: 2px solid var(--ink); padding-top: 0.5rem; }
-.tail-h { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--forest); margin: 1.6rem 0 0.45rem; font-weight: 500; }
-.tail p, .tail li { font-size: 0.85rem; line-height: 1.65; color: var(--muted-foreground); margin: 0; }
-.tail p + p { margin-top: 0.5rem; }
-.tail ul, .tail ol { margin: 0.4rem 0 0; padding-left: 1.2rem; }
-.tail li + li { margin-top: 0.4rem; }
-.tail code { font-family: var(--font-mono); font-size: 0.82em; background: var(--muted); border: 1px solid var(--border); border-radius: 4px; padding: 0.08em 0.35em; }
-.tail .codeline { margin-top: 0.5rem; }
-.site-foot { border-top: 2px solid var(--ink); background: var(--forest-deep); color: var(--cream); }
-.site-foot .wrap { max-width: 44rem; margin: 0 auto; padding: 1.5rem; font-size: 0.875rem; color: color-mix(in oklab, var(--cream) 75%, transparent); }
+.head-label { color: color-mix(in oklab, var(--cream) 70%, transparent); }
+.hero { border-bottom: 2px solid var(--ink); background: var(--forest); color: var(--cream); }
+.hero .wrap { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+.hero .eyebrow { color: color-mix(in oklab, var(--cream) 70%, transparent); }
+.hero h1 { margin: 0.9rem 0 0; font-weight: 400; font-size: clamp(2.2rem, 6vw, 3rem); line-height: 1.05; }
+.hero .sub { margin: 1.25rem 0 0; max-width: 34rem; font-size: 0.95rem; line-height: 1.65; color: color-mix(in oklab, var(--cream) 80%, transparent); }
+section.way { border-bottom: 2px solid var(--ink); }
+.bg-cream { background: var(--cream); }
+.bg-mint { background: var(--mint); }
+.way .wrap { padding-top: 3rem; padding-bottom: 3rem; }
+.way .badge { color: var(--forest); }
+.way h2 { margin: 0.6rem 0 0.9rem; font-weight: 400; font-size: clamp(1.6rem, 4vw, 2rem); line-height: 1.15; color: var(--ink); }
+.way p, .way li { margin: 0; font-size: 0.95rem; line-height: 1.65; color: var(--muted-foreground); }
+.way p + p, .way ol { margin-top: 0.9rem; }
+.way ol { padding-left: 1.25rem; }
+.way li + li { margin-top: 0.55rem; }
+.way code { font-family: var(--font-mono); font-size: 0.82em; background: var(--muted); border: 1px solid var(--border); border-radius: 4px; padding: 0.08em 0.35em; }
+.way a { color: var(--forest); text-decoration: underline; text-underline-offset: 3px; }
+.way a.btn-mustard { color: var(--ink); text-decoration: none; }
+.codeline { border: 2px solid var(--ink); border-radius: var(--radius); background: var(--card); box-shadow: var(--shadow-block-sm); padding: 0.9rem 1.1rem; margin-top: 1.1rem; }
+.codeline code { background: none; border: 0; padding: 0; font-size: 0.8rem; line-height: 1.65; color: var(--ink); }
+.btn-mustard { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--mustard); color: var(--ink); border: 2px solid var(--ink); border-radius: var(--radius); padding: 0.6rem 1.1rem; font-family: inherit; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.72rem; text-decoration: none; cursor: pointer; box-shadow: var(--shadow-block-sm); }
+.act { margin-top: 1.25rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.status { font-family: var(--font-mono); font-size: 0.7rem; line-height: 1.5; color: var(--forest); display: none; }
+p.foot { margin-top: 1.1rem; font-size: 0.8rem; color: var(--muted-foreground); }
+section.tailband { border-bottom: 2px solid var(--ink); }
+.band-forest { background: var(--forest); color: var(--cream); }
+.band-cream { background: var(--cream); }
+.tailband .wrap { padding-top: 2.75rem; padding-bottom: 2.75rem; }
+.tailband h2 { margin: 0 0 0.9rem; font-weight: 400; font-size: clamp(1.4rem, 3.5vw, 1.7rem); line-height: 1.2; }
+.tailband p { margin: 0; font-size: 0.95rem; line-height: 1.7; }
+.tailband p + p { margin-top: 0.8rem; }
+.band-forest p { color: color-mix(in oklab, var(--cream) 82%, transparent); }
+.band-forest p:first-of-type { color: var(--cream); }
+.band-cream p { color: var(--muted-foreground); }
+.tailband a { text-decoration: underline; text-underline-offset: 3px; }
+.band-forest a { color: var(--mustard); }
+.band-cream a { color: var(--forest); }
+.site-foot { background: var(--forest-deep); color: var(--cream); }
+.site-foot .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; padding-top: 1.75rem; padding-bottom: 1.75rem; }
+.site-foot .brand { font-size: 1.25rem; }
+.site-foot .small { font-size: 0.8rem; color: color-mix(in oklab, var(--cream) 70%, transparent); }
 .site-foot a { color: var(--mustard); }
 </style>
 </head>
 <body>
-<header class="site-head"><div class="wrap"><a class="brand display-italic" href="/">Account X-ray</a><span class="label-caps" style="color:color-mix(in oklab, var(--cream) 70%, transparent)">The guide</span></div></header>
-<section class="hero"><div class="wrap">
+<header class="site-head"><div class="wrap"><a class="brand display-italic" href="/">Account X-ray</a><span class="label-caps head-label">The guide</span></div></header>
+<section class="hero hill"><div class="wrap">
+<p class="label-caps eyebrow">The guide</p>
 <h1 class="display-italic">One message. Walk in prepared.</h1>
+<p class="sub">Three ways to run it, easiest first. All three give you the same thing: a profile with sources.</p>
 </div></section>
-<article>
-<p class="lead">Three ways in, easiest first. Whichever you pick: one line about the meeting in, a profile with sources back.</p>
-<div class="card"><span class="label-caps badge">Way one</span><h3 class="display-italic">One message</h3><p>Open Claude, ChatGPT, or whichever AI you use, and send:</p>
+<section class="way bg-cream"><div class="wrap"><span class="label-caps badge">Way one</span><h2 class="display-italic">Send one message</h2><p>Paste this into ChatGPT, Claude, whatever you use:</p>
 <p class="codeline"><code>Prep me for a first call: I work at [your company], I'm meeting [person] at [account]. xray.joannatu.com/full</code></p>
-<p>The AI reads the kit from the link and runs it, newest version, nothing to install. One catch: some AIs can't open links on some days, Gemini most often. When that happens, way two.</p><div class="act"><button class="btn-mustard" id="copymsg" type="button">Copy the message</button></div><p class="status" id="copymsg-status"></p></div>
-<div class="card"><span class="label-caps badge">Way two</span><h3 class="display-italic">Copy, paste, run</h3><p>Open xray.joannatu.com/full and tap "Copy this whole page", or copy <code>account-xray-v7.7-page.md</code> from the pack. Paste it into the chat with web search on, then add one line:</p>
+<div class="act"><button class="btn-mustard copyline" type="button" data-ok="Copied. Fill in the brackets and send it." data-fail="Could not copy here. Select the message above and copy it yourself.">Copy the message</button><span class="status"></span></div><p class="foot">If your AI can't open the link (Gemini, some days), use way two.</p></div></section>
+<section class="way bg-cream"><div class="wrap"><span class="label-caps badge">Way two</span><h2 class="display-italic">Paste the kit</h2><p>Copy everything from <a href="https://xray.joannatu.com/full" target="_blank" rel="noopener">xray.joannatu.com/full</a> into a chat with web search on, then add:</p>
 <p class="codeline"><code>MY COMPANY: [your company]. TARGET: [the account]. PERSON: [who you are meeting].</code></p>
-<p>Pasted text works every time, on any AI. On a phone, attach the file instead, same message.</p><div class="act"><button class="btn-mustard" id="copykit" type="button">Copy the whole kit</button></div><p class="status" id="copykit-status"></p></div>
-<div class="card"><span class="label-caps badge">Advanced</span><h3 class="display-italic">Install it once</h3><p>Five minutes, and from then on prep is one line. The clean path is a Claude Project:</p>
+<div class="act"><button class="btn-mustard copyline" type="button" data-ok="Copied. Paste the kit first, then this line." data-fail="Could not copy here. Select the line above and copy it yourself.">Copy the line</button><span class="status"></span></div><p class="foot">Works on any AI, every time. On a phone, attach the file instead.</p></div></section>
+<section class="way bg-mint"><div class="wrap"><span class="label-caps badge">Way three</span><h2 class="display-italic">Install it once</h2><p>Five minutes in a Claude Project. After that, prep is one line.</p>
 <ol>
-<li>Create a project.</li>
-<li>Paste <code>files/engine.md</code> into the project instructions and fill in MY COMPANY.</li>
+<li>Paste <code>files/engine.md</code> into the project instructions, fill in your company.</li>
 <li>Add <code>files/01</code> to <code>files/10</code> as project knowledge.</li>
-<li>Before each meeting, type one line: <code>Nordvik Outdoor, meeting Ingrid Solheim</code>.</li>
+<li>Type: <code>Nordvik Outdoor, meeting Ingrid Solheim</code>.</li>
 </ol>
-<p>A custom GPT: the instructions box caps at 8,000 characters and the engine is nearly twice that, so add <code>engine.md</code> as the first knowledge file, with one instruction line: "Open engine.md first and follow it exactly." A Gemini Gem: ten knowledge files max, so leave out <code>08-the-internal-case.md</code> and paste it in on the day you need it.</p>
-<p>The profile's "Files read" line tells you the install worked: it should say "02 + full catalog".</p><div class="act"><a class="btn-mustard" href="/pack/account-xray-pack.zip">Download the pack</a></div></div>
-<div class="tail">
-<h4 class="tail-h">Before you take it into a room</h4><p>How deep the research goes depends on the AI you run it in. Every line carries a source and a date; check the ones you plan to say out loud. Some things stay out of reach on every run: LinkedIn behind its login, your CRM, colleagues' memory, podcast audio, paywalled press. The profile's GO DEEPER section says who can close each gap.</p>
-<h4 class="tail-h">Updates</h4><p>Every change ships to the readers' list first: salesled.substack.com. Found something the X-ray got wrong? Send it to xray@joannatu.com, with the profile if you have one. Every reply shapes the next version.</p>
-<p>Account X-ray, version 7.7, 11 August 2026. CC BY 4.0. Made by Joanna Turczynska.</p>
-</div>
-</article>
-<footer class="site-foot"><div class="wrap">Open source under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> &middot; Joanna Turczynska &middot; <a href="https://salesled.substack.com" target="_blank" rel="noopener">salesled.substack.com</a></div></footer>
+<div class="act"><a class="btn-mustard" href="/pack/account-xray-pack.zip">Download the pack</a></div><p class="foot">Custom GPT or Gemini Gem instead? The pack's guide covers both.</p></div></section>
+<section class="tailband band-forest"><div class="wrap"><h2 class="display-italic">Before you walk in</h2><p>Check the lines you plan to say out loud. Every one carries a source and a date.</p>
+<p>LinkedIn behind its login, your CRM, podcast audio, paywalled press: still out of reach. The profile tells you who can fill each gap.</p></div></section>
+<section class="tailband band-cream"><div class="wrap"><h2 class="display-italic">Found something wrong?</h2><p>Tell me: <a href="mailto:xray@joannatu.com">xray@joannatu.com</a>. Every reply shapes the next version. Updates land on <a href="https://salesled.substack.com" target="_blank" rel="noopener">salesled.substack.com</a> first.</p></div></section>
+<footer class="site-foot"><div class="wrap"><span class="display-italic brand">Account X-ray</span><span class="small">v7.7 &middot; <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> &middot; Joanna Turczynska</span></div></footer>
 <script>
-function showStatus(id, message) {
-  var s = document.getElementById(id);
-  s.style.display = "block";
-  s.textContent = message;
-}
 function putOnClipboard(text, onDone) {
   // The button must speak in every outcome: modern API first, the legacy
   // copy command when that is missing or refuses, and an honest "could
@@ -120,23 +124,14 @@ function putOnClipboard(text, onDone) {
     legacy();
   }
 }
-document.getElementById("copymsg").addEventListener("click", function () {
-  var line = this.closest(".card").querySelector(".codeline");
-  putOnClipboard(line.textContent.trim(), function (ok) {
-    showStatus("copymsg-status", ok
-      ? "Copied. Fill in the brackets and send it."
-      : "Could not copy here. Select the message above and copy it yourself.");
-  });
-});
-document.getElementById("copykit").addEventListener("click", function () {
-  fetch("/full.md").then(function (r) { return r.text(); }).then(function (t) {
-    putOnClipboard(t, function (ok) {
-      showStatus("copykit-status", ok
-        ? "Copied. Paste it into your AI with web search on, then add one line: your company, their company, the person."
-        : "Could not copy here. Open xray.joannatu.com/full.md and copy it there.");
+document.querySelectorAll(".copyline").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var line = btn.closest("section").querySelector(".codeline");
+    var status = btn.parentNode.querySelector(".status");
+    putOnClipboard(line.textContent.trim(), function (ok) {
+      status.style.display = "inline";
+      status.textContent = ok ? btn.getAttribute("data-ok") : btn.getAttribute("data-fail");
     });
-  }).catch(function () {
-    showStatus("copykit-status", "Could not copy here. Open xray.joannatu.com/full.md and copy it there.");
   });
 });
 </script>
