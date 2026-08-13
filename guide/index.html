@@ -101,28 +101,39 @@ function showStatus(id, message) {
   s.textContent = message;
 }
 function putOnClipboard(text, onDone) {
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(text).then(onDone);
-  } else {
+  // The button must speak in every outcome: modern API first, the legacy
+  // copy command when that is missing or refuses, and an honest "could
+  // not copy" if both fail.
+  function legacy() {
     var a = document.createElement("textarea");
     a.value = text;
     document.body.appendChild(a);
     a.select();
-    document.execCommand("copy");
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (ignored) { ok = false; }
     document.body.removeChild(a);
-    onDone();
+    onDone(ok);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(function () { onDone(true); }, legacy);
+  } else {
+    legacy();
   }
 }
 document.getElementById("copymsg").addEventListener("click", function () {
   var line = this.closest(".card").querySelector(".codeline");
-  putOnClipboard(line.textContent.trim(), function () {
-    showStatus("copymsg-status", "Copied. Fill in the brackets and send it.");
+  putOnClipboard(line.textContent.trim(), function (ok) {
+    showStatus("copymsg-status", ok
+      ? "Copied. Fill in the brackets and send it."
+      : "Could not copy here. Select the message above and copy it yourself.");
   });
 });
 document.getElementById("copykit").addEventListener("click", function () {
   fetch("/full.md").then(function (r) { return r.text(); }).then(function (t) {
-    putOnClipboard(t, function () {
-      showStatus("copykit-status", "Copied. Paste it into your AI with web search on, then add one line: your company, their company, the person.");
+    putOnClipboard(t, function (ok) {
+      showStatus("copykit-status", ok
+        ? "Copied. Paste it into your AI with web search on, then add one line: your company, their company, the person."
+        : "Could not copy here. Open xray.joannatu.com/full.md and copy it there.");
     });
   }).catch(function () {
     showStatus("copykit-status", "Could not copy here. Open xray.joannatu.com/full.md and copy it there.");
