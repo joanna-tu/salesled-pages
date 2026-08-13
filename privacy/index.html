@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Account X-ray - privacy</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="What happens to data on this site: what the visit counter records, how to refuse it, and where an email address goes.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232f5d4a'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-style='italic' font-size='42' fill='%23eac054' text-anchor='middle'%3EX%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=National+Park:wght@300;400;500;600;700&display=swap">
+<script src="/ga.js" defer></script>
+<style>
+:root {
+  --cream: oklch(0.966 0.024 96); --forest: oklch(0.418 0.079 168);
+  --forest-deep: oklch(0.325 0.062 168); --mint: oklch(0.925 0.058 128);
+  --mustard: oklch(0.824 0.137 87); --ink: oklch(0.19 0.008 96);
+  --muted-foreground: oklch(0.48 0.014 120);
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-sans: "National Park", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--font-sans); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+::selection { background: var(--mustard); color: var(--ink); }
+a { color: inherit; }
+.display-italic { font-family: var(--font-display); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+.label-caps { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; }
+.wrap { max-width: 44rem; margin: 0 auto; padding-left: 1.5rem; padding-right: 1.5rem; }
+.hill { background-image: radial-gradient(120% 100% at 50% 100%, color-mix(in oklab, var(--mint) 22%, transparent) 0%, transparent 62%); }
+.site-head { border-bottom: 2px solid var(--ink); background: var(--forest); color: var(--cream); }
+.site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1rem; padding-bottom: 1rem;}
+.site-head a.brand { font-size: 1.5rem; text-decoration: none; }
+.site-head a.brand:hover { color: var(--mustard); }
+.head-label { color: color-mix(in oklab, var(--cream) 70%, transparent); }
+.hero { border-bottom: 2px solid var(--ink); background: var(--forest); color: var(--cream); }
+.hero .wrap { padding-top: 3.5rem; padding-bottom: 3.5rem;}
+.hero .eyebrow { color: color-mix(in oklab, var(--cream) 70%, transparent); }
+.hero h1 { margin: 0.9rem 0 0; font-weight: 400; font-size: clamp(2.1rem, 5.5vw, 2.9rem); line-height: 1.05; }
+.hero .sub { margin: 1.25rem 0 0; max-width: 34rem; font-size: 0.95rem; line-height: 1.65; color: color-mix(in oklab, var(--cream) 80%, transparent); }
+main { border-bottom: 2px solid var(--ink); }
+main .wrap { padding-top: 3rem; padding-bottom: 3.5rem; }
+main h2 { margin: 2.5rem 0 0.9rem; font-weight: 400; font-size: clamp(1.4rem, 3.5vw, 1.75rem); line-height: 1.2; color: var(--forest); }
+main h2:first-of-type { margin-top: 2rem; }
+main p { margin: 0; font-size: 0.95rem; line-height: 1.75; color: var(--muted-foreground); }
+main p + p { margin-top: 0.9rem; }
+main p.opening { color: var(--ink); }
+main a { color: var(--forest); text-decoration: underline; text-underline-offset: 3px; }
+main p.stamp { margin-top: 3rem; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted-foreground); }
+.site-foot { background: var(--forest-deep); color: var(--cream); }
+.site-foot .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; padding-top: 1.75rem; padding-bottom: 1.75rem;}
+.site-foot .brand { font-size: 1.25rem; }
+.site-foot .small { font-size: 0.8rem; color: color-mix(in oklab, var(--cream) 70%, transparent); }
+.site-foot a { color: var(--mustard); }
+</style>
+</head>
+<body>
+<header class="site-head"><div class="wrap"><a class="brand display-italic" href="/">Account X-ray</a><span class="label-caps head-label">Privacy</span></div></header>
+
+<section class="hero hill"><div class="wrap">
+<p class="label-caps eyebrow">Privacy</p>
+<h1 class="display-italic">What this site knows about you.</h1>
+<p class="sub">Account X-ray only works if you can check where every line came from. The same rule applies to me. This page says what happens to data here, and it is short, because not much does.</p>
+</div></section>
+
+<main><div class="wrap">
+
+<p class="opening">I am Joanna Turczynska and I run this site on my own. Anything on this page, write to <a href="mailto:hello@joannatu.com">hello@joannatu.com</a>.</p>
+
+<h2 class="display-italic">Counting visits</h2>
+<p>I use Google Analytics to count visits. Which pages get read and which get abandoned is the only signal I have about what to fix.</p>
+<p>It sees the pages you open, the site that sent you, your rough location, and the kind of device you are on. It leaves an identifier in your browser so your second page does not count as a second person. It never learns your name, and I never see one.</p>
+<p>The law calls my reason a legitimate interest, which is the formal way of saying I am allowed to count and you are allowed to refuse. Refusing takes one click, on the "Don't count me" button in the notice at the bottom of the page. It is a real switch, not a gesture. After it, nothing is sent, on this visit or any visit later.</p>
+<p>Google does the counting for me. Some of it reaches the United States, covered by the EU-US Data Privacy Framework. Nothing detailed is kept longer than 14 months.</p>
+
+<h2 class="display-italic">If you type your email</h2>
+<p>It goes to Substack, which runs my newsletter, and it stops there. These pages are files on a server with nothing behind them, so there is nowhere here to keep it. Substack holds the list and sends the mail under its own <a href="https://substack.com/privacy" target="_blank" rel="noopener">privacy policy</a>. Every email has an unsubscribe link, and it works.</p>
+
+<h2 class="display-italic">What any website sees</h2>
+<p>Two more things happen when a page opens, and you should hear them from me rather than find them. GitHub serves these pages and sees the address your request came from, the way every web server does. The fonts load from Google, which sees it too.</p>
+
+<h2 class="display-italic">Your rights</h2>
+<p>Ask what I hold about you, ask for it to be corrected or deleted, or object to the counting. Write to <a href="mailto:hello@joannatu.com">hello@joannatu.com</a> and you get an answer inside a month. If you think I handled it badly, the Polish data protection authority takes complaints at <a href="https://uodo.gov.pl" target="_blank" rel="noopener">uodo.gov.pl</a>.</p>
+
+<p class="stamp">Last updated 13 August 2026</p>
+
+</div></main>
+
+<footer class="site-foot"><div class="wrap"><span class="display-italic brand">Account X-ray</span><span class="small">By Joanna Turczynska &middot; <a href="https://salesled.substack.com" target="_blank" rel="noopener">salesled.substack.com</a></span></div></footer>
+</body>
+</html>

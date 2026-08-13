@@ -66,6 +66,13 @@
     text.textContent =
       "I count visits with Google Analytics, to see which pages help and which don't.";
 
+    // The notice is the only chrome the plain kit pages have, so it carries
+    // the link to the full page for every surface on the site.
+    var more = document.createElement("a");
+    more.href = "/privacy";
+    more.textContent = "What that means";
+    more.style.cssText = "color:inherit;text-underline-offset:3px";
+
     var ok = document.createElement("button");
     ok.type = "button";
     ok.textContent = "OK";
@@ -92,6 +99,7 @@
     };
 
     bar.appendChild(text);
+    bar.appendChild(more);
     bar.appendChild(ok);
     bar.appendChild(out);
     document.body.appendChild(bar);
