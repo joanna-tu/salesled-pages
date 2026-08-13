@@ -1,6 +1,6 @@
 # Account X-ray - the guide
 
-Three ways to run it, easiest first. All three give you the same thing: a profile with sources.
+Three ways in, easiest first. They all end the same way: a profile you can check.
 
 ## Way one: send one message
 
@@ -12,19 +12,17 @@ If your AI can't open the link (Gemini, some days), use way two.
 
 ## Way two: paste the kit
 
-Copy everything from xray.joannatu.com/full into a chat with web search on, then add:
+Two pastes: the whole kit into a chat with web search on, then this line:
 
 `MY COMPANY: [your company]. TARGET: [the account]. PERSON: [who you are meeting].`
 
-Works on any AI, every time. On a phone, attach the file instead.
-
 ## Way three: install it once
 
-Five minutes in a Claude Project. After that, prep is one line.
+Five minutes in a Claude Project:
 
 1. Paste `files/engine.md` into the project instructions, fill in your company.
 2. Add `files/01` to `files/10` as project knowledge.
-3. Type: `Nordvik Outdoor, meeting Ingrid Solheim`.
+3. Type: `[account], meeting [person]`.
 
 Custom GPT or Gemini Gem instead? The pack's guide covers both.
 
@@ -34,9 +32,9 @@ A custom GPT's instructions box caps at 8,000 characters and the engine is nearl
 
 ## Before you walk in
 
-Check the lines you plan to say out loud. Every one carries a source and a date.
+Check the lines you plan to say out loud. Each one shows where it came from, and when.
 
-LinkedIn behind its login, your CRM, podcast audio, paywalled press: still out of reach. The profile tells you who can fill each gap.
+Some doors stay closed: LinkedIn behind its login, your CRM, anything behind a paywall. The profile marks each gap and says who to ask.
 
 ## Found something wrong?
 

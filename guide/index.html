@@ -84,23 +84,20 @@ section.tailband { border-bottom: 2px solid var(--ink); }
 <section class="hero hill"><div class="wrap">
 <p class="label-caps eyebrow">The guide</p>
 <h1 class="display-italic">One message. Walk in prepared.</h1>
-<p class="sub">Three ways to run it, easiest first. All three give you the same thing: a profile with sources.</p>
+<p class="sub">Three ways in, easiest first. They all end the same way: a profile you can check.</p>
 </div></section>
 <section class="way bg-cream"><div class="wrap"><span class="label-caps badge">Way one</span><h2 class="display-italic">Send one message</h2><p>Paste this into ChatGPT, Claude, whatever you use:</p>
-<p class="codeline"><code>Prep me for a first call: I work at [your company], I'm meeting [person] at [account]. xray.joannatu.com/full</code></p>
-<div class="act"><button class="btn-mustard copyline" type="button" data-ok="Copied. Fill in the brackets and send it." data-fail="Could not copy here. Select the message above and copy it yourself.">Copy the message</button><span class="status"></span></div><p class="foot">If your AI can't open the link (Gemini, some days), use way two.</p></div></section>
-<section class="way bg-cream"><div class="wrap"><span class="label-caps badge">Way two</span><h2 class="display-italic">Paste the kit</h2><p>Copy everything from <a href="https://xray.joannatu.com/full" target="_blank" rel="noopener">xray.joannatu.com/full</a> into a chat with web search on, then add:</p>
-<p class="codeline"><code>MY COMPANY: [your company]. TARGET: [the account]. PERSON: [who you are meeting].</code></p>
-<div class="act"><button class="btn-mustard copyline" type="button" data-ok="Copied. Paste the kit first, then this line." data-fail="Could not copy here. Select the line above and copy it yourself.">Copy the line</button><span class="status"></span></div><p class="foot">Works on any AI, every time. On a phone, attach the file instead.</p></div></section>
-<section class="way bg-mint"><div class="wrap"><span class="label-caps badge">Way three</span><h2 class="display-italic">Install it once</h2><p>Five minutes in a Claude Project. After that, prep is one line.</p>
+<p class="codeline"><code>Prep me for a first call: I work at [your company], I'm meeting [person] at [account]. xray.joannatu.com/full</code></p><div class="act"><button class="btn-mustard copyline" type="button" data-ok="Copied. Fill in the brackets and send it." data-fail="Could not copy here. Select the message above and copy it yourself.">Copy the message</button><span class="status"></span></div><p class="foot">If your AI can't open the link (Gemini, some days), use way two.</p></div></section>
+<section class="way bg-cream"><div class="wrap"><span class="label-caps badge">Way two</span><h2 class="display-italic">Paste the kit</h2><p>Two pastes: the whole kit into a chat with web search on, then this line:</p>
+<p class="codeline"><code>MY COMPANY: [your company]. TARGET: [the account]. PERSON: [who you are meeting].</code></p><div class="act"><button class="btn-mustard copykit" type="button" data-ok="Copied, all of it. Paste it into the chat." data-fail="Could not copy here. Open xray.joannatu.com/full and use its copy button.">1. Copy the kit</button><button class="btn-mustard copyline" type="button" data-ok="Copied. Fill in the brackets and send it." data-fail="Could not copy here. Select the line above and copy it yourself.">2. Copy the line</button><span class="status"></span></div></div></section>
+<section class="way bg-mint"><div class="wrap"><span class="label-caps badge">Way three</span><h2 class="display-italic">Install it once</h2><p>Five minutes in a Claude Project:</p>
 <ol>
 <li>Paste <code>files/engine.md</code> into the project instructions, fill in your company.</li>
 <li>Add <code>files/01</code> to <code>files/10</code> as project knowledge.</li>
-<li>Type: <code>Nordvik Outdoor, meeting Ingrid Solheim</code>.</li>
-</ol>
-<div class="act"><a class="btn-mustard" href="/pack/account-xray-pack.zip">Download the pack</a></div><p class="foot">Custom GPT or Gemini Gem instead? The pack's guide covers both.</p></div></section>
-<section class="tailband band-forest"><div class="wrap"><h2 class="display-italic">Before you walk in</h2><p>Check the lines you plan to say out loud. Every one carries a source and a date.</p>
-<p>LinkedIn behind its login, your CRM, podcast audio, paywalled press: still out of reach. The profile tells you who can fill each gap.</p></div></section>
+<li>Type: <code>[account], meeting [person]</code>.</li>
+</ol><div class="act"><a class="btn-mustard" href="/pack/account-xray-pack.zip">Download the pack</a></div><p class="foot">Custom GPT or Gemini Gem instead? The pack's guide covers both.</p></div></section>
+<section class="tailband band-forest"><div class="wrap"><h2 class="display-italic">Before you walk in</h2><p>Check the lines you plan to say out loud. Each one shows where it came from, and when.</p>
+<p>Some doors stay closed: LinkedIn behind its login, your CRM, anything behind a paywall. The profile marks each gap and says who to ask.</p></div></section>
 <section class="tailband band-cream"><div class="wrap"><h2 class="display-italic">Found something wrong?</h2><p>Tell me: <a href="mailto:xray@joannatu.com">xray@joannatu.com</a>. Every reply shapes the next version. Updates land on <a href="https://salesled.substack.com" target="_blank" rel="noopener">salesled.substack.com</a> first.</p></div></section>
 <footer class="site-foot"><div class="wrap"><span class="display-italic brand">Account X-ray</span><span class="small">v7.7 &middot; <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> &middot; Joanna Turczynska</span></div></footer>
 <script>
@@ -124,14 +121,24 @@ function putOnClipboard(text, onDone) {
     legacy();
   }
 }
+function report(btn) {
+  var status = btn.closest("section").querySelector(".status");
+  return function (ok) {
+    status.style.display = "inline";
+    status.textContent = ok ? btn.getAttribute("data-ok") : btn.getAttribute("data-fail");
+  };
+}
 document.querySelectorAll(".copyline").forEach(function (btn) {
   btn.addEventListener("click", function () {
     var line = btn.closest("section").querySelector(".codeline");
-    var status = btn.parentNode.querySelector(".status");
-    putOnClipboard(line.textContent.trim(), function (ok) {
-      status.style.display = "inline";
-      status.textContent = ok ? btn.getAttribute("data-ok") : btn.getAttribute("data-fail");
-    });
+    putOnClipboard(line.textContent.trim(), report(btn));
+  });
+});
+document.querySelectorAll(".copykit").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    fetch("/full.md").then(function (r) { return r.text(); }).then(function (t) {
+      putOnClipboard(t, report(btn));
+    }).catch(function () { report(btn)(false); });
   });
 });
 </script>
