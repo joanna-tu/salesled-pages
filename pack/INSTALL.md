@@ -20,12 +20,14 @@ Pasted text never depends on the AI's link-fetching mood, so this is the reliabl
 
 ## More advanced: install it once (about five minutes)
 
-For weekly use, put the kit where it stays loaded. In a Claude Project, a custom GPT, or a Gemini Gem:
+For weekly use, put the kit where it stays loaded. The clean path is a Claude Project:
 
 1. Create the project.
 2. Paste the contents of `files/engine.md` into the project instructions, and fill in MY COMPANY with your company's name.
 3. Add `files/01` to `files/10` as project knowledge.
 4. Done. Before each meeting, type one line: `Nordvik Outdoor, meeting Ingrid Solheim`.
+
+A custom GPT or a Gemini Gem works too, each with one wrinkle. A GPT's instructions box caps at 8,000 characters and the engine is nearly twice that, so add `engine.md` as the first knowledge file instead and put one line in the instructions: "Open engine.md first and follow it exactly; it is the method." A Gem takes at most ten knowledge files and engine plus files 01 to 10 is eleven, so leave out `08-the-internal-case.md` and paste it in on the day you need it.
 
 One note: file 02 in this pack already carries the complete 39-signal catalog, so an installed X-ray reads every signal the page reads. The profile's "Files read" line will say "02 + full catalog"; that is how you know it worked.
 
@@ -35,7 +37,6 @@ The output depends on the AI you run it in: some search harder than others, and 
 
 ## What else is in the pack
 
-- `first-call-prep-evals.md` - ten scenarios with the must-knows per meeting type. This is the test set: run any research tool (this one included) against a scenario, then grade what came back. The sixteen reality checks were extracted from these.
 - `account-xray-v7.7-page.md` - the whole kit as one page, for reading or for way two.
 - `LICENSE.md` - CC BY 4.0. Use it, adapt it, build on it, commercially too; keep the attribution line.
 
