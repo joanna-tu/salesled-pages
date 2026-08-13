@@ -1,6 +1,6 @@
 # Account X-ray - the pack
 
-This is the whole kit as files you keep. Same text as the page at xray.joannatu.com/full, nothing more, nothing less. Three ways to run it, easiest first.
+The whole kit, yours to keep. Same text as the page at xray.joannatu.com/full, nothing more, nothing less. Three ways to run it, easiest first.
 
 ## Way one: copy, paste, run
 
@@ -33,7 +33,7 @@ One note: file 02 in this pack already carries the complete 39-signal catalog, s
 
 ## Before you use any of it in a room
 
-The output depends on the AI you run it in: some search harder than others, and the same page can run brilliantly on one and thinly on another. That is why every line carries a source and a date. Check the sources before the meeting, not after. A profile is preparation, not gospel.
+The output depends on the AI you run it in: some search harder than others. Every line carries a source and a date; check them before the meeting, not after. A profile is preparation, not gospel.
 
 ## What else is in the pack
 
@@ -42,7 +42,7 @@ The output depends on the AI you run it in: some search harder than others, and 
 
 ## Know the blind spots
 
-The tool is honest about its edges. Permanently out of reach, every run: LinkedIn behind its login (only the public echoes search engines hold leak out, and those are used as leads, marked stale until you check them), your own CRM and colleagues' memory of the account, audio (it finds that podcasts exist, it cannot listen to them), paywalled press, and anything that lives in private conversations. These are exactly where your minutes are worth the most, which is why every profile's GO DEEPER section labels each gap by who can close it: paste-fixable, human-only, or AI-next-run.
+Some things stay out of reach on every run: LinkedIn behind its login, your CRM, colleagues' memory of the account, podcast audio, paywalled press. That is exactly where your own minutes are worth the most, and every profile's GO DEEPER section says who can close each gap.
 
 ## Updates
 
