@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=National+Park:wght@300;400;500;600;700&display=swap">
+<script src="/ga.js" defer></script>
 <style>
 :root {
   --radius: 0.375rem;
@@ -87,9 +88,9 @@ section.tailband { border-bottom: 2px solid var(--ink); }
 <p class="sub">The easiest way is to send one message to the AI you already use. If your AI can't open links that day, paste the kit instead. If you'll use it every week, five minutes installs it for good. That's the whole setup.</p>
 </div></section>
 <section class="way bg-cream"><div class="wrap"><span class="label-caps badge">Way one</span><h2 class="display-italic">Send one message</h2><p>Paste this into ChatGPT, Claude, whatever you use:</p>
-<p class="codeline"><code>Prep me for a first call: I work at [your company], I'm meeting [person] at [account]. xray.joannatu.com/full</code></p><div class="act"><button class="btn-mustard copyline" type="button" data-ok="Copied. Fill in the brackets and send it." data-fail="Could not copy here. Select the message above and copy it yourself.">Copy the message</button><span class="status"></span></div><p class="foot">If your AI can't open the link (Gemini, some days), use way two.</p></div></section>
+<p class="codeline"><code>Prep me for a first call: I work at [your company], I'm meeting [person] at [account]. xray.joannatu.com/full</code></p><div class="act"><button class="btn-mustard copyline" type="button" data-track="copy_message" data-ok="Copied. Fill in the brackets and send it." data-fail="Could not copy here. Select the message above and copy it yourself.">Copy the message</button><span class="status"></span></div><p class="foot">If your AI can't open the link (Gemini, some days), use way two.</p></div></section>
 <section class="way bg-cream"><div class="wrap"><span class="label-caps badge">Way two</span><h2 class="display-italic">Paste the kit</h2><p>Two pastes: the whole kit into a chat with web search on, then this line:</p>
-<p class="codeline"><code>Prep me for a first call: I work at [your company], I'm meeting [person] at [account].</code></p><div class="act"><button class="btn-mustard copykit" type="button" data-ok="Copied, all of it. Paste it into the chat." data-fail="Could not copy here. Open <a href='/full'>xray.joannatu.com/full</a> and use its copy button.">1. Copy the kit</button><button class="btn-mustard copyline" type="button" data-ok="Copied. Fill in the brackets and send it." data-fail="Could not copy here. Select the line above and copy it yourself.">2. Copy the line</button><span class="status"></span></div></div></section>
+<p class="codeline"><code>Prep me for a first call: I work at [your company], I'm meeting [person] at [account].</code></p><div class="act"><button class="btn-mustard copykit" type="button" data-track="copy_kit" data-ok="Copied, all of it. Paste it into the chat." data-fail="Could not copy here. Open <a href='/full'>xray.joannatu.com/full</a> and use its copy button.">1. Copy the kit</button><button class="btn-mustard copyline" type="button" data-track="copy_line" data-ok="Copied. Fill in the brackets and send it." data-fail="Could not copy here. Select the line above and copy it yourself.">2. Copy the line</button><span class="status"></span></div></div></section>
 <section class="way bg-mint"><div class="wrap"><span class="label-caps badge">Way three</span><h2 class="display-italic">Install it once</h2><p>Five minutes in a Claude Project:</p>
 <ol>
 <li>Paste <code>files/engine.md</code> into the project instructions, fill in your company.</li>

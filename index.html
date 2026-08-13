@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=National+Park:wght@300;400;500;600;700&display=swap">
+<script src="/ga.js" defer></script>
 <style>
 /* Design tokens ported from the Lovable project (src/styles.css), unchanged. */
 :root {
@@ -444,7 +445,7 @@ form button { margin-top: 1.5rem; }
         <p class="err" id="err">That address does not look complete.</p>
       </div>
       <button type="submit" class="btn-mustard">Send me the pack <span>&rarr;</span></button>
-      <p class="note">This signs you up to Sales-Led (Growth), my newsletter. The pack arrives in the welcome email, and new versions land there first. Unsubscribe anytime.</p>
+      <p class="note">This signs you up to Sales-Led, my newsletter. The pack arrives in the welcome email, and new versions land there first. Unsubscribe anytime.</p>
     </form>
     </div>
 
@@ -506,7 +507,11 @@ form.addEventListener("submit", function (event) {
     }).catch(function (ignored) {});
   } catch (ignored) {}
 
-  finish.href = "https://salesled.substack.com/subscribe?email=" + encodeURIComponent(email);
+  // The utm tag rides into Substack, so subscribers who came through this
+  // form show up labeled in its dashboard. Same pattern as the hub form.
+  finish.href = "https://salesled.substack.com/subscribe?email=" + encodeURIComponent(email) +
+    "&utm_source=xray.joannatu.com&utm_medium=pack-form";
+  if (window.xt) window.xt("subscribe_handoff");
   ask.style.display = "none";
   thanks.classList.add("live");
   thanks.scrollIntoView({ behavior: "smooth", block: "nearest" });

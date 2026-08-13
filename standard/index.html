@@ -4,10 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Account X-ray</title>
+<script src="/ga.js" defer></script>
 <style>body{margin:2em auto;max-width:50em;padding:0 1em}pre{white-space:pre-wrap;word-wrap:break-word;font-family:Georgia,serif;font-size:1em;line-height:1.5}.bar{font-family:Georgia,serif;font-size:0.9em;color:#555;margin-bottom:1em}.bar button{font:inherit;padding:0.35em 0.8em;cursor:pointer}</style>
 </head>
 <body>
-<div class="bar"><button id="c">Copy this whole page</button><span id="d"> if your AI cannot open the link - paste it, same message.</span></div>
+<div class="bar"><button id="c" data-track="copy_page">Copy this whole page</button><span id="d"> if your AI cannot open the link - paste it, same message.</span></div>
 <script>
 document.getElementById('c').onclick=function(){
 var t=document.querySelector('pre').textContent;
