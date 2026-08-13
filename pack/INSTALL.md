@@ -22,7 +22,7 @@ Five minutes in a Claude Project:
 
 1. Paste `files/engine.md` into the project instructions, fill in your company.
 2. Add `files/01` to `files/10` as project knowledge.
-3. Type: `[account], meeting [person]`.
+3. Before each meeting, type: `Prep me for a first call: I'm meeting [person] at [account]`.
 
 Custom GPT or Gemini Gem instead? The pack's guide covers both.
 
