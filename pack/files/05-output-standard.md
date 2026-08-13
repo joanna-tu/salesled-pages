@@ -93,7 +93,7 @@ Illustrative only. Every fact below is invented to show format and depth.
 
 **Timing:** ACT NOW. Strongest possible signal: a new CDO six weeks in, with hiring stacked behind her. Next catalyst: H1 report, late August. Budget year: calendar; H2 spending gets set right after that report.
 
-**Next:** a working session with Solheim and the owner of Project Summit before the H1 report; fallback: she names the Summit owner for a technical intro.
+**Next:** a working session with Solheim and the owner of Project Summit, the in-house checkout rebuild, before the H1 report; fallback: she names the Summit owner for a technical intro.
 
 ---
 

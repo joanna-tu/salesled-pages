@@ -503,7 +503,7 @@ form.addEventListener("submit", function (event) {
       mode: "no-cors",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: "email=" + encodeURIComponent(email),
-    });
+    }).catch(function (ignored) {});
   } catch (ignored) {}
 
   finish.href = "https://salesled.substack.com/subscribe?email=" + encodeURIComponent(email);
@@ -627,9 +627,11 @@ form.addEventListener("submit", function (event) {
   window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(build, 200); });
   if (reduce.addEventListener) reduce.addEventListener("change", build);
 
-  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(build); }
+  // First animated build waits for the web fonts when the API exists, so the
+  // page counter never shows a fallback-font measurement it will correct a
+  // beat later. The load listener stays as the catch-all.
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(build); } else { build(); }
   window.addEventListener("load", build);
-  build();
   hydrate();
 })();
 </script>

@@ -40,4 +40,4 @@ It can't read anything behind a login or a paywall.
 
 Tell me: xray@joannatu.com. Every reply shapes the next version. Updates land on salesled.substack.com first.
 
-Account X-ray, version 7.7, 11 August 2026. CC BY 4.0. Made by Joanna Turczynska.
+Account X-ray, version 7.8, 13 August 2026. CC BY 4.0. Made by Joanna Turczynska.

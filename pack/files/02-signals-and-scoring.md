@@ -62,7 +62,7 @@ The event types above are the short list. This is the complete hunting list, in 
 
 Honesty note: this catalog is the what and the why. The exact search queries, alert recipes, tuned weights and recency windows of the maintained system stay with the maintained system, and a page cannot watch these signals for you week over week. The formula above scores any hit you find on your own.
 
-One reporting rule: on the "Files read" line (rule 5 of the header), write file 02 as "02 + full catalog", so every profile shows it ran on the complete catalog.
+One reporting rule: every profile opens with a "Files read:" line naming the files you could read. On that line, write file 02 as "02 + full catalog", so every profile shows it ran on the complete catalog.
 
 **A. Leadership and people - the strongest family**
 

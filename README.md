@@ -4,7 +4,7 @@ The open-source research method behind [xray.joannatu.com](https://xray.joannatu
 
 How to run it: open Claude, ChatGPT, Gemini, or whichever AI you use, and send one message:
 
-> I work at [your company] and I'm meeting [person] at [account]. xray.joannatu.com/full
+> Prep me for a first call: I work at [your company], I'm meeting [person] at [account]. xray.joannatu.com/full
 
 ## What is in this repo
 

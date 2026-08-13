@@ -89,7 +89,7 @@ section.tailband { border-bottom: 2px solid var(--ink); }
 <section class="way bg-cream"><div class="wrap"><span class="label-caps badge">Way one</span><h2 class="display-italic">Send one message</h2><p>Paste this into ChatGPT, Claude, whatever you use:</p>
 <p class="codeline"><code>Prep me for a first call: I work at [your company], I'm meeting [person] at [account]. xray.joannatu.com/full</code></p><div class="act"><button class="btn-mustard copyline" type="button" data-ok="Copied. Fill in the brackets and send it." data-fail="Could not copy here. Select the message above and copy it yourself.">Copy the message</button><span class="status"></span></div><p class="foot">If your AI can't open the link (Gemini, some days), use way two.</p></div></section>
 <section class="way bg-cream"><div class="wrap"><span class="label-caps badge">Way two</span><h2 class="display-italic">Paste the kit</h2><p>Two pastes: the whole kit into a chat with web search on, then this line:</p>
-<p class="codeline"><code>Prep me for a first call: I work at [your company], I'm meeting [person] at [account].</code></p><div class="act"><button class="btn-mustard copykit" type="button" data-ok="Copied, all of it. Paste it into the chat." data-fail="Could not copy here. Open xray.joannatu.com/full and use its copy button.">1. Copy the kit</button><button class="btn-mustard copyline" type="button" data-ok="Copied. Fill in the brackets and send it." data-fail="Could not copy here. Select the line above and copy it yourself.">2. Copy the line</button><span class="status"></span></div></div></section>
+<p class="codeline"><code>Prep me for a first call: I work at [your company], I'm meeting [person] at [account].</code></p><div class="act"><button class="btn-mustard copykit" type="button" data-ok="Copied, all of it. Paste it into the chat." data-fail="Could not copy here. Open <a href='/full'>xray.joannatu.com/full</a> and use its copy button.">1. Copy the kit</button><button class="btn-mustard copyline" type="button" data-ok="Copied. Fill in the brackets and send it." data-fail="Could not copy here. Select the line above and copy it yourself.">2. Copy the line</button><span class="status"></span></div></div></section>
 <section class="way bg-mint"><div class="wrap"><span class="label-caps badge">Way three</span><h2 class="display-italic">Install it once</h2><p>Five minutes in a Claude Project:</p>
 <ol>
 <li>Paste <code>files/engine.md</code> into the project instructions, fill in your company.</li>
@@ -99,7 +99,7 @@ section.tailband { border-bottom: 2px solid var(--ink); }
 <section class="tailband band-forest"><div class="wrap"><h2 class="display-italic">Before you walk in</h2><p>Every AI makes things up sometimes. The better your AI, the fewer you'll find. Cross-check every line you'll say out loud.</p>
 <p>It can't read anything behind a login or a paywall.</p></div></section>
 <section class="tailband band-cream"><div class="wrap"><h2 class="display-italic">Found something wrong?</h2><p>Tell me: <a href="mailto:xray@joannatu.com">xray@joannatu.com</a>. Every reply shapes the next version. Updates land on <a href="https://salesled.substack.com" target="_blank" rel="noopener">salesled.substack.com</a> first.</p></div></section>
-<footer class="site-foot"><div class="wrap"><span class="display-italic brand">Account X-ray</span><span class="small">v7.7 &middot; <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> &middot; Joanna Turczynska</span></div></footer>
+<footer class="site-foot"><div class="wrap"><span class="display-italic brand">Account X-ray</span><span class="small">v7.8 &middot; <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> &middot; Joanna Turczynska</span></div></footer>
 <script>
 function putOnClipboard(text, onDone) {
   // The button must speak in every outcome: modern API first, the legacy
@@ -125,7 +125,9 @@ function report(btn) {
   var status = btn.closest("section").querySelector(".status");
   return function (ok) {
     status.style.display = "inline";
-    status.textContent = ok ? btn.getAttribute("data-ok") : btn.getAttribute("data-fail");
+    // data-ok / data-fail are authored in this build script, so they may
+    // carry a link (the way-two fallback points at /full as a tappable path).
+    status.innerHTML = ok ? btn.getAttribute("data-ok") : btn.getAttribute("data-fail");
   };
 }
 document.querySelectorAll(".copyline").forEach(function (btn) {
