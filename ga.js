@@ -3,7 +3,7 @@
 // question never comes back. An empty ID keeps the whole file switched off,
 // so this script can ship ahead of the property that feeds it.
 (function () {
-  var GA_ID = ""; // paste the G-XXXXXXXXXX Measurement ID here to switch analytics on
+  var GA_ID = "G-8ERSQVY36B"; // the xray.joannatu.com stream; empty string switches analytics off
   var KEY = "xray-consent"; // localStorage: "yes" | "no"
 
   // Pages call window.xt("event_name") or put data-track="event_name" on any
