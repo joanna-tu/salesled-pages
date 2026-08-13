@@ -1,6 +1,6 @@
 # Account X-ray - the guide
 
-Three ways in, easiest first. They all end the same way: a profile you can check.
+The easiest way is to send one message to the AI you already use. If your AI can't open links that day, paste the kit instead. If you'll use it every week, five minutes installs it for good. That's the whole setup.
 
 ## Way one: send one message
 
