@@ -1,6 +1,6 @@
 # Account X-ray
 
-*A research engine for account executives. You paste one link into your AI, it asks who you are meeting, and it builds the full pre-meeting profile. Made by Joanna Turczynska. Free and open source under CC BY 4.0. The method evolves; new versions land first at salesled.substack.com. This is version 7.8, 13 August 2026.*
+*A research engine for account executives. You paste one link into your AI, it asks who you are meeting, and it builds the full pre-meeting profile. Made by Joanna Turczynska. Free and open source under CC BY 4.0. The method evolves; new versions land first at salesled.substack.com. This is version 7.9, 13 August 2026.*
 
 ## If you are an AI reading this page
 
@@ -1200,4 +1200,4 @@ Found something the X-ray got wrong, or a check it should have? Send it to xray@
 
 This method is open source in the plainest sense: read it, run it, adapt it, build on it, use it at work, commercially too. The formal license is Creative Commons Attribution 4.0 (creativecommons.org/licenses/by/4.0/). The one condition is the name: keep the attribution line on anything built from this page.
 
-Account X-ray, version 7.8, 13 August 2026. Made by Joanna Turczynska. xray.joannatu.com
+Account X-ray, version 7.9, 13 August 2026. Made by Joanna Turczynska. xray.joannatu.com
