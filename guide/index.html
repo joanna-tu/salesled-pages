@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Account X-ray - the guide</title>
-<meta name="description" content="Three ways to run the Account X-ray, easiest first: copy and paste, one message, or a five-minute permanent setup.">
+<meta name="description" content="Three ways to run the Account X-ray, easiest first: one message with a link, the whole kit pasted, or a five-minute install.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232f5d4a'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-style='italic' font-size='42' fill='%23eac054' text-anchor='middle'%3EX%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,8 +37,10 @@ a { color: inherit; }
 .hero h1 { margin: 0.75rem 0 0; font-weight: 400; font-size: clamp(2rem, 5vw, 2.6rem); line-height: 1.1; color: var(--forest-deep); }
 .hero p.sub { margin: 1rem 0 0; line-height: 1.65; color: var(--muted-foreground); }
 .btn-mustard { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--mustard); color: var(--ink); border: 2px solid var(--ink); border-radius: var(--radius); padding: 0.7rem 1.2rem; font-family: inherit; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.78rem; text-decoration: none; cursor: pointer; box-shadow: var(--shadow-block-sm); }
-.row { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
-.row a.plain { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--forest); text-decoration: underline; text-underline-offset: 3px; }
+.row { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 1.1rem; align-items: center; }
+.row .plain { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--forest); text-decoration: underline; text-underline-offset: 3px; background: none; border: 0; padding: 0; cursor: pointer; }
+.hero-line { border: 1.5px solid var(--ink); border-radius: var(--radius); background: var(--card); padding: 0.8rem 1rem; margin: 1.25rem 0 0; }
+.hero-line code { font-family: var(--font-mono); font-size: 0.82rem; line-height: 1.6; color: var(--ink); }
 #copied { margin-top: 0.9rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--forest); display: none; }
 article { max-width: 44rem; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
 article p.lead { font-size: 0.95rem; line-height: 1.7; color: var(--muted-foreground); }
@@ -68,46 +70,59 @@ article p.lead { font-size: 0.95rem; line-height: 1.7; color: var(--muted-foregr
 <body>
 <header class="site-head"><div class="wrap"><a class="brand display-italic" href="/">Account X-ray</a><span class="label-caps" style="color:color-mix(in oklab, var(--cream) 70%, transparent)">The guide</span></div></header>
 <section class="hero"><div class="wrap">
-<p class="label-caps" style="color:var(--forest)">Three ways in, easiest first</p>
-<h1 class="display-italic">Copy. Paste. Walk in prepared.</h1>
-<p class="sub">The fastest way needs no setup: copy the kit, paste it into your AI, add one line about the meeting.</p>
+<h1 class="display-italic">Send your AI this.</h1>
+<p class="hero-line" id="heroline"><code>Prep me for a first call: I work at [your company], I'm meeting [person] at [account]. xray.joannatu.com/full</code></p>
 <div class="row">
-<button class="btn-mustard" id="copykit" type="button">Copy the whole kit</button>
+<button class="btn-mustard" id="copymsg" type="button">Copy the message</button>
+<button class="plain" id="copykit" type="button">Copy the whole kit</button>
 <a class="plain" href="/pack/account-xray-pack.zip">Download the pack</a>
 </div>
 <p id="copied"></p>
 </div></section>
 <article>
-<p class="lead">The whole kit, yours to keep. Same text as the page at xray.joannatu.com/full, nothing more, nothing less. Three ways to run it, easiest first.</p>
-<div class="card"><span class="label-caps badge">Way one</span><h3 class="display-italic">Copy, paste, run</h3><p>Open <code>account-xray-v7.7-page.md</code> from this pack, copy everything, and paste it into any AI chat with web search on. Then add one line:</p>
-<p class="codeline"><code>MY COMPANY: [your company]. TARGET: [the account]. PERSON: [who you are meeting].</code></p>
-<p>That is it. Pasted text always works; it does not depend on the AI being able to open links. On a phone, attach the file instead of pasting, same message.</p></div>
-<div class="card"><span class="label-caps badge">Way two</span><h3 class="display-italic">Even less typing, one message</h3><p>Open Claude, ChatGPT, or whichever AI you use, and send:</p>
+<p class="lead">Three ways in, easiest first. Whichever you pick: one line about the meeting in, a profile with sources back.</p>
+<div class="card"><span class="label-caps badge">Way one</span><h3 class="display-italic">One message</h3><p>Open Claude, ChatGPT, or whichever AI you use, and send:</p>
 <p class="codeline"><code>Prep me for a first call: I work at [your company], I'm meeting [person] at [account]. xray.joannatu.com/full</code></p>
-<p>This always runs the newest version and there is nothing to open or copy. One catch: some AIs cannot fetch links on some days (Gemini most often, ChatGPT occasionally). When that happens, way one always works.</p></div>
-<div class="card"><span class="label-caps badge">Advanced</span><h3 class="display-italic">Install it once (about five minutes)</h3><p>For weekly use, put the kit where it stays loaded. The clean path is a Claude Project:</p>
+<p>The AI reads the kit from the link and runs it, newest version, nothing to install. One catch: some AIs can't open links on some days, Gemini most often. When that happens, way two.</p></div>
+<div class="card"><span class="label-caps badge">Way two</span><h3 class="display-italic">Copy, paste, run</h3><p>Open xray.joannatu.com/full and tap "Copy this whole page", or copy <code>account-xray-v7.7-page.md</code> from the pack. Paste it into the chat with web search on, then add one line:</p>
+<p class="codeline"><code>MY COMPANY: [your company]. TARGET: [the account]. PERSON: [who you are meeting].</code></p>
+<p>Pasted text works every time, on any AI. On a phone, attach the file instead, same message.</p></div>
+<div class="card"><span class="label-caps badge">Advanced</span><h3 class="display-italic">Install it once</h3><p>Five minutes, and from then on prep is one line. The clean path is a Claude Project:</p>
 <ol>
-<li>Create the project.</li>
-<li>Paste the contents of <code>files/engine.md</code> into the project instructions, and fill in MY COMPANY with your company's name.</li>
+<li>Create a project.</li>
+<li>Paste <code>files/engine.md</code> into the project instructions and fill in MY COMPANY.</li>
 <li>Add <code>files/01</code> to <code>files/10</code> as project knowledge.</li>
-<li>Done. Before each meeting, type one line: <code>Nordvik Outdoor, meeting Ingrid Solheim</code>.</li>
+<li>Before each meeting, type one line: <code>Nordvik Outdoor, meeting Ingrid Solheim</code>.</li>
 </ol>
-<p>A custom GPT or a Gemini Gem works too, each with one wrinkle. A GPT's instructions box caps at 8,000 characters and the engine is nearly twice that, so add <code>engine.md</code> as the first knowledge file instead and put one line in the instructions: "Open engine.md first and follow it exactly; it is the method." A Gem takes at most ten knowledge files and engine plus files 01 to 10 is eleven, so leave out <code>08-the-internal-case.md</code> and paste it in on the day you need it.</p>
-<p>One note: file 02 in this pack already carries the complete 39-signal catalog, so an installed X-ray reads every signal the page reads. The profile's "Files read" line will say "02 + full catalog"; that is how you know it worked.</p></div>
+<p>A custom GPT: the instructions box caps at 8,000 characters and the engine is nearly twice that, so add <code>engine.md</code> as the first knowledge file, with one instruction line: "Open engine.md first and follow it exactly." A Gemini Gem: ten knowledge files max, so leave out <code>08-the-internal-case.md</code> and paste it in on the day you need it.</p>
+<p>The profile's "Files read" line tells you the install worked: it should say "02 + full catalog".</p></div>
 <div class="tail">
-<h4 class="tail-h">Before you use any of it in a room</h4><p>The output depends on the AI you run it in: some search harder than others. Every line carries a source and a date; check them before the meeting, not after. A profile is preparation, not gospel.</p>
-<h4 class="tail-h">What else is in the pack</h4><ul>
-<li><code>account-xray-v7.7-page.md</code> - the whole kit as one page, for reading or for way two.</li>
-<li><code>LICENSE.md</code> - CC BY 4.0. Use it, adapt it, build on it, commercially too; keep the attribution line.</li>
-</ul>
-<h4 class="tail-h">Know the blind spots</h4><p>Some things stay out of reach on every run: LinkedIn behind its login, your CRM, colleagues' memory of the account, podcast audio, paywalled press. That is exactly where your own minutes are worth the most, and every profile's GO DEEPER section says who can close each gap.</p>
-<h4 class="tail-h">Updates</h4><p>The kit evolves: signals get added, checks get sharpened, and every change ships to the readers' list first. That list lives at salesled.substack.com.</p>
-<p>Found something it got wrong, or a check it should have? Send it to xray@joannatu.com, with the profile itself if you have one. Every reply shapes the next version.</p>
-<p>Account X-ray, version 7.7, 11 August 2026. Made by Joanna Turczynska.</p>
+<h4 class="tail-h">Before you take it into a room</h4><p>How deep the research goes depends on the AI you run it in. Every line carries a source and a date; check the ones you plan to say out loud. Some things stay out of reach on every run: LinkedIn behind its login, your CRM, colleagues' memory, podcast audio, paywalled press. The profile's GO DEEPER section says who can close each gap.</p>
+<h4 class="tail-h">Updates</h4><p>Every change ships to the readers' list first: salesled.substack.com. Found something the X-ray got wrong? Send it to xray@joannatu.com, with the profile if you have one. Every reply shapes the next version.</p>
+<p>Account X-ray, version 7.7, 11 August 2026. CC BY 4.0. Made by Joanna Turczynska.</p>
 </div>
 </article>
 <footer class="site-foot"><div class="wrap">Open source under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> &middot; Joanna Turczynska &middot; <a href="https://salesled.substack.com" target="_blank" rel="noopener">salesled.substack.com</a></div></footer>
 <script>
+document.getElementById("copymsg").addEventListener("click", function () {
+  var status = document.getElementById("copied");
+  var text = document.getElementById("heroline").textContent.trim();
+  function done() {
+    status.style.display = "block";
+    status.textContent = "Copied. Fill in the brackets and send it.";
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done);
+  } else {
+    var a = document.createElement("textarea");
+    a.value = text;
+    document.body.appendChild(a);
+    a.select();
+    document.execCommand("copy");
+    document.body.removeChild(a);
+    done();
+  }
+});
 document.getElementById("copykit").addEventListener("click", function () {
   var status = document.getElementById("copied");
   fetch("/full.md").then(function (r) { return r.text(); }).then(function (t) {

@@ -10,7 +10,11 @@ How to run it: open Claude, ChatGPT, Gemini, or whichever AI you use, and send o
 
 - `full.md` and `standard.md` - the complete method as one page: the engine, ten method files, the full 39-signal catalog, and sixteen reality checks that tell a real research finding from a confident fake. Both files carry the same full text; the old two-edition split is gone, and both URLs keep working.
 - `full/index.html` and `standard/index.html` - the same text served as minimal HTML, the one format all major AI fetchers proved they can read to the last sentence.
-- `index.html` - the human landing page.
+- `index.html` - the landing page: what the X-ray is, the example run as a trailer, and the pack by email.
+- `example/index.html` - the complete fictional example report; the landing page's trailer reads from it.
+- `guide/index.html` - three ways to run the kit, generated from the pack's INSTALL.md at build time.
+- `pack/` - the pack: the kit as installable files, the install guide, the PDF, the zip.
+- `start/` - the landing page's old address, now a redirect to the root.
 
 ## What is deliberately not here
 

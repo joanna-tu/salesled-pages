@@ -1,53 +1,42 @@
-# Account X-ray - the pack
+# Account X-ray - the guide
 
-The whole kit, yours to keep. Same text as the page at xray.joannatu.com/full, nothing more, nothing less. Three ways to run it, easiest first.
+Three ways in, easiest first. Whichever you pick: one line about the meeting in, a profile with sources back.
 
-## Way one: copy, paste, run
-
-Open `account-xray-v7.7-page.md` from this pack, copy everything, and paste it into any AI chat with web search on. Then add one line:
-
-`MY COMPANY: [your company]. TARGET: [the account]. PERSON: [who you are meeting].`
-
-That is it. Pasted text always works; it does not depend on the AI being able to open links. On a phone, attach the file instead of pasting, same message.
-
-## Way two: even less typing, one message
+## Way one: one message
 
 Open Claude, ChatGPT, or whichever AI you use, and send:
 
 `Prep me for a first call: I work at [your company], I'm meeting [person] at [account]. xray.joannatu.com/full`
 
-This always runs the newest version and there is nothing to open or copy. One catch: some AIs cannot fetch links on some days (Gemini most often, ChatGPT occasionally). When that happens, way one always works.
+The AI reads the kit from the link and runs it, newest version, nothing to install. One catch: some AIs can't open links on some days, Gemini most often. When that happens, way two.
 
-## More advanced: install it once (about five minutes)
+## Way two: copy, paste, run
 
-For weekly use, put the kit where it stays loaded. The clean path is a Claude Project:
+Open xray.joannatu.com/full and tap "Copy this whole page", or copy `account-xray-v7.7-page.md` from the pack. Paste it into the chat with web search on, then add one line:
 
-1. Create the project.
-2. Paste the contents of `files/engine.md` into the project instructions, and fill in MY COMPANY with your company's name.
+`MY COMPANY: [your company]. TARGET: [the account]. PERSON: [who you are meeting].`
+
+Pasted text works every time, on any AI. On a phone, attach the file instead, same message.
+
+## More advanced: install it once
+
+Five minutes, and from then on prep is one line. The clean path is a Claude Project:
+
+1. Create a project.
+2. Paste `files/engine.md` into the project instructions and fill in MY COMPANY.
 3. Add `files/01` to `files/10` as project knowledge.
-4. Done. Before each meeting, type one line: `Nordvik Outdoor, meeting Ingrid Solheim`.
+4. Before each meeting, type one line: `Nordvik Outdoor, meeting Ingrid Solheim`.
 
-A custom GPT or a Gemini Gem works too, each with one wrinkle. A GPT's instructions box caps at 8,000 characters and the engine is nearly twice that, so add `engine.md` as the first knowledge file instead and put one line in the instructions: "Open engine.md first and follow it exactly; it is the method." A Gem takes at most ten knowledge files and engine plus files 01 to 10 is eleven, so leave out `08-the-internal-case.md` and paste it in on the day you need it.
+A custom GPT: the instructions box caps at 8,000 characters and the engine is nearly twice that, so add `engine.md` as the first knowledge file, with one instruction line: "Open engine.md first and follow it exactly." A Gemini Gem: ten knowledge files max, so leave out `08-the-internal-case.md` and paste it in on the day you need it.
 
-One note: file 02 in this pack already carries the complete 39-signal catalog, so an installed X-ray reads every signal the page reads. The profile's "Files read" line will say "02 + full catalog"; that is how you know it worked.
+The profile's "Files read" line tells you the install worked: it should say "02 + full catalog".
 
-## Before you use any of it in a room
+## Before you take it into a room
 
-The output depends on the AI you run it in: some search harder than others. Every line carries a source and a date; check them before the meeting, not after. A profile is preparation, not gospel.
-
-## What else is in the pack
-
-- `account-xray-v7.7-page.md` - the whole kit as one page, for reading or for way two.
-- `LICENSE.md` - CC BY 4.0. Use it, adapt it, build on it, commercially too; keep the attribution line.
-
-## Know the blind spots
-
-Some things stay out of reach on every run: LinkedIn behind its login, your CRM, colleagues' memory of the account, podcast audio, paywalled press. That is exactly where your own minutes are worth the most, and every profile's GO DEEPER section says who can close each gap.
+How deep the research goes depends on the AI you run it in. Every line carries a source and a date; check the ones you plan to say out loud. Some things stay out of reach on every run: LinkedIn behind its login, your CRM, colleagues' memory, podcast audio, paywalled press. The profile's GO DEEPER section says who can close each gap.
 
 ## Updates
 
-The kit evolves: signals get added, checks get sharpened, and every change ships to the readers' list first. That list lives at salesled.substack.com.
+Every change ships to the readers' list first: salesled.substack.com. Found something the X-ray got wrong? Send it to xray@joannatu.com, with the profile if you have one. Every reply shapes the next version.
 
-Found something it got wrong, or a check it should have? Send it to xray@joannatu.com, with the profile itself if you have one. Every reply shapes the next version.
-
-Account X-ray, version 7.7, 11 August 2026. Made by Joanna Turczynska.
+Account X-ray, version 7.7, 11 August 2026. CC BY 4.0. Made by Joanna Turczynska.
