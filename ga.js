@@ -1,14 +1,14 @@
-// Consent-first Google Analytics for xray.joannatu.com. Nothing loads and no
-// cookie is set until the visitor says yes; a no is remembered and the
-// question never comes back. An empty ID keeps the whole file switched off,
-// so this script can ship ahead of the property that feeds it.
+// Google Analytics for xray.joannatu.com, default on. The tag loads for every
+// visitor the way Google's own snippet does; the notice says so and the opt-out
+// really works (Google's ga-disable flag, checked before anything loads).
+// An empty ID switches the whole file off.
 (function () {
   var GA_ID = "G-8ERSQVY36B"; // the xray.joannatu.com stream; empty string switches analytics off
-  var KEY = "xray-consent"; // localStorage: "yes" | "no"
+  var KEY = "xray-consent"; // localStorage: "no" = opted out, anything else = notice already seen
 
   // Pages call window.xt("event_name") or put data-track="event_name" on any
-  // element. Both stay silent no-ops unless GA is consented and loaded, so no
-  // page ever breaks when analytics is off, declined, or blocked.
+  // element. Both stay silent no-ops when analytics is off, opted out, or
+  // blocked, so no page ever breaks.
   window.xt = function (name, params) {
     if (window.gtag) window.gtag("event", name, params || {});
   };
@@ -18,8 +18,6 @@
   });
 
   if (!GA_ID) return;
-  // A browser-level privacy signal is an answer already; do not ask again.
-  if (navigator.globalPrivacyControl) return;
 
   function stored() {
     try { return localStorage.getItem(KEY); } catch (e) { return null; }
@@ -27,15 +25,19 @@
   function store(v) {
     try { localStorage.setItem(KEY, v); } catch (e) {}
   }
+  function stopCounting() {
+    // Google reads this flag on every hit, so it stops the ones already
+    // queued on this page as well as every later visit.
+    window["ga-disable-" + GA_ID] = true;
+  }
 
   function loadGA() {
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { dataLayer.push(arguments); };
     gtag("js", new Date());
-    // Measurement only: no Google signals, no ads personalization. GA4
-    // drops the last IP octet on its own; the flag states the intent.
+    // Measurement only. Google signals would tie visits to Google accounts,
+    // which is a different thing than counting them.
     gtag("config", GA_ID, {
-      anonymize_ip: true,
       allow_google_signals: false,
       allow_ad_personalization_signals: false
     });
@@ -45,10 +47,10 @@
     document.head.appendChild(s);
   }
 
-  function ask() {
+  function notice() {
     var bar = document.createElement("div");
-    bar.setAttribute("role", "dialog");
-    bar.setAttribute("aria-label", "Analytics choice");
+    bar.setAttribute("role", "region");
+    bar.setAttribute("aria-label", "Analytics notice");
     // Token variables resolve on the styled pages; the hex fallbacks carry
     // the plain kit pages, which define no tokens.
     bar.style.cssText =
@@ -62,43 +64,50 @@
 
     var text = document.createElement("span");
     text.textContent =
-      "I count visits with Google Analytics, to see which pages help and which don't. No ads, no names.";
+      "I count visits with Google Analytics, to see which pages help and which don't.";
 
-    var yes = document.createElement("button");
-    yes.type = "button";
-    yes.textContent = "OK, count me";
-    yes.style.cssText =
+    var ok = document.createElement("button");
+    ok.type = "button";
+    ok.textContent = "OK";
+    ok.style.cssText =
       "background:var(--mustard,#eac054);color:var(--ink,#21201b);" +
       "border:2px solid var(--ink,#21201b);border-radius:6px;" +
-      "padding:7px 14px;font:inherit;font-weight:600;cursor:pointer";
+      "padding:7px 16px;font:inherit;font-weight:600;cursor:pointer";
 
-    var no = document.createElement("button");
-    no.type = "button";
-    no.textContent = "No thanks";
-    no.style.cssText =
+    var out = document.createElement("button");
+    out.type = "button";
+    out.textContent = "Don't count me";
+    out.style.cssText =
       "background:none;border:none;color:inherit;font:inherit;" +
       "text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:7px 4px";
 
-    yes.onclick = function () {
-      store("yes");
+    ok.onclick = function () {
+      store("seen");
       bar.remove();
-      loadGA();
     };
-    no.onclick = function () {
+    out.onclick = function () {
       store("no");
+      stopCounting();
       bar.remove();
     };
 
     bar.appendChild(text);
-    bar.appendChild(yes);
-    bar.appendChild(no);
+    bar.appendChild(ok);
+    bar.appendChild(out);
     document.body.appendChild(bar);
   }
 
   function boot() {
     var choice = stored();
-    if (choice === "yes") loadGA();
-    else if (choice !== "no") ask();
+    // Two ways to be left alone: the opt-out button, and the browser-level
+    // privacy signal, which is an answer already.
+    if (choice === "no" || navigator.globalPrivacyControl) {
+      stopCounting();
+      return;
+    }
+    loadGA();
+    if (choice) return; // the notice has been shown before
+    notice();
   }
 
   if (document.body) boot();
